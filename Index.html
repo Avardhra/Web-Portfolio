@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="icon/Boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="style-robot.css">
+    <title>AvdGupta</title>
+</head>
+<body>
+    <!-- LOADING SCREEN -->
+    <div class="avd-loadScreen" style="display: none;">
+        <div class="avd-boxContainerOne"></div>
+        <div class="avd-boxContainerTwo"></div>
+    </div>
+    <!--  -->
+    <!-- BOT -->
+     <div class="avd-circleBot">
+        <a href="#"><i class="bx bx-message-minus"></i></a>
+     </div>
+     <!--  -->
+    <!-- POP UP VIDEO PENJELASAN -->
+    <div class="avd-popup" id="closePopUp" style="display: none;">
+        <div class="avd-boxPopup" id="boxPopup">
+            <div class="avd-popupHdr">
+                <p>Penjelasan website</p>
+                <ul>
+                    <button id="fullscreenBTN" class="a_fullscreen" title="Fullscreen"><i
+                            class="bx bx-fullscreen"></i></button>
+                    <button id="closePopUpBTN" title="Exit"><i class="bx bx-x"></i></button>
+                </ul>
+            </div>
+            <iframe src="" title="Penjelasan mengenai website ini" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-pitcure"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+    <!--  -->
+    <!-- Navbar => [ ] -->
+    <nav>
+        <ul>
+            <li>
+                <i class="bxrd bxs-building-house"></i>
+                <span>Home</span>
+            </li>
+            <li>
+                <i class="bxrd bxs-building-house"></i>
+                <span>About Me</span>
+            </li>
+            <li>
+                <i class="bxrd bxs-building-house"></i>
+                <span>Contact</span>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- Navbar END -->
+    <header>
+        <div id="avd-icon" class="fade">
+            <img src='img/GUpta-icon.png' title='Gupta Icon'>
+        </div>
+        <div class="avd-boxOfMenu">
+            <ul class="avd-menu">
+                <li><a href="#avdHome" id="avdHomeBTN" title="Halaman Beranda">Home</a></li>
+                <li><a id="avdAboutBTN" title="Selengkapnya" style="display: flex; align-items: center;">
+                        More<i class="bx bx-caret-down" style="padding-left: 4px;"></i></a>
+                        <div class="subAbout" id="subAbout">
+                            <a href="#" class="subLink" title="Tentang Saya">About Me</a>
+                            <a href="#avdAbout" class="subLink" title="Pengalaman">Experience</a>
+                            <a class="subLink" title="Pendidikan">Academic</a>
+                            <a class="subLink" title="Klik Untuk Memunculkan PopUp">Video Demonstrasi</a>
+                        </div>
+                    
+                </li>
+                <li><a href="#avdContact" id="avdContactBTN" title="Kontak">Contact</a></li>
+            </ul>
+            <div class="avd-boxOfSearch">
+                <input type="text" id="avdSearchContent" placeholder="Cari disini" autocomplete="off" spellcheck="false"
+                    required title="Cari sesuatu disini">
+                <i class="bx bx-search"></i>
+                <div class="avd-loginBtn">
+                    <a href="#">Login</a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="avd avd-mainHome" id="avdHome">
+        <div class="avd-home">
+            <div class="avd-welcomeBro">
+                <h1 id="avd_welcomeText"
+                    style="background-color: var(--avd-color-1); color: var(--avd-color-2); padding: 5px 10px; display: flex; align-items: center;">
+                    Hello,
+                </h1>
+                <h1 style="display: flex; align-items: center;">I'm Gede Valendra <i class="bx bxs-badge-check"></i>
+                </h1>
+            </div>
+
+            <p style="white-space: pre-line;">
+               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam modi earum labore delectus ea. Tempore laborum nulla ducimus error quaerat voluptatum recusandae eaque sed non. Neque quisquam adipisci modi et.
+            </p>
+
+            <div class="avd-BtnHome">
+                <a href="#">Get Know More</a>
+                <a href="#">Auto Scroll Off</a>
+
+            </div>
+        </div>
+        <div class="avd-profileUser">
+            <img src='img/avd.png' title="I'm Gede Valendra">
+        </div>
+
+    </main>
+    <main id="avdAbout">
+        <div class="avd-boxOfAbout" id="ExperienceBtn">
+            <ul>
+                <h1 style="display: flex; align-items: center;"><i class="bx bx-caret-right"></i>ACADEMIC</h1>
+                 <li>
+                    <span>2013 - 2019</span>
+                    <h1>SDN 1 SIDOMULYO</h1>
+                    <h2>Sidowaluyo, Sidomulyo, Lampung Selatan, Lampung</h2>
+                    <!-- <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
+                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
+                        voluptatum voluptatibus doloribus dolores nesciunt.
+                    </p> -->
+                    <a href="#">Baca Selengkapnya</a>
+                    <a href="#">#sdnsasi</a>
+                    <a href="#">#sdn1sidowaluyo</a>
+                </li>
+                <li>
+                    <span>2019 - 2021</span>
+                    <h1>SMPN 1 SIDOMULYO</h1>
+                    <h2>Sidomulyo, Lampung Selatan, Lampung</h2>
+                    <!-- <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
+                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
+                        voluptatum voluptatibus doloribus dolores nesciunt.
+                    </p> -->
+                    <a href="#">Baca Selengkapnya</a>
+                    <a href="#">#smpnsasi</a>
+                    <a href="#">#sman1sidomulyo</a>
+                </li>
+                <li>
+                    <span>2021 - 2024</span>
+                    <h1>SMAN 1 SIDOMULYO</h1>
+                    <h2>MIPA | Sidomulyo, Lampung Selatan, Lampung</h2>
+                    <!-- <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
+                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
+                        voluptatum voluptatibus doloribus dolores nesciunt.
+                    </p> -->
+                    <a href="#">Baca Selengkapnya</a>
+                    <a href="#">#SMANSASI</a>
+                    <a href="#">#sman1sidomulyo</a>
+                </li>
+                <li>
+                    <span>2024 - Now</span>
+                    <h1>INSTITUT TEKNOLOGI SUMATERA</h1>
+                    <h2>Sidowaluyo, Sidomulyo, Lampung Selatan, Lampung</h2>
+                    <!-- <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
+                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
+                        voluptatum voluptatibus doloribus dolores nesciunt.
+                    </p> -->
+                    <a href="#">Baca Selengkapnya</a>
+                    <a href="#">#ITERA</a>
+                    <a href="#">#InstitutTeknologiSumatera</a>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <main id="avdContact">
+        <div class="avd-boxOfContact">
+            <h1>Hubungi Kami Melalui,</h1>
+            <ul>
+                <li>
+                    <a href="#" title="Instagram">
+                        <i class="bx bxl-instagram-alt"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" title="GitHub">
+                        <i class="bx bxl-github"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" title="LinkedIn">
+                        <i class="bx bxl-linkedin-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" title="Gmail">
+                        <i class="bx bxl-gmail"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+</body>
+<script>
+    const avdAutoScroll = document.getElementById('avdHome');
+    let scrollInterval = setInterval(() => {
+        avdAutoScroll.scrollTop += 1;
+    }, 50);
+
+    const btnHome = document.getElementById('avdHomeBTN');
+    const btnAbout = document.getElementById('avdAboutBTN');
+    const btnContact = document.getElementById('avdContactBTN');
+    const subAbout = document.getElementById('subAbout');
+    const menuBtn = [btnHome, btnContact];
+    btnHome.style = "color:red;";
+    menuBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            menuBtn.forEach(b => {
+                b.style.borderBottom = (b === btn)
+                    // ? "2px solid red"
+                    // : "2px solid transparent"
+                b.style.color = (b === btn)
+                    ? "red"
+                    : "white"
+            })
+        })
+    })
+
+    btnAbout.addEventListener('click', (e) => {
+        e.stopPropagation();
+        subAbout.style.display = 'flex';
+    });
+    document.addEventListener('click', (e) => {
+        if (!subAbout.contains(e.target)) {
+            subAbout.style.display = 'none';
+        }
+    });
+    subAbout.addEventListener('click', (e) => {
+        e.stopPropagation();
+    })
+
+    const avd_icon = document.getElementById('avd-icon');
+    const AllText = [
+        "<img src='img/GUpta-icon.png' title='Gupta Icon'>",
+        "<h1 style='color: var(--avd-color-2); font-size:1.9em;'>Gupta</h1>",
+        "<div class='robot-beranda'><div class='avd-robot' style='margin-top:0px; margin-bottom:1vh;'><div class='rbt-mata'><div class='mata-one'><div class='alis-mata-one'></div><div class='bola-mata-one'></div></div><div class='mata-two'><div class='alis-mata-two'></div><div class='bola-mata-two'></div></div></div></div></div>"
+    ];
+    let index = 0;
+    setInterval(() => {
+        fadeOut(() => {
+            index = (index + 1) % AllText.length;
+            avd_icon.innerHTML = AllText[index];
+            fadeIn(() => {
+
+            });
+        });
+
+    }, 10000);
+
+    function fadeOut(callback) {
+        avd_icon.classList.remove('fade-in');
+        avd_icon.classList.add('fade-out');
+        setTimeout(() => {
+            callback();
+        }, 500);
+    }
+    function fadeIn(callback) {
+        avd_icon.classList.remove('fade-out');
+        avd_icon.classList.add('fade-in');
+        setTimeout(() => {
+            callback();
+        }, 500);
+    }
+
+    const closePopUp = document.getElementById('closePopUp');
+    const closePopUpBTN = document.getElementById('closePopUpBTN');
+    const fullscreenBTN = document.getElementById('fullscreenBTN');
+    const boxPopup = document.getElementById('boxPopup');
+
+    fullscreenBTN.addEventListener('click', () => {
+        boxPopup.style = "max-width:100%; height:100%;";
+    })
+
+    closePopUpBTN.addEventListener('click', () => {
+        closePopUp.style = "display: none;";
+    })
+</script>
+
+</html>
