@@ -6,26 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style.css">
     <link rel="stylesheet" href="icon/Boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="icon/Font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="icon/Font-awesome/css/regular.min.css">
     <link rel="stylesheet" href="style-robot.css">
     <title>AvdGupta</title>
 </head>
+
 <body>
     <!-- LOADING SCREEN -->
-    <div class="avd-loadScreen" style="display: none;">
+    <div class="avd-loadScreen" style="display: flex;">
         <div class="avd-boxContainerOne"></div>
-        <div class="avd-boxContainerTwo"></div>
     </div>
     <!--  -->
     <!-- BOT -->
-     <div class="avd-circleBot">
+    <!-- <div class="avd-circleBot">
         <a href="#"><i class="bx bx-message-minus"></i></a>
-     </div>
-     <!--  -->
+    </div> -->
+    <!--  -->
     <!-- POP UP VIDEO PENJELASAN -->
     <div class="avd-popup" id="closePopUp" style="display: none;">
         <div class="avd-boxPopup" id="boxPopup">
             <div class="avd-popupHdr">
-                <p>Penjelasan website</p>
+                <p>Video Demonstrasi</p>
                 <ul>
                     <button id="fullscreenBTN" class="a_fullscreen" title="Fullscreen"><i
                             class="bx bx-fullscreen"></i></button>
@@ -42,21 +44,221 @@
     <nav>
         <ul>
             <li>
-                <i class="bxrd bxs-building-house"></i>
+                <i class="fa-solid fa-house"></i>
                 <span>Home</span>
             </li>
             <li>
-                <i class="bxrd bxs-building-house"></i>
+                <i class="fa-regular fa-address-card"></i>
                 <span>About Me</span>
             </li>
             <li>
-                <i class="bxrd bxs-building-house"></i>
+                <i class="fa-regular fa-address-card"></i>
                 <span>Contact</span>
             </li>
 
         </ul>
     </nav>
     <!-- Navbar END -->
+    <!-- DetailProjectBagExperience UI Vscode -->
+    <div class="avd-detailExperience" id="detailExperience">
+        <div class="avd-frameDetailVscode" title="Hanya UI VsCode">
+            <div class="avd-detailHeader">
+                <ul>
+                    <li id="hdrIconVscode">
+                        <i class="bx bxl-visual-studio"></i>
+                        <i class="bx bx-menu"></i>
+                    </li>
+                    <li id="hdrNextAndSearch">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <input type="text" placeholder="Search My Projects" id="inputSearchFile">
+                        <a href="#"><i class="bx bxl-github"></i></a>
+                        <a href="#"><i class="bx bxl-instagram"></i></a>
+                        <a href="#"><i class="bx bxl-facebook"></i></a>
+                    </li>
+                    <li id="hdrNav">
+                        <i class="bx bx-minus" title="Ga berfungsi"></i>
+                        <i class="bx bx-square" title="Fullscreen"></i>
+                        <i class="bx bx-x" id="detailExperienceExitBTN" title="Exit"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="avd-detailFrame">
+                <div class="avd-detailMain">
+                    <div class="avd-detailSidebar">
+                        <ul>
+                            <li>
+                                <i class="bx bx-copy" id="openFileExplorer" title="Open Explorer"></i>
+                                <i class="bx bx-search" title="Ga Berfungsi" onclick="SearchFile()"></i>
+                                <i class="bx bx-extension" title="Ga Berfungsi"></i>
+                                <i class="bx bx-share" title="Ga Berfungsi"></i>
+                            </li>
+                            <li>
+                                <i class="bx bx-user-circle"></i>
+                                <i class="bx bx-cog"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="avd-detailExplorer" id="detailExplorer">
+                        <ul id="ExplorerHdr">
+                            <li>
+                                <p>EXPLORER</p>
+                                <i class="fa fa-ellipsis"></i>
+                            </li>
+                        </ul>
+                        <ul>
+                            <div class="avd-explorerNav">
+                                <h4><i class="bx bx-chevron-down"></i>Gupta</h4>
+                                <button>
+                                    <i class="fa-regular fa-file"></i>
+                                </button>
+                                <button>
+                                    <i class="fa-regular fa-folder"></i>
+                                </button>
+                                <button>
+                                    <i class="fa fa-rotate-right"></i>
+                                </button>
+                                <button>
+                                    <i class="fa-regular fa-clone"></i>
+                                </button>
+                            </div>
+                            <li id="vscodeWelcomeBTN" class="vscodeAllBTN"
+                                data-target="vscodeWelcome,vscodeWelcomeSFILE">
+                                <i class="bx bxl-html5"></i>
+                                <p>welcome</p>
+                            </li>
+                            <li id="vscodeProfileBTN" class="vscodeAllBTN"
+                                data-target="vscodeProfile,vscodeProfileSFILE">
+                                <i class="bx bxl-html5"></i>
+                                <p>profile.html</p>
+                            </li>
+                            <li id="vscodeDesainBTN" class="vscodeAllBTN" data-target="vscodeDesain,vscodeDesainSFILE">
+                                <i class="bx bxs-image"></i>
+                                <p>desain.png</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="avd-mainFrame">
+                        <div class="avd-mainFrameFile">
+                            <ul>
+                                <li id="vscodeWelcomeSFILE" class="avd-SFILE"
+                                    data-target="vscodeWelcome,vscodeWelcomeBTN,vscodeWelcomeSFILE">
+                                    <a href="#">
+                                        <p>welcome</p>
+                                        <i class="fa fa-x" id="sfileWelcomeExitBTN"></i>
+                                    </a>
+                                </li>
+                                <li id="vscodeProfileSFILE" class="avd-SFILE" style="display: none;"
+                                    data-target="vscodeProfile,vscodeProfileBTN,vscodeProfileSFILE">
+                                    <a href="#">
+                                        <p>profile.html</p>
+                                        <i class="fa fa-x" id="sfileProfileExitBTN"></i>
+                                    </a>
+                                </li>
+                                <li id="vscodeDesainSFILE" class="avd-SFILE" style="display: none;"
+                                    data-target="vscodeDesain,vscodeDesainBTN,vscodeDesainSFILE">
+                                    <a href="#">
+                                        <p>desain.html</p>
+                                        <i class="fa fa-x" id="sfileDesainExitBTN"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="avd-frame avd-mainContentWelcome" id="vscodeWelcome">
+                            <div class="avd-homeCode">
+                                <ul>
+                                    <li>
+                                        <h1>Gede Valendra</h1>
+                                        <h2><i class="bx bx-code"></i>Teknik Informatika - ITERA</h2>
+                                        <h3>Today's journey will be a story in the future.</h3>
+
+                                    </li>
+                                    <li>
+                                        <p>Start</p>
+                                        <button><i class="bx bx-id-card"></i>My Profile...</button>
+                                        <button><i class="bx bx-folder-open"></i>My Project...</button>
+                                        <button><i class="bx bx-code"></i>My Girl...</button>
+                                    </li>
+                                    <li class="homeCode-contact">
+                                        <p>12 : 00</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="avd-loginCode">
+                                <form action="#">
+                                    <h1>Login</h1>
+                                    <ul>
+                                        <input type="text" id="username" name="username" value="Gede Valendra"
+                                            autocorrect="off" spellcheck="false" autocomplete="none">
+                                        <label for="username">Username</label>
+                                    </ul>
+                                    <ul>
+                                        <input type="password" id="password" name="password" required autocorrect="off"
+                                            spellcheck="false" autocomplete="none">
+                                        <label for="password">Password</label>
+                                    </ul>
+                                    <a href="#">Login</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="avd-frame avd-mainContentProfile" id="vscodeProfile">
+                            <div class="avd-profileAbout">
+                                <ul>
+                                    <li>
+                                        <div class="profileName">
+                                            <h1>Gede Valendra</h1>
+                                            <p>124140142</p>
+                                        </div>
+                                        
+                                        <h2><i class="bx bx-code"></i>Teknik Informatika - ITERA</h2>
+                                    </li>
+                                    <li>
+                                        <h4>About Me</h4>
+                                        <p>
+                                            Hallo semua, perkenalkan nama saya Gede Valendra dari Program Studi Teknik Informatika, saya merupakan Mahasiswa aktif di Institut Teknologi Sumatera.
+                                            
+                                            Saya merupakan pribadi yang aktif dan memiliki semangat kerja baik secara individu maupun secara kolaboratif.
+
+                                            memiliki soft skill pada pembuatan website, desain grafis, penggunaan Ms.Office, serta memiliki hard skill seperti memiliki rasa tanggung jawab yang besar dan dapat berkolaborasi bersama tim serta dapat memimpin sebuah tim.
+                                        </p>
+                                    </li>
+                                    <li class="homeCode-contact">
+                                        <a href="#"><i class="bx bxl-github"></i></a>
+                                        <a href="#"><i class="bx bxl-instagram"></i></a>
+                                        <a href="#"><i class="bx bxl-facebook"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="avd-profileImg">
+                                <img src="img/avd.png" alt="">
+                            </div>
+                        </div>
+                        <div class="avd-frame avd-mainContentDesain" id="vscodeDesain">
+                            <img src="img/avd.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="avd-detailFooter">
+                <ul>
+                    <li>
+                        <i class="bx bxl-html5"></i>
+                    </li>
+                    <li id="footerName">
+                        <p>Gede Valendra | Gupta</p>
+                    </li>
+                    <li>
+                        <i class="bx bx-trash"></i>
+                        <p><i class="bx bxs-bolt"></i>http:// 127.0.0.1:5500/ Project.html</p>
+                        <i class="bx bx-bell"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- END DetailProjectBagExperience -->
     <header>
         <div id="avd-icon" class="fade">
             <img src='img/GUpta-icon.png' title='Gupta Icon'>
@@ -66,13 +268,13 @@
                 <li><a href="#avdHome" id="avdHomeBTN" title="Halaman Beranda">Home</a></li>
                 <li><a id="avdAboutBTN" title="Selengkapnya" style="display: flex; align-items: center;">
                         More<i class="bx bx-caret-down" style="padding-left: 4px;"></i></a>
-                        <div class="subAbout" id="subAbout">
-                            <a href="#" class="subLink" title="Tentang Saya">About Me</a>
-                            <a href="#avdAbout" class="subLink" title="Pengalaman">Experience</a>
-                            <a class="subLink" title="Pendidikan">Academic</a>
-                            <a class="subLink" title="Klik Untuk Memunculkan PopUp">Video Demonstrasi</a>
-                        </div>
-                    
+                    <div class="subAbout" id="subAbout">
+                        <a href="#" class="subLink" title="Tentang Saya">About Me</a>
+                        <a href="#avdAbout" class="subLink" title="Pengalaman">Experience</a>
+                        <a class="subLink" title="Pendidikan">Academic</a>
+                        <a class="subLink" title="Klik Untuk Memunculkan PopUp">Video Demonstrasi</a>
+                    </div>
+
                 </li>
                 <li><a href="#avdContact" id="avdContactBTN" title="Kontak">Contact</a></li>
             </ul>
@@ -80,128 +282,142 @@
                 <input type="text" id="avdSearchContent" placeholder="Cari disini" autocomplete="off" spellcheck="false"
                     required title="Cari sesuatu disini">
                 <i class="bx bx-search"></i>
-                <div class="avd-loginBtn">
-                    <a href="#">Login</a>
-                </div>
             </div>
 
         </div>
     </header>
 
     <main class="avd avd-mainHome" id="avdHome">
-        <div class="avd-home">
-            <div class="avd-welcomeBro">
-                <h1 id="avd_welcomeText"
-                    style="background-color: var(--avd-color-1); color: var(--avd-color-2); padding: 5px 10px; display: flex; align-items: center;">
-                    Hello,
-                </h1>
-                <h1 style="display: flex; align-items: center;">I'm Gede Valendra <i class="bx bxs-badge-check"></i>
-                </h1>
+        <div class="avd-boxHome">
+            <div class="avd-home">
+                <div class="avd-welcomeBro">
+                    <h1 id="avd_welcomeText">
+                        Hello,
+                    </h1>
+                    <h2 style="display: flex; align-items: center;">
+                        I'm Gede Valendra <i class="bx bxs-badge-check"></i>
+                    </h2>
+                </div>
+
+                <p style="white-space: pre-line;">
+                </p>
+
+                <div class="avd-BtnHome">
+                    <a class="detailExperienceOpenBTN">Get Know More</a>
+                </div>
+
             </div>
-
-            <p style="white-space: pre-line;">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam modi earum labore delectus ea. Tempore laborum nulla ducimus error quaerat voluptatum recusandae eaque sed non. Neque quisquam adipisci modi et.
-            </p>
-
-            <div class="avd-BtnHome">
-                <a href="#">Get Know More</a>
-                <a href="#">Auto Scroll Off</a>
-
+            <div class="avd-profileUser">
+                <img src='img/avd.png' title="Salah siapa berharap">
+            </div>
+            <div class="avd-sosmed">
+                <a href="#"><i class="bx bxl-github"></i></a>
+                <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+                <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+            </div>
+            <div class="scroll-right">
+                <a href="#"><i class="bx bxs-circle"></i></a>
             </div>
         </div>
-        <div class="avd-profileUser">
-            <img src='img/avd.png' title="I'm Gede Valendra">
-        </div>
-
     </main>
     <main id="avdAbout">
-        <div class="avd-boxOfAbout" id="ExperienceBtn">
-            <ul>
-                <h1 style="display: flex; align-items: center;"><i class="bx bx-caret-right"></i>ACADEMIC</h1>
-                 <li>
-                    <span>2013 - 2019</span>
-                    <h1>SDN 1 SIDOMULYO</h1>
-                    <h2>Sidowaluyo, Sidomulyo, Lampung Selatan, Lampung</h2>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
-                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
-                        voluptatum voluptatibus doloribus dolores nesciunt.
-                    </p> -->
-                    <a href="#">Baca Selengkapnya</a>
-                    <a href="#">#sdnsasi</a>
-                    <a href="#">#sdn1sidowaluyo</a>
-                </li>
-                <li>
-                    <span>2019 - 2021</span>
-                    <h1>SMPN 1 SIDOMULYO</h1>
-                    <h2>Sidomulyo, Lampung Selatan, Lampung</h2>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
-                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
-                        voluptatum voluptatibus doloribus dolores nesciunt.
-                    </p> -->
-                    <a href="#">Baca Selengkapnya</a>
-                    <a href="#">#smpnsasi</a>
-                    <a href="#">#sman1sidomulyo</a>
-                </li>
-                <li>
-                    <span>2021 - 2024</span>
-                    <h1>SMAN 1 SIDOMULYO</h1>
-                    <h2>MIPA | Sidomulyo, Lampung Selatan, Lampung</h2>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
-                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
-                        voluptatum voluptatibus doloribus dolores nesciunt.
-                    </p> -->
-                    <a href="#">Baca Selengkapnya</a>
-                    <a href="#">#SMANSASI</a>
-                    <a href="#">#sman1sidomulyo</a>
-                </li>
-                <li>
-                    <span>2024 - Now</span>
-                    <h1>INSTITUT TEKNOLOGI SUMATERA</h1>
-                    <h2>Sidowaluyo, Sidomulyo, Lampung Selatan, Lampung</h2>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
-                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
-                        voluptatum voluptatibus doloribus dolores nesciunt.
-                    </p> -->
-                    <a href="#">Baca Selengkapnya</a>
-                    <a href="#">#ITERA</a>
-                    <a href="#">#InstitutTeknologiSumatera</a>
-                </li>
-            </ul>
+        <div class="avd-boxAbout">
+            <div class="avd-boxOfExperience">
+                <h1>Experience</h1>
+                <ul>
+                    <li>
+                        <h2>Desain Grafis</h2>
+                        <p>
+                            Memiliki pengalaman dalam desain grafis
+                        </p>
+                        <button class="detailExperienceOpenBTN">Show Project<i class="bx bx-caret-right"></i></button>
+                    </li>
+                    <li>
+                        <h2>Kepanitiaan</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ipsam inventore eveniet
+                            maiores molestiae a qui voluptates beatae, mollitia exercitationem dolore obcaecati
+                            veritatis quibusdam fugit ullam id dicta eligendi nesciunt?</p>
+                        <button class="detailExperienceOpenBTN">Show Project<i class="bx bx-caret-right"></i></button>
+                    </li>
+                    <li>
+                        <h2>Composer Music & Produser Music</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ipsam inventore eveniet
+                            maiores molestiae a qui voluptates beatae, mollitia exercitationem dolore obcaecati
+                            veritatis quibusdam fugit ullam id dicta eligendi nesciunt?</p>
+                        <button class="detailExperienceOpenBTN">Show Project<i class="bx bx-caret-right"></i></button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </main>
     <main id="avdContact">
-        <div class="avd-boxOfContact">
-            <h1>Hubungi Kami Melalui,</h1>
-            <ul>
-                <li>
-                    <a href="#" title="Instagram">
-                        <i class="bx bxl-instagram-alt"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="GitHub">
-                        <i class="bx bxl-github"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="LinkedIn">
-                        <i class="bx bxl-linkedin-square"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="Gmail">
-                        <i class="bx bxl-gmail"></i>
-                    </a>
-                </li>
-            </ul>
+        <div class="avd-boxContact">
+            <div class="avd-boxOfContact">
+                <h1>Hubungi Kami Melalui,</h1>
+                <ul>
+                    <li>
+                        <a href="#" title="Instagram">
+                            <i class="bx bxl-instagram-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="GitHub">
+                            <i class="bx bxl-github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="LinkedIn">
+                            <i class="bx bxl-linkedin-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Gmail">
+                            <i class="bx bxl-gmail"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </main>
 </body>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        document.querySelector(".avd-loadScreen").style.display = "none";
+    }, 3500);
+});
+
+    
+    const detailExperience = document.getElementById('detailExperience');
+    let detailExperienceOpenBTN = document.querySelectorAll(".detailExperienceOpenBTN");
+    const detailExperienceExitBTN = document.getElementById('detailExperienceExitBTN');
+    detailExperienceExitBTN.addEventListener('click', () => {
+        detailExperience.style.display = "none";
+    })
+    detailExperienceOpenBTN.forEach(function (button) {
+        button.addEventListener('click', function () {
+            detailExperience.style.display = "flex";
+        })
+    })
+
+    function SearchFile() {
+        document.getElementById('inputSearchFile').focus();
+    }
+
+
+    const openFileExplorer = document.getElementById('openFileExplorer');
+    const detailExplorer = document.getElementById('detailExplorer');
+    openFileExplorer.addEventListener('click', () => {
+        if (detailExplorer.style.display === 'none' || detailExplorer.style.display === '') {
+            detailExplorer.style.display = "block";
+            openFileExplorer.style.color = "var(--avd-color-2)";
+        } else {
+            openFileExplorer.style.color = "";
+            detailExplorer.style.display = "none";
+        }
+    })
+
+
     const avdAutoScroll = document.getElementById('avdHome');
     let scrollInterval = setInterval(() => {
         avdAutoScroll.scrollTop += 1;
@@ -212,20 +428,103 @@
     const btnContact = document.getElementById('avdContactBTN');
     const subAbout = document.getElementById('subAbout');
     const menuBtn = [btnHome, btnContact];
-    btnHome.style = "color:red;";
+    btnHome.style = "color: var(--avd-color-3); border-bottom : 2px solid  var(--avd-color-3); ";
     menuBtn.forEach(btn => {
         btn.addEventListener('click', () => {
             menuBtn.forEach(b => {
                 b.style.borderBottom = (b === btn)
-                    // ? "2px solid red"
-                    // : "2px solid transparent"
+                ? "2px solid  var(--avd-color-3)"
+                : "2px solid transparent"
                 b.style.color = (b === btn)
-                    ? "red"
+                    ? " var(--avd-color-3)"
                     : "white"
             })
         })
     })
+    // 
+    const vscodeWelcome = document.getElementById('vscodeWelcome');
+    const vscodeWelcomeBTN = document.getElementById('vscodeWelcomeBTN');
+    const vscodeWelcomeSFILE = document.getElementById('vscodeWelcomeSFILE');
+    const vscodeProfile = document.getElementById('vscodeProfile');
+    const vscodeProfileBTN = document.getElementById('vscodeProfileBTN');
+    const vscodeProfileSFILE = document.getElementById('vscodeProfileSFILE');
+    const vscodeDesain = document.getElementById('vscodeDesain');
+    const vscodeDesainBTN = document.getElementById('vscodeDesainBTN');
+    const vscodeDesainSFILE = document.getElementById('vscodeDesainSFILE');
+    const sfileWelcomeExitBTN = document.getElementById('sfileWelcomeExitBTN');
+    const sfileProfileExitBTN = document.getElementById('sfileProfileExitBTN');
+    const sfileDesainExitBTN = document.getElementById('sfileDesainExitBTN');
+    // SET DEFAULT ----------------------------------------------
+    vscodeWelcomeBTN.style.backgroundColor = "rgb(32,32,32)";
+    vscodeWelcome.style.display = "flex";
+    vscodeWelcomeSFILE.style.backgroundColor = "rgb(24, 24, 24)";
+    // -----------------------------------------------------------
+    const vscodeAllBTN = document.querySelectorAll('[data-target]');
+    const vscodeAllMain = document.querySelectorAll('.avd-frame');
+    const vscodeAllSFILE = document.querySelectorAll('.avd-SFILE');
+    vscodeAllBTN.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetIds = btn.dataset.target.split(',');
+            vscodeAllBTN.forEach(b => {
+                b.style.backgroundColor = (b === btn)
+                    ? "rgb(32,32,32)"
+                    : ""
+            });
+            vscodeAllMain.forEach(main => {
+                main.style.display = targetIds.includes(main.id)
+                    ? "flex"
+                    : "none"
+            })
+            vscodeAllSFILE.forEach(sfile => {
+                sfile.style.backgroundColor = targetIds.includes(sfile.id)
+                    ? "rgb(24,24,24)"
+                    : "transparent"
+            })
+        })
+    })
+    vscodeAllSFILE.forEach(btnsfile => {
+        btnsfile.addEventListener('click', () => {
+            const targetIdst = btnsfile.dataset.target.split(',');
+            vscodeAllSFILE.forEach(sf => {
+                sf.style.backgroundColor = (sf === btnsfile)
+                    ? "rgb(24,24,24)"
+                    : "transparent"
+            })
+            vscodeAllMain.forEach(main => {
+                main.style.display = targetIdst.includes(main.id)
+                    ? "flex"
+                    : "none"
+            })
+            vscodeAllBTN.forEach(b => {
+                b.style.backgroundColor = targetIdst.includes(b.id)
+                    ? "rgb(32,32,32)"
+                    : ""
+            });
+        })
+    })
 
+    vscodeWelcomeBTN.addEventListener('click', () => {
+        vscodeWelcomeSFILE.style.display = "flex";
+    })
+    vscodeProfileBTN.addEventListener('click', () => {
+        vscodeProfileSFILE.style.display = "flex";
+    })
+    vscodeDesainBTN.addEventListener('click', () => {
+        vscodeDesainSFILE.style.display = "flex";
+    })
+    sfileWelcomeExitBTN.addEventListener('click', () => {
+        vscodeWelcomeSFILE.style.display = "none";
+        vscodeWelcome.style.display = "none";
+    })
+    sfileProfileExitBTN.addEventListener('click', () => {
+        vscodeProfileSFILE.style.display = "none";
+        vscodeProfile.style.display = "none";
+    })
+    sfileDesainExitBTN.addEventListener('click', () => {
+        vscodeDesainSFILE.style.display = "none";
+        vscodeDesain.style.display = "none";
+    })
+    // 
     btnAbout.addEventListener('click', (e) => {
         e.stopPropagation();
         subAbout.style.display = 'flex';
@@ -242,8 +541,8 @@
     const avd_icon = document.getElementById('avd-icon');
     const AllText = [
         "<img src='img/GUpta-icon.png' title='Gupta Icon'>",
-        "<h1 style='color: var(--avd-color-2); font-size:1.9em;'>Gupta</h1>",
-        "<div class='robot-beranda'><div class='avd-robot' style='margin-top:0px; margin-bottom:1vh;'><div class='rbt-mata'><div class='mata-one'><div class='alis-mata-one'></div><div class='bola-mata-one'></div></div><div class='mata-two'><div class='alis-mata-two'></div><div class='bola-mata-two'></div></div></div></div></div>"
+        "<h1 style='color: var(--avd-color-2); font-size:1.9em;'>Gupta</h1>"
+        // "<div class='robot-beranda'><div class='avd-robot' style='margin-top:0px; margin-bottom:1vh;'><div class='rbt-mata'><div class='mata-one'><div class='alis-mata-one'></div><div class='bola-mata-one'></div></div><div class='mata-two'><div class='alis-mata-two'></div><div class='bola-mata-two'></div></div></div></div></div>"
     ];
     let index = 0;
     setInterval(() => {

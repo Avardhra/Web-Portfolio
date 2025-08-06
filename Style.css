@@ -6,19 +6,21 @@
 }
 
 ::selection {
-    background-color: red;
+    background-color: var(--avd-color-3);
     color: var(--avd-color-2);
 }
 
 :root {
     --avd-color-1: rgb(0, 0, 0);
     --avd-color-2: white;
+    --avd-color-3: rgb(60, 145, 255);
     --avd-bg: #ffffff;
 }
 
 ::-webkit-scrollbar {
     background-color: var(--avd-color-2);
     width: 10px;
+    display: none;
 }
 
 ::-webkit-scrollbar-button {
@@ -45,6 +47,7 @@ body {
 }
 
 /* SET DEFAULT | AVD - AVARDHRA An Valendra Dharma*/
+
 h1 {
     margin: 0;
     padding: 0;
@@ -62,7 +65,7 @@ a {
 .avd-loadScreen {
     z-index: 99999;
     position: fixed;
-    background-color: white;
+    background-color: var(--avd-color-1);
     width: 100%;
     height: 100%;
     display: none;
@@ -72,8 +75,8 @@ a {
 
 .avd-loadScreen .avd-boxContainerOne {
     position: absolute;
-    background-color: var(--avd-color-1);
-    animation: loadScreenOne 6s ease;
+    background-color: var(--avd-color-2);
+    animation: loadScreenOne 5s ease;
 
 }
 
@@ -97,7 +100,7 @@ a {
 
     30% {
         width: 100%;
-        height: 10%;
+        height: 5%;
     }
 
     70% {
@@ -105,55 +108,6 @@ a {
         height: 100%;
     }
 }
-
-.avd-loadScreen .avd-boxContainerTwo {
-    position: absolute;
-    width: 100%;
-    background-color: var(--avd-color-2);
-    animation: loadScreenTwo 5s ease;
-}
-
-@keyframes loadScreenTwo {
-    0% {
-        padding: 0px;
-        width: 0;
-        height: 0;
-    }
-
-    25% {
-        padding: 2px;
-        width: 100%;
-        height: 0%;
-        box-shadow: 0 0 10px var(--avd-color-2);
-    }
-
-    30% {
-        width: 100%;
-        height: 8%;
-        box-shadow: 0 0 10px var(--avd-color-2);
-
-    }
-
-    50% {
-        width: 100%;
-        height: 4%;
-        box-shadow: 0 0 10px var(--avd-color-2);
-    }
-
-    60% {
-        width: 100%;
-        height: 4%;
-        box-shadow: 0 0 10px var(--avd-color-2);
-
-    }
-
-    100% {
-        width: 100%;
-        height: 100%;
-        box-shadow: 0 0 10px var(--avd-color-2);
-    }
-}
-
 /*  */
 
 header {
@@ -189,7 +143,7 @@ header .fade-in {
 }
 
 header .fade h1 {
-    background: linear-gradient(270deg, red, black, white);
+    background: linear-gradient(270deg, var(--avd-color-3), var(--avd-color-1), var(--avd-color-3));
     background-size: 800% 800%;
     color: transparent;
     -webkit-background-clip: text;
@@ -201,27 +155,17 @@ header .fade h1 {
 @keyframes txtGrad {
     0% {
         background-position: 0% 50%;
-        /* transform: scale(0.5); */
-    }
-
-    10% {
-        /* transform: scale(1); */
     }
 
     50% {
         background-position: 100% 50%;
     }
 
-    90% {
-        /* transform: scale(1); */
-    }
+    90% {}
 
     100% {
         background-position: 0% 50%;
-        /* transform: scale(0.5); */
-
     }
-
 }
 
 header .avd-boxOfMenu {
@@ -249,45 +193,32 @@ header .avd-boxOfSearch i {
 }
 
 header .avd-boxOfSearch input {
+    cursor: pointer;
     z-index: 9;
     border: none;
     padding: 8px 10px;
     padding-left: 4vh;
     width: 2vh;
-    outline: 1px solid var(--avd-color-2);
     background-color: transparent;
-    color: red;
+    color: var(--avd-color-3);
     transition: all 0.2s ease-in-out;
-    font-family: "Roboto", paraStyle;
 }
 
 header .avd-boxOfSearch input:focus~i,
 input:valid~i {
     z-index: 10;
-    color: red;
+    color: var(--avd-color-3);
 }
 
 header .avd-boxOfSearch input:valid,
 header .avd-boxOfSearch input:focus {
     opacity: 1;
     width: 15vh;
-    outline: 1px solid red;
+    outline: 1px solid var(--avd-color-3);
 }
 
 header .avd-boxOfSearch input:focus {
-    box-shadow: 0 0 15px 0 red;
-}
-
-header .avd-loginBtn {
-    margin: 0 12px;
-}
-
-header .avd-loginBtn a {
-    background-color: red;
-    padding: 7px 2vh;
-    color: var(--avd-color-2);
-    outline: 1.8px solid red;
-    font-size: 15px;
+    box-shadow: 0 0 15px 0 var(--avd-color-3);
 }
 
 header .avd-boxOfMenu ul {
@@ -339,8 +270,8 @@ header .avd-boxOfMenu ul li .subAbout .subLink {
 }
 
 header .avd-boxOfMenu ul li .subAbout:hover {
-    transform: scale(1.05);
     box-shadow: 5px 5px 0 var(--avd-color-1);
+    transform: scale(1.05);
 }
 
 header .avd-boxOfMenu ul li .subAbout .subLink:hover {
@@ -351,7 +282,7 @@ header .avd-boxOfMenu ul li .subAbout .subLink:hover {
 }
 
 header .avd-boxOfMenu ul li .subAbout .subLink:active {
-    background-color: red;
+    background-color: var(--avd-color-3);
     color: var(--avd-color-1);
 }
 
@@ -410,7 +341,10 @@ nav ul li i {
     align-items: center;
     bottom: 20px;
     right: 20px;
-    transition: all 0.2s ease;
+}
+
+.avd-circleBot a {
+    transition: all 0.1s ease;
 }
 
 .avd-circleBot a:hover {
@@ -418,8 +352,8 @@ nav ul li i {
 }
 
 .avd-circleBot a:active {
-    background-color: red;
-    box-shadow: 0 0 5px red;
+    background-color: var(--avd-color-3);
+    box-shadow: 0 0 5px var(--avd-color-3);
 }
 
 .avd-circleBot a {
@@ -440,10 +374,19 @@ main {
 }
 
 .avd-mainHome {
-    position: relative;
+    padding: 0 5%;
+    background-color: rgb(208, 208, 208);
+}
+
+.avd-mainHome .avd-boxHome {
     display: flex;
+    position: relative;
     align-items: center;
-    box-shadow: 0px 5px 10px rgb(224, 224, 224);
+    width: 100%;
+    height: 100vh;
+    background-color: var(--avd-color-2);
+    box-shadow: 0 0 55px rgb(170, 170, 170);
+    padding: 5%;
 
 }
 
@@ -457,12 +400,21 @@ main {
 }
 
 .avd-mainHome .avd-profileUser img {
+    cursor: pointer;
     width: 100%;
     height: auto;
     border-radius: 100%;
-    box-shadow: 10px 10px 0 var(--avd-color-1);
-    /* background-color: rgb(0, 0, 0); */
+    box-shadow: 0px 10px 0 var(--avd-color-1);
+    filter: saturate(0);
+    transition: all 0.4s ease-out;
+    position-anchor: --avd-bubbleChatOne;
+    position-area: block-end;
 }
+
+.avd-mainHome .avd-profileUser img:hover {
+    filter: saturate(1);
+}
+
 
 .avd-home {
     position: relative;
@@ -471,7 +423,6 @@ main {
     width: 100%;
     height: auto;
     flex-direction: column;
-    margin: 10px;
     color: var(--avd-color-1);
 }
 
@@ -482,7 +433,11 @@ main {
 }
 
 .avd-home h1 {
-    padding: 0 10px;
+    font-size: 4em;
+}
+
+.avd-home h2 {
+    font-size: 3em;
 }
 
 .avd-welcomeBro {
@@ -498,6 +453,7 @@ main {
     justify-content: center;
     outline: 1px solid black;
     width: fit-content;
+    perspective: 800px;
     transition: all 0.32s ease-in-out;
 }
 
@@ -513,108 +469,827 @@ main {
 }
 
 .avd-BtnHome:hover {
-    transform: scale(0.95);
-    box-shadow: 5px 5px 0 var(--avd-color-1);
+    transform: rotateX(20deg) scale(0.95);
+    box-shadow: 0px 5px 0 var(--avd-color-1);
 }
 
 .avd-BtnHome a:hover {
     background-color: var(--avd-color-1);
     color: var(--avd-color-2);
     transform: scale(0.90);
-    box-shadow: 5px 5px 0 var(--avd-color-1);
+}
+
+.avd-sosmed {
+    position: absolute;
+    bottom: 5vh;
+    margin: 5vh 0;
+    outline: 1px solid var(--avd-color-1);
+    transition: all 0.2s ease;
+}
+
+.avd-sosmed a {
+    display: flex;
+    float: right;
+    margin: 5px;
+    padding: 2px;
+    position: relative;
+    color: var(--avd-color-2);
+    outline: 1px solid var(--avd-color-1);
+    transition: all 0.2s ease;
+}
+
+.avd-sosmed a i {
+    padding: 6px;
+    background-color: transparent;
+    color: var(--avd-color-1);
+    border-radius: 100px;
+    font-size: 1.5em;
+    transition: all 0.2s ease;
+}
+
+.avd-sosmed:hover {
+    transform: scale(1.1);
+}
+
+.avd-sosmed a:hover {
+    transform: scale(0.85);
+    background-color: var(--avd-color-2);
+    box-shadow: 5px 5px 0 black;
+    border-radius: 5px;
+}
+
+
+.scroll-right {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-right a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 10px;
+    padding: 10px 2px;
+    outline: 1px solid var(--avd-color-1);
+    border-radius: 100px;
+}
+
+.scroll-right a i {
+    position: relative;
+    cursor: pointer;
+    color: var(--avd-color-1);
+    transition: all 0.2s ease;
+    animation: scrollDown 1s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+    0% {
+        top: -8px;
+    }
+
+    50% {
+        top: 8px;
+    }
+
+    100% {
+        top: -8px;
+    }
 }
 
 /*  */
 #avdAbout {
-    background-color: rgb(240, 240, 240);
-    padding: 10px;
+    padding: 0 5%;
+    background-color: rgb(208, 208, 208);
 }
 
-#avdAbout .avd-boxOfAbout {
+#avdAbout .avd-boxAbout {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--avd-color-1);
+    box-shadow: 0 0 55px rgb(170, 170, 170);
+    padding: 5%;
+}
+
+.avd-boxOfExperience {
+    display: flex;
+    flex-direction: column;
+    color: var(--avd-color-2);
+    width: 100%;
+}
+
+.avd-boxOfExperience h1 {
+    margin-bottom: 20px;
+}
+
+.avd-boxOfExperience ul {
+    width: 100%;
+    font-size: 14px;
+}
+
+.avd-boxOfExperience ul li {
+    position: relative;
+    margin: 10px;
+}
+
+.avd-boxOfExperience ul li button {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 8px 10px;
+    outline: 1px solid var(--avd-color-2);
+    border: none;
+    color: var(--avd-color-2);
+    background-color: transparent;
+    width: fit-content;
+    transition: all 0.2s ease;
+}
+
+.avd-boxOfExperience ul li button:hover {
+    transform: scale(0.9);
+    background-color: var(--avd-color-2);
+    color: var(--avd-color-1);
+
+}
+
+/*  */
+.avd-detailExperience {
+    z-index: 99999;
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.664);
+    overflow-y: auto;
+}
+
+.avd-frameDetailVscode {
+    width: 80%;
+    height: 80%;
+    outline: 0.1px solid rgb(127, 127, 127);
+    box-shadow: 0 0 5px var(--avd-color-1);
+    border-radius: 4px;
+}
+
+.avd-detailFrame {
+    background-color: rgb(57, 57, 57);
+    height: 91%;
+    max-width: 100%;
+}
+
+.avd-detailHeader {
+    z-index: 22;
+    background-color: rgb(60, 60, 60);
+    display: flex;
+    width: 100%;
+    min-height: 6%;
+    max-height: 6%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.avd-detailHeader ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avd-detailHeader ul li {
+    display: flex;
+    align-items: center;
+}
+
+.avd-detailHeader ul li i {
+    padding: 10px 12px;
+    color: var(--avd-color-2);
+    border-radius: 5px;
+    margin: 0 3px;
+}
+
+.avd-detailHeader ul #hdrIconVscode {
+    font-size: 19px;
+}
+
+.avd-detailHeader ul #hdrIconVscode .bxl-visual-studio {
+    color: rgb(60, 145, 255);
+}
+
+.avd-detailHeader ul #hdrNextAndSearch {
+    width: 40%;
+}
+
+.avd-detailHeader ul #hdrNextAndSearch i {
+    margin: 0 2px;
+    padding: 4px;
+    color: grey;
+    transition: all 0.1s ease;
+    border-radius: 2px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.avd-detailHeader ul #hdrNextAndSearch a i {
+    font-size: 16px;
+    background-color: rgb(87, 87, 87);
+    color: var(--avd-color-2);
+    border: 0.1px solid rgb(137, 137, 137);
+}
+
+.avd-detailHeader ul #hdrNextAndSearch i:hover {
+    background-color: rgb(87, 87, 87);
+    color: var(--avd-color-2);
+}
+
+.avd-detailHeader ul #hdrNextAndSearch input {
+    cursor: pointer;
+    text-align: center;
+    font-size: 10px;
+    background-color: rgb(87, 87, 87);
+    color: var(--avd-color-2);
+    border: 0.1px solid rgb(137, 137, 137);
+    border-radius: 5px;
+    margin: 0 10px;
+    padding: 6px 20px;
+    width: 100%;
+    opacity: 0.6;
+    transition: all 0.1s ease;
+}
+
+.avd-detailHeader ul #hdrNextAndSearch input::placeholder {
+    color: var(--avd-color-2);
+}
+
+.avd-detailHeader ul #hdrNextAndSearch input:hover,
+.avd-detailHeader ul #hdrNextAndSearch input:focus {
+    opacity: 1;
+    outline: 2px solid gray;
+}
+
+.avd-detailHeader ul #hdrNav i {
+    transition: all 0.1s ease;
+}
+
+.avd-detailHeader ul #hdrNav i:hover {
+    background-color: rgb(87, 87, 87);
+}
+
+.avd-detailHeader ul #hdrNav .bx-x:hover {
+    background-color: var(--avd-color-3);
+}
+
+.avd-detailMain {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgb(24, 24, 24);
+}
+
+.avd-detailSidebar {
+    z-index: 2;
+    background-color: rgb(51, 51, 51);
+    width: fit-content;
+    height: 100%;
+}
+
+.avd-detailSidebar ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: gray;
+}
+
+.avd-detailSidebar ul li {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.avd-detailSidebar ul li i {
+    padding: 14px 15px;
+    transition: all 0.1s ease;
+    font-size: 1.5em;
+}
+
+.avd-detailSidebar ul li i:hover {
+    color: var(--avd-color-2);
+}
+
+.avd-detailExplorer {
+    background-color: rgb(35, 35, 35);
+    max-width: 20vh;
+    width: 100%;
+    display: none;
+}
+
+.avd-detailExplorer #ExplorerHdr li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--avd-color-2);
+    background-color: transparent;
+}
+
+.avd-detailExplorer #ExplorerHdr li p {
+    font-size: 10px;
+}
+
+.avd-detailExplorer ul .avd-explorerNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    margin-bottom: 5px;
+
+}
+
+.avd-detailExplorer ul .avd-explorerNav h4 {
+    color: var(--avd-color-2);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.avd-detailExplorer ul .avd-explorerNav h4 i {
+    font-size: 14px;
+    margin-right: 4px;
+}
+
+.avd-detailExplorer ul .avd-explorerNav button {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: var(--avd-color-2);
+    font-size: 14px;
+}
+
+.avd-detailExplorer ul .avd-explorerNav button:hover {
+    background-color: rgb(78, 78, 78);
+
+}
+
+.avd-detailExplorer ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: var(--avd-color-2);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.avd-detailExplorer ul li:hover {
+    background-color: rgb(46, 46, 46);
+}
+
+.avd-detailExplorer ul li i {
+    font-size: 15px;
+    margin-right: 5px;
+
+}
+
+.avd-mainFrame {
+    width: 100%;
+}
+
+.avd-mainFrameFile {
+    width: 100%;
+    height: 6%;
+    background-color: rgb(45, 45, 45);
+    color: var(--avd-color-2);
+}
+
+.avd-mainFrameFile ul {
+    display: flex;
+    height: 100%;
+
+}
+
+.avd-mainFrameFile ul li {
+    margin-right: 1px;
+    height: 100%;
+}
+
+.avd-mainFrameFile ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0 2vh;
+    color: var(--avd-color-2);
+    font-size: 12px;
+    height: 100%;
+}
+
+.avd-mainFrameFile ul li i {
+    font-size: 10px;
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+.avd-mainContentWelcome {
+    height: 94%;
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* overflow-y: auto; */
+}
+
+.avd-homeCode {
+    /* max-width: 70vh; */
+    width: 100%;
+    padding: 5%;
+    color: var(--avd-color-2);
+}
+
+.avd-homeCode ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.avd-homeCode ul li {
+    display: flex;
+    flex-direction: column;
+}
+.avd-homeCode ul .homeCode-contact a i:hover {
+    outline: 1px solid var(--avd-color-3);
+    color: var(--avd-color-3);
+}
+
+.avd-homeCode ul li h1 {
+    font-weight: 100;
+    font-size: 1.5em;
+    width: 100%;
+}
+
+.avd-homeCode ul li h2 {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    background: linear-gradient(270deg, rgb(60, 145, 255), white, rgb(60, 145, 255));
+    background-size: 800% 800%;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: txtGrad 10s ease infinite;
+}
+
+.avd-homeCode ul li h2 i {
+    position: relative;
+    margin-right: 10px;
+    color: var(--avd-color-2);
+    -webkit-text-fill-color: initial;
+    background-color: rgb(60, 145, 255);
+
+}
+
+.avd-homeCode ul li h3 {
+    font-size: 1em;
+    padding: 5px 0px;
+    width: 100%;
+    font-weight: 100;
+    color: gray;
+}
+
+.avd-homeCode ul li p {
+    /* outline: 1px solid rgb(228, 240, 255); */
+    border-radius: 2px;
+    width: fit-content;
+    padding: 3px 0px;
+    font-size: 1.3em;
+    color: rgb(219, 219, 219);
+}
+
+.avd-homeCode ul li button {
+    cursor: pointer;
+    display: flex;
+    align-items: end;
+    border: none;
+    background-color: transparent;
+    background: linear-gradient(270deg, rgb(60, 145, 255), white, rgb(60, 145, 255));
+    background-size: 800% 800%;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: txtGrad 10s ease infinite;
+    padding: 2px 0px;
+    font-size: 12px;
+}
+
+.avd-homeCode ul li button:hover {
+    opacity: 0.7;
+}
+
+.avd-homeCode ul li button i {
+    margin-right: 10px;
+    font-size: 1.9em;
+}
+
+.avd-loginCode {
+    /* max-width: 70vh; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--avd-color-2);
+}
+
+.avd-loginCode form {
+    margin: 5% 10%;
+     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avd-loginCode form h1 {
+    font-weight: 100;
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.avd-loginCode form ul {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.avd-loginCode form ul label {
+    cursor: text;
+    position: absolute;
+    width: 5%;
+    padding: 6px 10px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    transform: translateY(0px) translateX(50px);
+    opacity: 0.5;
+}
+
+.avd-loginCode form a {
+    color: var(--avd-color-2);
+    background-color: var(--avd-color-3);
+    text-align: center;
+    margin: 10px 0px;
+    padding: 8px 20px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.1s ease-in-out;
+    opacity: 0.9;
+}
+
+.avd-loginCode form a:hover {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--avd-color-3);
+}
+
+.avd-loginCode form ul input {
+    position: relative;
+    border: none;
+    padding: 20px 15px;
+    padding-left: 12vh;
+    width: 100%;
+    background-color: #1e1e1e;
+    outline: 0.1px solid rgb(60, 60, 60);
+    color: var(--avd-color-2);
+    border-radius: 5px;
+    border-left: 5px solid var(--avd-color-3);
+    transition: all 0.2s ease;
+}
+
+.avd-loginCode form ul input:focus {
+    outline: 2px solid rgb(71, 71, 71);
+    box-shadow: 0 0 10px rgba(71, 71, 71, 0.712);
+}
+
+.avd-loginCode form ul input:focus~label,
+.avd-loginCode form ul input:valid~label {
+    transform: translateY(0px) translateX(16px);
+    color: rgb(24, 24, 24);
+    background-color: var(--avd-color-3);
+    opacity: 1;
+    font-size: 12px;
+}
+
+.avd-mainContentProfile {
+    display: none;
+    height: 94%;
+    color: var(--avd-color-2);
+}
+
+.avd-profileImg {
+    width: 80%;
+    display: flex;
+    align-items: end;
+    justify-content: right;
+}
+
+.avd-profileImg img {
+    width: 100%;
+
+}
+
+.avd-profileAbout {
+    width: 100%;
+    padding: 2%;
+    color: var(--avd-color-2);
+}
+
+.avd-profileAbout ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 5% 8%;
+    background-color: #1e1e1e;
+    outline: 0.1px solid rgb(60, 60, 60);
+    border-radius: 10px;
+}
+
+.avd-profileAbout ul li {
+    display: flex;
+    flex-direction: column;
+}
+
+.avd-profileAbout ul .homeCode-contact {
+    display: flex;
+    flex-direction: row;
+}
+
+.avd-profileAbout ul .homeCode-contact a i {
+    padding: 10px;
+    background-color: rgb(24, 24, 24);
+    color: var(--avd-color-2);
+    border-radius: 5px;
+    outline: 1px solid var(--avd-color-2);
+    transition: all 0.2s ease;
+}
+
+.avd-profileAbout ul .homeCode-contact a {
+    height: fit-content;
+    width: fit-content;
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.avd-profileAbout ul .homeCode-contact a i:hover {
+    outline: 1px solid var(--avd-color-2);
+    color: #1e1e1e;
+    transform: translateY(-10px);
+    background-color: var(--avd-color-2);
+}
+.avd-profileAbout ul li .profileName {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.avd-profileAbout ul li .profileName h1 {
+    font-weight: 100;
+    font-size: 1.5em;
+}
+
+.avd-profileAbout ul li h2 {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    background: linear-gradient(270deg, rgb(60, 145, 255), white, rgb(60, 145, 255));
+    background-size: 800% 800%;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: txtGrad 10s ease infinite;
+}
+
+.avd-profileAbout ul li h2 i {
+    position: relative;
+    margin-right: 10px;
+    color: var(--avd-color-2);
+    -webkit-text-fill-color: initial;
+    background-color: rgb(60, 145, 255);
+
+}
+
+.avd-profileAbout ul li .profileName p{
+    font-size: 1em;
+    margin: 5px 0;
+    padding: 5px 19px;
+    width: fit-content;
+    font-weight: 100;
+    color: rgb(102, 102, 102);
+    background-color: #1e1e1e;
+    outline: 0.1px dashed rgb(102, 102, 102);
+    outline-style: dashed;
+    outline-width: 1.1px;
+    border-radius: 5px;
+}
+
+.avd-profileAbout ul li p {
+    font-size: 13px;
+    white-space: pre-line;
+    color: var(--avd-color-2);
+}
+
+/*  */
+.avd-mainContentDesain {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: 94%;
+    color: var(--avd-color-2);
+    overflow-y: auto;
+}
+
+.avd-mainContentDesain img {
+    position: relative;
+    width: 100%;
+    margin-top: 10vh;
+}
+
+.avd-detailFooter {
+    background-color: rgb(60, 145, 255);
+    width: 100%;
+    height: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.avd-detailFooter ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--avd-color-2);
+}
+
+.avd-detailFooter ul li {
+    display: flex;
+    align-items: center;
+}
+
+.avd-detailFooter ul li i {
+    padding: 0 10px;
+}
+
+.avd-detailFooter ul li p {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+/*  */
+#avdAbout .avd-boxOfAcademic {
     margin: 10vh 0;
     display: flex;
 }
 
-#avdAbout .avd-boxOfAbout ul {
-    position: relative;
-    padding: 0 10px;
-    border-left: 2px solid var(--avd-color-1);
-    color: var(--avd-color-2);
-    width: 100%;
-    height: auto;
-}
-
-#avdAbout .avd-boxOfAbout ul h1 {
-    font-size: 16px;
-    color: var(--avd-color-1);
-}
-
-#avdAbout .avd-boxOfAbout ul h2 {
-    font-size: 12px;
-    opacity: 0.5;
-    margin-bottom: 10px;
-}
-
-#avdAbout .avd-boxOfAbout ul p {
-    font-size: 12px;
-    margin: 10px 0;
-}
-
-#avdAbout .avd-boxOfAbout ul span {
-    position: absolute;
-    font-size: 12px;
-    color: var(--avd-color-1);
-    transform: translateY(-30px) translateX(-28px);
-    background-color: var(--avd-color-1);
-    color: var(--avd-color-2);
-    padding: 5px 15px;
-
-
-}
-
-#avdAbout .avd-boxOfAbout ul li {
-    position: relative;
-    padding: 20px 10px;
-    margin: 4vh 0;
-    border-radius: 10px;
-    color: var(--avd-color-1);
-    transition: all 0.2s ease;
-}
-
-#avdAbout .avd-boxOfAbout ul li:hover {
-    transform: scale(0.97);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.147);
-    background-color: var(--avd-color-2);
-}
-
-#avdAbout .avd-boxOfAbout ul li a {
-    outline: 1px solid red;
-    color: red;
-    font-size: 10px;
-    padding: 5px 10px;
-    margin-right: 5px;
-}
-
-#avdAbout .avd-boxOfAbout ul li a:hover {
-    background-color: red;
-    color: var(--avd-color-2);
-    box-shadow: 3px 3px 0 var(--avd-color-1);
-}
 
 /*  */
 #avdContact {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0px -5px 10px rgb(224, 224, 224);
+    padding: 0 5%;
+    background-color: rgb(208, 208, 208);
+}
 
+#avdContact .avd-boxContact {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--avd-color-2);
+    box-shadow: 0 0 55px rgb(170, 170, 170);
+    padding: 5%;
 }
 
 #avdContact .avd-boxOfContact {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
+
 }
 
 #avdContact .avd-boxOfContact h1 {
@@ -632,6 +1307,7 @@ main {
     outline: 1px solid var(--avd-color-1);
     margin: 10px;
     transition: all 0.25s ease-in-out;
+    padding: 5px;
 }
 
 #avdContact .avd-boxOfContact ul li:hover {
@@ -646,7 +1322,6 @@ main {
     align-items: center;
     font-size: 2em;
     padding: 8px;
-    margin: 5px;
     outline: 1px solid var(--avd-color-1);
     transition: all 0.2s ease-in-out;
 }
@@ -658,7 +1333,6 @@ main {
     color: var(--avd-color-2);
 }
 
-
 .avd-popup {
     position: fixed;
     display: flex;
@@ -666,22 +1340,22 @@ main {
     align-items: center;
     width: 100%;
     height: 100vh;
-    z-index: 100000;
-    background-color: rgba(0, 0, 0, 0.212);
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.545);
     color: var(--avd-color-1);
-    backdrop-filter: blur(5px);
 }
 
 .avd-popup .avd-boxPopup {
-    background-color: var(--avd-color-1);
+    background-color: rgb(24,24,24);
     border-radius: 2px;
     width: 100%;
     max-width: 70vh;
     height: 40vh;
+    box-shadow: 0 0 10px rgba(24, 24, 24, 0.538);
 }
 
 .avd-popup .avd-boxPopup .avd-popupHdr {
-    background-color: var(--avd-color-2);
+    background-color: rgb(222, 222, 222);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -690,7 +1364,7 @@ main {
 .avd-popup .avd-boxPopup .avd-popupHdr p {
     padding: 0 10px;
     font-size: 14px;
-
+    color: var(--avd-color-1);
 }
 
 .avd-popup .avd-boxPopup .avd-popupHdr ul {
@@ -708,7 +1382,7 @@ main {
 }
 
 .avd-popup .avd-boxPopup .avd-popupHdr button:hover {
-    background-color: red;
+    background-color: var(--avd-color-3);
     color: var(--avd-color-2);
 }
 
@@ -731,6 +1405,20 @@ main {
         display: none;
     }
 
+    .avd-home p {
+        width: 100%;
+        max-width: 100vh;
+        margin: 20px 0;
+    }
+
+    .avd-home h1 {
+        font-size: 3em;
+    }
+
+    .avd-home h2 {
+        font-size: 2em;
+    }
+
     header .avd-boxOfMenu ul {
         display: none;
     }
@@ -746,5 +1434,9 @@ main {
     .avd-popup .avd-boxPopup {
         max-width: 40vh;
         height: 20%;
+    }
+
+    #footerName {
+        display: none;
     }
 }
