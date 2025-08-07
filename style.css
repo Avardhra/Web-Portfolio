@@ -838,7 +838,7 @@ header .fade-in {
 }
 
 header .fade h1 {
-    background: linear-gradient(270deg, var(--avd-color-3), var(--avd-color-1), var(--avd-color-3));
+    background: linear-gradient(270deg, var(--avd-color-2), var(--avd-color-1), var(--avd-color-2));
     background-size: 800% 800%;
     color: transparent;
     -webkit-background-clip: text;
@@ -1533,8 +1533,9 @@ td {
 }
 
 .avd-popup .avd-boxPopup iframe {
+    position: relative;
     width: 100%;
-    height: max-content;
+    height: 100%;
 }
 
 /*  */
