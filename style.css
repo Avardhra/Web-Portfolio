@@ -382,16 +382,19 @@ main {
     padding: 5%;
 
 }
+
 .avd-mainHome .avd-profileUserHP {
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
 }
+
 .avd-mainHome .avd-profileUserHP img {
     width: 60%;
     border-radius: 100%;
     background-color: #1e1e1e;
 }
+
 .avd-mainHome .avd-profileUser {
     width: 70%;
     height: 70vh;
@@ -1389,6 +1392,10 @@ main {
 @media screen and (max-width:760px) {
     .avd-circleBot {
         display: none;
+    }
+
+    .avd-mainHome .avd-profileUserHP {
+        display: flex;
     }
 
     .avd-mainHome .avd-profileUser {
