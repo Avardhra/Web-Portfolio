@@ -121,20 +121,39 @@ a {
 }
 
 @keyframes avdSpin1 {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(-180deg) scale(1.1); }
-    100% { transform: rotate(-360deg) scale(1); }
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-180deg) scale(1.1);
+    }
+
+    100% {
+        transform: rotate(-360deg) scale(1);
+    }
 }
+
 @keyframes avdSpin2 {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(180deg) scale(1.1); }
-    100% { transform: rotate(360deg) scale(1); }
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: scale(0.9);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -142,9 +161,12 @@ a {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
@@ -163,7 +185,7 @@ a {
         font-size: 13px;
     }
 
-    .avd-mainContentWelcome {
+    /* .avd-mainContentWelcome {
         height: 94%;
         display: flex;
         flex-wrap: wrap;
@@ -172,7 +194,7 @@ a {
 
     .avd-mainContentWelcome .avd-homeCode {
         min-height: 65vh;
-    }
+    } */
 
     .avd-mainContentProfile {
         display: flex;
@@ -467,13 +489,23 @@ a {
 .avd-mainContentWelcome {
     height: 94%;
     display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow-y: auto;
 }
 
 .avd-homeCode {
-    /* max-width: 70vh; */
-    width: 100%;
-    padding: 5%;
+    margin: 5%;
+    padding: 2%;
     color: var(--avd-color-2);
+    position: relative;
+    background-color: #1e1e1e;
+    outline: 1px solid rgb(60, 60, 60);
+    border-radius: 5px;
+    width: fit-content;
+    flex: 1 1 35%;
+    box-sizing: border-box;
 }
 
 .avd-homeCode ul {
@@ -489,9 +521,13 @@ a {
     flex-direction: column;
 }
 
-.avd-homeCode ul .homeCode-contact a i:hover {
-    outline: 1px solid var(--avd-color-3);
-    color: var(--avd-color-3);
+.avd-homeCode ul li a {
+    color: var(--avd-color-2);
+    background-color: var(--avd-color-3);
+    width: fit-content;
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-radius: 3px;
 }
 
 .avd-homeCode ul li h1 {
@@ -564,28 +600,30 @@ a {
 }
 
 .avd-loginCode {
-    /* max-width: 70vh; */
+    margin: 5%;
+    padding: 5% 0;
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    flex: 1 1 45%;
+    box-sizing: border-box;
     color: var(--avd-color-2);
 }
 
 .avd-loginCode form {
-    margin: 5% 10%;
     width: 100%;
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 5px;
 }
 
 .avd-loginCode form h1 {
     font-weight: 100;
     font-size: 1.5em;
     margin: 10px 0;
+
 }
 
 .avd-loginCode form ul {
@@ -593,6 +631,7 @@ a {
     display: flex;
     align-items: center;
     margin: 10px 0px;
+    max-width: 50vh;
 }
 
 .avd-loginCode form ul label {
@@ -689,6 +728,7 @@ a {
 .avd-profileAbout ul li {
     display: flex;
     flex-direction: column;
+    margin: 3% 0;
 }
 
 .avd-profileAbout ul .homeCode-contact a i:hover {
@@ -744,9 +784,11 @@ a {
     outline-width: 1.1px;
     border-radius: 5px;
 }
-
+.avd-profileAbout ul li h4 {
+    color: var(--avd-color-3);
+}
 .avd-profileAbout ul li p {
-    font-size: 13px;
+    font-size: 12px;
     white-space: pre-line;
     color: var(--avd-color-2);
 }
@@ -1239,12 +1281,15 @@ main {
     outline: 1px solid rgb(60, 60, 60);
     border-radius: 5px;
 
-    flex: 1 1 45%; /* 👈 fleksibel, minimal 45% lebar */
+    flex: 1 1 45%;
+    /* 👈 fleksibel, minimal 45% lebar */
     box-sizing: border-box;
 }
+
 @media screen and (max-width: 600px) {
     .avd-boxOfExperience ul li {
-        flex: 1 1 100%; /* 👈 otomatis ke bawah di layar sempit */
+        flex: 1 1 100%;
+        /* 👈 otomatis ke bawah di layar sempit */
         min-width: unset;
     }
 }
@@ -1283,6 +1328,7 @@ main {
 .avd-boxOfExperience ul li .avd-tabelKepanitiaan {
     width: 100%;
 }
+
 .avd-boxOfExperience ul li table {
     border-radius: 5px;
     border: 1px solid rgb(60, 60, 60);
@@ -1343,14 +1389,17 @@ td {
 .avd-boxOfAcademic ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* biar ada jarak antar gambar */
+    gap: 20px;
+    /* biar ada jarak antar gambar */
     justify-content: center;
 }
 
 .avd-boxOfAcademic ul li {
-    flex: 1 1 45%; /* 👈 coba isi 45% lebar jika cukup ruang */
+    flex: 1 1 45%;
+    /* 👈 coba isi 45% lebar jika cukup ruang */
     box-sizing: border-box;
-    min-width: 280px; /* 👈 biar gak sempit */
+    min-width: 280px;
+    /* 👈 biar gak sempit */
     border: 10px solid #1e1e1e;
     border-radius: 3px;
     outline: 1px solid #3d3d3d;
@@ -1359,9 +1408,11 @@ td {
     align-items: center;
     position: relative;
 }
+
 @media screen and (max-width: 600px) {
     .avd-boxOfAcademic ul li {
-        flex: 1 1 100%; /* ⬇️ Jadi satu kolom di layar kecil */
+        flex: 1 1 100%;
+        /* ⬇️ Jadi satu kolom di layar kecil */
         min-width: unset;
     }
 }
