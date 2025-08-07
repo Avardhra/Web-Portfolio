@@ -387,6 +387,7 @@ main {
     width: 100%;
     display: none;
     justify-content: center;
+    align-items: center;
 }
 
 .avd-mainHome .avd-profileUserHP img {
