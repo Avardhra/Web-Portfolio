@@ -42,7 +42,7 @@
 :-moz-user-disabled {}
 
 body {
-    font-family: Century gothic;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--avd-bg);
 }
 
@@ -183,6 +183,7 @@ header .avd-boxOfSearch {
     display: flex;
     align-items: center;
     color: var(--avd-color-2);
+    width: 100%;
 }
 
 header .avd-boxOfSearch i {
@@ -201,6 +202,7 @@ header .avd-boxOfSearch input {
     background-color: transparent;
     color: var(--avd-color-3);
     transition: all 0.2s ease-in-out;
+    outline: none;
 }
 
 header .avd-boxOfSearch input:focus~i,
@@ -212,12 +214,11 @@ input:valid~i {
 header .avd-boxOfSearch input:valid,
 header .avd-boxOfSearch input:focus {
     opacity: 1;
-    width: 15vh;
+    width: 20vh;
     outline: 1px solid var(--avd-color-3);
 }
 
 header .avd-boxOfSearch input:focus {
-    box-shadow: 0 0 15px 0 var(--avd-color-3);
 }
 
 header .avd-boxOfMenu ul {
@@ -441,14 +442,13 @@ main {
 .avd-home .avd-welcomeBro h1 {
     font-size: 2.5em;
 }
-.avd-home .avd-welcomeBro h1 i {
-    font-size: 12px;
-}
+
 .avd-home .avd-welcomeBro h2 {
     font-size: 2em;
-
 }
-
+.avd-home .avd-welcomeBro h2 i {
+    font-size: 0.8em;
+}
 .avd-home p {
     width: 100%;
     margin: 19px 0;
@@ -588,7 +588,8 @@ main {
 }
 
 .avd-boxOfExperience h1 {
-    margin-bottom: 20px;
+    font-size: 2em;
+    color: var(--avd-color-3);
 }
 
 .avd-boxOfExperience ul {
@@ -598,9 +599,22 @@ main {
 
 .avd-boxOfExperience ul li {
     position: relative;
-    margin: 10px;
+    margin: 5vh 0;
+    padding: 5%;
+    background-color: #1e1e1e;
 }
-
+.avd-boxOfExperience ul li h2 {
+    font-size: 1em;
+    font-weight: 100;
+    background-color: var(--avd-color-3);
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
+.avd-boxOfExperience ul li p {
+    margin: 10px 0;
+    font-size: 13px;
+}
 .avd-boxOfExperience ul li button {
     cursor: pointer;
     position: relative;
