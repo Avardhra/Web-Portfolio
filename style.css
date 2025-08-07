@@ -77,18 +77,16 @@ a {
     position: absolute;
     background-color: var(--avd-color-2);
     animation: loadScreenOne 5s ease;
-
+    padding: 1px;
 }
 
 @keyframes loadScreenOne {
     0% {
-        padding: 0px;
         width: 0;
         height: 0;
     }
 
     15% {
-        padding: 5px;
         width: 100%;
         height: 0%;
     }
@@ -291,7 +289,6 @@ nav {
     z-index: 9999;
     position: fixed;
     background-color: transparent;
-    backdrop-filter: blur(1px);
     display: none;
     justify-content: center;
     align-items: center;
@@ -310,7 +307,7 @@ nav ul {
     padding: 10px 5%;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 90%;
     max-width: 60vh;
     height: 100%;
     border-radius: 100px;
@@ -374,11 +371,6 @@ main {
 }
 
 .avd-mainHome {
-    padding: 0 5%;
-    background-color: rgb(208, 208, 208);
-}
-
-.avd-mainHome .avd-boxHome {
     display: flex;
     position: relative;
     align-items: center;
@@ -560,12 +552,7 @@ main {
 }
 
 /*  */
-#avdAbout {
-    padding: 0 5%;
-    background-color: rgb(208, 208, 208);
-}
-
-#avdAbout .avd-boxAbout {
+#avdAbout  {
     display: flex;
     position: relative;
     justify-content: center;
@@ -1268,14 +1255,10 @@ main {
 
 
 /*  */
-#avdContact {
-    padding: 0 5%;
-    background-color: rgb(208, 208, 208);
-}
 
-#avdContact .avd-boxContact {
+#avdContact {
     display: flex;
-    position: relative;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -1283,13 +1266,6 @@ main {
     background-color: var(--avd-color-2);
     box-shadow: 0 0 55px rgb(170, 170, 170);
     padding: 5%;
-}
-
-#avdContact .avd-boxOfContact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
 }
 
 #avdContact .avd-boxOfContact h1 {

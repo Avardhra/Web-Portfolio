@@ -15,7 +15,9 @@
 <body>
     <!-- LOADING SCREEN -->
     <div class="avd-loadScreen" style="display: flex;">
-        <div class="avd-boxContainerOne"></div>
+        <div class="avd-boxContainerOne">
+
+        </div>
     </div>
     <!--  -->
     <!-- BOT -->
@@ -288,9 +290,8 @@
     </header>
 
     <main class="avd avd-mainHome" id="avdHome">
-        <div class="avd-boxHome">
             <div class="avd-home">
-                <div class="avd-welcomeBro">
+                <div class="avd-welcomeBro" >
                     <h1 id="avd_welcomeText">
                         Hello,
                     </h1>
@@ -318,15 +319,13 @@
             <div class="scroll-right">
                 <a href="#"><i class="bx bxs-circle"></i></a>
             </div>
-        </div>
     </main>
     <main id="avdAbout">
-        <div class="avd-boxAbout">
             <div class="avd-boxOfExperience">
                 <h1>Experience</h1>
-                <ul>
+                <ul >
                     <li>
-                        <h2>Desain Grafis</h2>
+                        <h2 >Desain Grafis</h2>
                         <p>
                             Memiliki pengalaman dalam desain grafis
                         </p>
@@ -348,10 +347,8 @@
                     </li>
                 </ul>
             </div>
-        </div>
     </main>
     <main id="avdContact">
-        <div class="avd-boxContact">
             <div class="avd-boxOfContact">
                 <h1>Hubungi Kami Melalui,</h1>
                 <ul>
@@ -377,10 +374,10 @@
                     </li>
                 </ul>
             </div>
-        </div>
     </main>
 </body>
 <script>
+    // avd-boxContainerOne
     document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
         document.querySelector(".avd-loadScreen").style.display = "none";
