@@ -106,7 +106,7 @@ a {
     }
 
     .avd-detailExperience .avd-frameDetailVscode {
-        width: 95%;
+        width: 97%;
         background-color: #872c2c;
         font-size: 13px;
     }
@@ -117,6 +117,9 @@ a {
         flex-wrap: wrap;
         overflow-y: auto;
     }
+       .avd-mainContentWelcome .avd-homeCode {
+        min-height: 65vh;
+       }
     .avd-mainContentProfile {
         display: flex;
         justify-content: center;
@@ -129,7 +132,7 @@ a {
 .avd-detailExperience {
     z-index: 99999;
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -545,8 +548,9 @@ a {
     padding: 6px 10px;
     border-radius: 3px;
     transition: all 0.2s ease;
-    transform: translateY(0px) translateX(50px);
     opacity: 0.5;
+    transform: translateY(0px) translateX(16px);
+    font-size: 15px;
 }
 
 .avd-loginCode form a {
@@ -587,7 +591,6 @@ a {
 
 .avd-loginCode form ul input:focus~label,
 .avd-loginCode form ul input:valid~label {
-    transform: translateY(0px) translateX(16px);
     color: rgb(24, 24, 24);
     background-color: var(--avd-color-3);
     opacity: 1;
@@ -650,7 +653,7 @@ a {
 
 .avd-profileAbout ul li .profileName h1 {
     font-weight: 100;
-    font-size: 1.5em;
+    font-size: 1.7em;
 }
 
 .avd-profileAbout ul li h2 {
@@ -677,7 +680,7 @@ a {
 .avd-profileAbout ul li .profileName p {
     font-size: 1em;
     margin: 5px 0;
-    padding: 5px 19px;
+    padding: 3px 12px;
     width: fit-content;
     font-weight: 100;
     color: rgb(102, 102, 102);
