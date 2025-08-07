@@ -100,10 +100,36 @@ a {
 }
 
 /*  */
+@media screen and (max-width:760px) {
+    .avd-detailHeader ul #hdrNextAndSearch i {
+        display: none;
+    }
+
+    .avd-detailExperience .avd-frameDetailVscode {
+        width: 95%;
+        background-color: #872c2c;
+        font-size: 13px;
+    }
+
+    .avd-mainContentWelcome {
+        height: 94%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow-y: auto;
+    }
+    .avd-mainContentProfile {
+        display: flex;
+        justify-content: center;
+        overflow-y: auto;
+        flex-wrap: wrap;
+        font-size: 13px;
+    }
+}
+
 .avd-detailExperience {
     z-index: 99999;
     position: fixed;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -384,8 +410,6 @@ a {
 .avd-mainContentWelcome {
     height: 94%;
     display: flex;
-    /* flex-wrap: wrap; */
-    /* overflow-y: auto; */
 }
 
 .avd-homeCode {
@@ -399,7 +423,8 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    min-height: 100%;
+
 }
 
 .avd-homeCode ul li {
@@ -507,6 +532,7 @@ a {
 }
 
 .avd-loginCode form ul {
+    position: relative;
     display: flex;
     align-items: center;
     margin: 10px 0px;
@@ -515,7 +541,7 @@ a {
 .avd-loginCode form ul label {
     cursor: text;
     position: absolute;
-    width: 5%;
+    width: fit-content;
     padding: 6px 10px;
     border-radius: 3px;
     transition: all 0.2s ease;
@@ -551,7 +577,6 @@ a {
     outline: 0.1px solid rgb(60, 60, 60);
     color: var(--avd-color-2);
     border-radius: 5px;
-    border-left: 5px solid var(--avd-color-3);
     transition: all 0.2s ease;
 }
 
@@ -578,8 +603,8 @@ a {
 .avd-profileImg {
     width: 80%;
     display: flex;
+    justify-content: center;
     align-items: end;
-    justify-content: right;
 }
 
 .avd-profileImg img {
@@ -607,28 +632,6 @@ a {
 .avd-profileAbout ul li {
     display: flex;
     flex-direction: column;
-}
-
-.avd-profileAbout ul .homeCode-contact {
-    display: flex;
-    flex-direction: row;
-}
-
-.avd-profileAbout ul .homeCode-contact a i {
-    padding: 10px;
-    background-color: rgb(24, 24, 24);
-    color: var(--avd-color-2);
-    border-radius: 5px;
-    outline: 1px solid var(--avd-color-2);
-    transition: all 0.2s ease;
-}
-
-.avd-profileAbout ul .homeCode-contact a {
-    height: fit-content;
-    width: fit-content;
-    margin: 0 5px;
-    padding: 5px;
-    border-radius: 6px;
 }
 
 .avd-profileAbout ul .homeCode-contact a i:hover {
@@ -1154,6 +1157,7 @@ main {
     width: fit-content;
     color: var(--avd-color-3);
     outline: 1px dashed var(--avd-color-3);
+    outline-width: 1px;
     padding: 5px 10px;
     border-radius: 3px;
 }
@@ -1195,6 +1199,7 @@ main {
     font-size: 12px;
     color: var(--avd-color-3);
     outline: 0.1px dashed var(--avd-color-3);
+    outline-width: 1px;
     padding: 5px 10px;
     border-radius: 3px;
 }
@@ -1257,7 +1262,7 @@ td {
     width: 100%;
     font-size: 14px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
     margin-top: 5vh;
 }
@@ -1265,23 +1270,66 @@ td {
 .avd-boxOfAcademic ul li {
     max-width: fit-content;
     width: 100%;
-    display: flex;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     margin: 1vh;
-    padding: 3%;
-    background-color: #1e1e1e;
-    outline: 1px solid rgb(60, 60, 60);
-    border-radius: 5px;
+    border: 10px solid #1e1e1e;
+    border-radius: 3px;
+    outline: 1px solid #3d3d3d;
 }
+
 .avd-boxOfAcademic ul li .detailImg {
     position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+.avd-boxOfAcademic ul li .detailImg .detailBox {
+    width: fit-content;
+    background-color: #000000d2;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.avd-boxOfAcademic ul li .detailImg .detailBox:hover {
+    opacity: 0;
+}
+
+.avd-boxOfAcademic ul li .detailImg .detailBox h2 {
+    font-size: 1.3em;
+    color: var(--avd-color-2);
+    padding: 5px 10px;
+    border-radius: 100px;
+}
+
+.avd-boxOfAcademic ul li .detailImg .detailBox h3 {
+    font-size: 14px;
+    color: var(--avd-color-2);
+    padding: 5px 10px;
+    font-weight: 100;
+}
+
+.avd-boxOfAcademic ul li .detailImg .detailBox p {
+    margin: 5px;
+}
+
 .avd-boxOfAcademic ul li img {
     width: 100%;
-    /* max-height: 35vh; */
+    max-height: 35vh;
     height: 100%;
     background-color: #872c2c;
 }
@@ -1405,7 +1453,7 @@ td {
 
 /*  */
 @media screen and (max-width:760px) {
-    .avd-circleBot {
+    .avd-sosmed {
         display: none;
     }
 

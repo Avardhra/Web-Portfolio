@@ -229,11 +229,6 @@
                                             tim.
                                         </p>
                                     </li>
-                                    <li class="homeCode-contact">
-                                        <a href="#"><i class="bx bxl-github"></i></a>
-                                        <a href="#"><i class="bx bxl-instagram"></i></a>
-                                        <a href="#"><i class="bx bxl-facebook"></i></a>
-                                    </li>
                                 </ul>
                             </div>
 
@@ -336,7 +331,7 @@
                         Memiliki pengalaman dalam desain grafis
                     </p>
                 </li>
-                 <li>
+                <li>
                     <div class="headingExp">
                         <h2>LKMM Pra-TD</h2>
                         <p>2024 - 2024</p>
@@ -346,7 +341,7 @@
                     </p>
                 </li>
                 <li>
-                   <div class="headingExp">
+                    <div class="headingExp">
                         <h2>Commite</h2>
                         <p>2024 - Now</p>
                     </div>
@@ -398,18 +393,24 @@
                 </li>
             </ul>
         </div>
-        <div class="avd-boxOfAcademic">
+        <div class="avd-boxOfAcademic" id="avdAcademic">
             <h1>Academic</h1>
             <ul>
                 <li>
                     <div class="detailImg">
-                        ITERA
+                        <div class="detailBox">
+                            <h2>INSTITUT TEKNOLOGI SUMATERA</h2>
+                            <h3>TEKNIK INFORMATIKA</h3>
+                        </div>
                     </div>
                     <img src="img/Drone-Itera.jpeg" alt="">
                 </li>
                 <li>
                     <div class="detailImg">
-
+                        <div class="detailBox">
+                            <h2>SMAN 1 SIDOMULYO</h2>
+                            <h3>MIPA</h3>
+                        </div>
                     </div>
                     <img src="img/Drone-Itera.jpeg" alt="">
                 </li>
@@ -469,20 +470,6 @@
         document.getElementById('inputSearchFile').focus();
     }
 
-
-    const openFileExplorer = document.getElementById('openFileExplorer');
-    const detailExplorer = document.getElementById('detailExplorer');
-    openFileExplorer.addEventListener('click', () => {
-        if (detailExplorer.style.display === 'none' || detailExplorer.style.display === '') {
-            detailExplorer.style.display = "block";
-            openFileExplorer.style.color = "var(--avd-color-2)";
-        } else {
-            openFileExplorer.style.color = "";
-            detailExplorer.style.display = "none";
-        }
-    })
-
-
     const avdAutoScroll = document.getElementById('avdHome');
     let scrollInterval = setInterval(() => {
         avdAutoScroll.scrollTop += 1;
@@ -523,10 +510,25 @@
     vscodeWelcomeBTN.style.backgroundColor = "rgb(32,32,32)";
     vscodeWelcome.style.display = "flex";
     vscodeWelcomeSFILE.style.backgroundColor = "rgb(24, 24, 24)";
-    // -----------------------------------------------------------
+    const vscodeAllMainfad = [vscodeWelcome, vscodeProfile, vscodeDesain];
+     // -----------------------------------------------------------
     const vscodeAllBTN = document.querySelectorAll('[data-target]');
     const vscodeAllMain = document.querySelectorAll('.avd-frame');
     const vscodeAllSFILE = document.querySelectorAll('.avd-SFILE');
+    // -----------------------------------------------------------
+    const openFileExplorer = document.getElementById('openFileExplorer');
+    const detailExplorer = document.getElementById('detailExplorer');
+    openFileExplorer.addEventListener('click', () => {
+        if (detailExplorer.style.display === 'none' || detailExplorer.style.display === '') {
+            detailExplorer.style.display = "block";
+            openFileExplorer.style.color = "var(--avd-color-2)";
+            
+        } else {
+            openFileExplorer.style.color = "";
+            detailExplorer.style.display = "none";
+        }
+    })
+    // -----------------------------------------------------------
     vscodeAllBTN.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetIds = btn.dataset.target.split(',');
@@ -603,6 +605,7 @@
         e.stopPropagation();
     })
 
+    // 
     const avd_icon = document.getElementById('avd-icon');
     const AllText = [
         "<img src='img/Gupta-icon.png' title='Gupta Icon'>",
