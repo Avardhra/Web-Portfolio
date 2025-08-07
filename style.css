@@ -441,7 +441,9 @@ main {
 .avd-home .avd-welcomeBro h1 {
     font-size: 2.5em;
 }
-
+.avd-home .avd-welcomeBro h1 i {
+    font-size: 12px;
+}
 .avd-home .avd-welcomeBro h2 {
     font-size: 2em;
 
