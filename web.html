@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="icon/Boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="icon/Font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="icon/Font-awesome/css/regular.min.css">
+    <title>AvdGupta</title>
+    <style>
+        @font-face {
+            font-family: paraStyle;
+            src: url('para/ParaRegular.ttf') format('truetype');
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        ::selection {
+            background-color: var(--avd-color-3);
+            color: var(--avd-color-2);
+        }
+
+        :root {
+            --avd-color-1: rgb(0, 0, 0);
+            --avd-color-2: white;
+            --avd-color-3: rgb(60, 145, 255);
+            --avd-bg: #ffffff;
+        }
+
+        ::-webkit-scrollbar {
+            background-color: var(--avd-color-2);
+            width: 10px;
+            display: none; /* Hidden by default, will be shown on larger screens */
+        }
+
+        ::-webkit-scrollbar-button {
+            background-color: var(--avd-color-1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--avd-color-1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'arial', paraStyle;
+            background-color: var(--avd-bg);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        h1, h2, h3, h4 {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* LOADING SCREEN */
+        .avd-loadScreen {
+            z-index: 99999;
+            position: fixed;
+            background-color: var(--avd-color-1);
+            width: 100%;
+            height: 100%;
+            display: flex; /* Ensure it's flex for centering */
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out; /* Smooth fade out */
+        }
+
+        .avd-loadScreen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .avd-loadScreen .avd-boxContainerOne {
+            position: absolute;
+            background-color: var(--avd-color-2);
+            animation: loadScreenOne 3.5s ease forwards; /* Use forwards to keep final state */
+            padding: 1px;
+        }
+
+        @keyframes loadScreenOne {
+            0% {
+                width: 0;
+                height: 0;
+            }
+            15% {
+                width: 100%;
+                height: 0%;
+            }
+            70% {
+                width: 100%;
+                height: 100%;
+            }
+            100% {
+                width: 100%;
+                height: 100%;
+                opacity: 0; /* Fade out the box itself */
+            }
+        }
+
+        /* POP UP VIDEO PENJELASAN */
+        .avd-popup {
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            z-index: 10000;
+            background-color: rgba(0, 0, 0, 0.545);
+            color: var(--avd-color-1);
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .avd-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .avd-popup .avd-boxPopup {
+            background-color: rgb(24, 24, 24);
+            border-radius: 2px;
+            width: 90%; /* Responsive width */
+            max-width: 70vh;
+            height: auto; /* Auto height for content */
+            box-shadow: 0 0 10px rgba(24, 24, 24, 0.538);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .avd-popup .avd-boxPopup .avd-popupHdr {
+            background-color: rgb(222, 222, 222);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .avd-popup .avd-boxPopup .avd-popupHdr p {
+            font-size: 14px;
+            color: var(--avd-color-1);
+        }
+
+        .avd-popup .avd-boxPopup .avd-popupHdr ul {
+            display: flex;
+        }
+
+        .avd-popup .avd-boxPopup .avd-popupHdr button {
+            border: none;
+            display: flex;
+            align-items: center;
+            color: var(--avd-color-1);
+            background-color: transparent;
+            padding: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .avd-popup .avd-boxPopup .avd-popupHdr button:hover {
+            background-color: var(--avd-color-3);
+            color: var(--avd-color-2);
+        }
+
+        .avd-popup .avd-boxPopup .avd-popupHdr .a_fullscreen:hover {
+            background-color: rgba(0, 0, 0, 0.137);
+        }
+
+        .avd-popup .avd-boxPopup iframe {
+            width: 100%;
+            height: 30vh; /* Fixed height for iframe, adjust as needed */
+            border: none;
+        }
+
+        /* Navbar (Mobile) */
+        nav {
+            z-index: 9999;
+            position: fixed;
+            background-color: transparent;
+            display: flex; /* Always flex for mobile */
+            justify-content: center;
+            align-items: center;
+            bottom: 3vh;
+            height: 10vh;
+            width: 100%;
+        }
+
+        nav ul {
+            position: relative;
+            background-color: #1e1e1e;
+            box-shadow: 0 0 5px rgba(24, 24, 24, 0.466);
+            outline: 0.1px solid #565656;
+            color: var(--avd-color-2);
+            display: flex;
+            font-size: 12px;
+            padding: 10px 5%;
+            justify-content: space-around; /* Distribute items evenly */
+            align-items: center;
+            width: 90%;
+            max-width: 600px; /* Max width for larger mobile devices */
+            height: 100%;
+            border-radius: 100px;
+        }
+
+        nav ul li {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 8px 2vh; /* Adjusted padding */
+            font-size: 0.8em; /* Smaller font size for mobile */
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        nav ul li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+        }
+
+        nav ul li i {
+            font-size: 1.8em; /* Adjusted icon size */
+            margin-bottom: 4px;
+        }
+
+        /* DetailProjectBagExperience UI Vscode */
+        .avd-detailExperience {
+            z-index: 99999;
+            position: fixed;
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.664);
+            overflow-y: auto;
+            padding: 10px; /* Add padding for smaller screens */
+        }
+
+        .avd-frameDetailVscode {
+            width: 95%; /* Responsive width */
+            max-width: 1200px; /* Max width for larger screens */
+            height: 90%; /* Responsive height */
+            max-height: 800px; /* Max height for larger screens */
+            outline: 0.1px solid rgb(127, 127, 127);
+            box-shadow: 0 0 5px var(--avd-color-1);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Hide overflow for internal elements */
+        }
+
+        .avd-detailFrame {
+            background-color: rgb(57, 57, 57);
+            flex-grow: 1; /* Allow it to take available space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .avd-detailHeader {
+            z-index: 22;
+            background-color: rgb(60, 60, 60);
+            display: flex;
+            width: 100%;
+            min-height: 6%;
+            max-height: 6%;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .avd-detailHeader ul {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px; /* Add padding */
+        }
+
+        .avd-detailHeader ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        .avd-detailHeader ul li i {
+            padding: 8px 10px; /* Adjusted padding */
+            color: var(--avd-color-2);
+            border-radius: 5px;
+            margin: 0 2px; /* Adjusted margin */
+            font-size: 1.1em; /* Adjusted font size */
+        }
+
+        .avd-detailHeader ul #hdrIconVscode {
+            font-size: 1.2em;
+        }
+
+        .avd-detailHeader ul #hdrIconVscode .bxl-visual-studio {
+            color: rgb(60, 145, 255);
+        }
+
+        .avd-detailHeader ul #hdrNextAndSearch {
+            flex-grow: 1; /* Allow it to grow */
+            justify-content: center; /* Center items */
+        }
+
+        .avd-detailHeader ul #hdrNextAndSearch i {
+            margin: 0 2px;
+            padding: 4px;
+            color: grey;
+            transition: all 0.1s ease;
+            border-radius: 2px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+
+        .avd-detailHeader ul #hdrNextAndSearch a i {
+            font-size: 1em;
+            background-color: rgb(87, 87, 87);
+            color: var(--avd-color-2);
+            border: 0.1px solid rgb(137, 137, 137);
+        }
+
+        .avd-detailHeader ul #hdrNextAndSearch i:hover {
+            background-color: rgb(87, 87, 87);
+            color: var(--avd-color-2);
+        }
+
+        .avd-detailHeader ul #hdrNextAndSearch input {
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.8em;
+            background-color: rgb(87, 87, 87);
+            color: var(--avd-color-2);
+            border: 0.1px solid rgb(137, 137, 137);
+            border-radius: 5px;
+            margin: 0 5px; /* Adjusted margin */
+            padding: 5px 10px; /* Adjusted padding */
+            width: 100%;
+            max-width: 250px; /* Max width for input */
+            opacity: 0.6;
+            transition: all 0.1s ease;
+        }
+
+        .avd-detailHeader ul #hdrNextAndSearch input::placeholder {
+            color: var(--avd-color-2);
+        }
+
+        .avd-detailHeader ul #hdrNextAndSearch input:hover,
+        .avd-detailHeader ul #hdrNextAndSearch input:focus {
+            opacity: 1;
+            outline: 2px solid gray;
+        }
+
+        .avd-detailHeader ul #hdrNav i {
+            transition: all 0.1s ease;
+        }
+
+        .avd-detailHeader ul #hdrNav i:hover {
+            background-color: rgb(87, 87, 87);
+        }
+
+        .avd-detailHeader ul #hdrNav .bx-x:hover {
+            background-color: var(--avd-color-3);
+        }
+
+        .avd-detailMain {
+            width: 100%;
+            flex-grow: 1;
+            display: flex;
+            background-color: rgb(24, 24, 24);
+        }
+
+        .avd-detailSidebar {
+            z-index: 2;
+            background-color: rgb(51, 51, 51);
+            width: 60px; /* Fixed width for sidebar */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: gray;
+        }
+
+        .avd-detailSidebar ul {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .avd-detailSidebar ul li {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .avd-detailSidebar ul li i {
+            padding: 12px 0; /* Adjusted padding */
+            transition: all 0.1s ease;
+            font-size: 1.4em; /* Adjusted font size */
+        }
+
+        .avd-detailSidebar ul li i:hover {
+            color: var(--avd-color-2);
+        }
+
+        .avd-detailExplorer {
+            background-color: rgb(35, 35, 35);
+            width: 200px; /* Fixed width for explorer */
+            display: none; /* Hidden by default, controlled by JS */
+            flex-shrink: 0; /* Prevent shrinking */
+            overflow-y: auto;
+        }
+
+        .avd-detailExplorer #ExplorerHdr li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--avd-color-2);
+            background-color: transparent;
+            padding: 10px;
+        }
+
+        .avd-detailExplorer #ExplorerHdr li p {
+            font-size: 0.8em;
+            text-transform: uppercase;
+        }
+
+        .avd-detailExplorer ul .avd-explorerNav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+        }
+
+        .avd-detailExplorer ul .avd-explorerNav h4 {
+            color: var(--avd-color-2);
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .avd-detailExplorer ul .avd-explorerNav h4 i {
+            font-size: 1em;
+            margin-right: 4px;
+        }
+
+        .avd-detailExplorer ul .avd-explorerNav button {
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            border-radius: 4px;
+            background-color: transparent;
+            color: var(--avd-color-2);
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .avd-detailExplorer ul .avd-explorerNav button:hover {
+            background-color: rgb(78, 78, 78);
+        }
+
+        .avd-detailExplorer ul li {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px; /* Adjusted padding */
+            color: var(--avd-color-2);
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .avd-detailExplorer ul li:hover {
+            background-color: rgb(46, 46, 46);
+        }
+
+        .avd-detailExplorer ul li i {
+            font-size: 1em;
+            margin-right: 5px;
+        }
+
+        .avd-mainFrame {
+            flex-grow: 1; /* Take remaining space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .avd-mainFrameFile {
+            width: 100%;
+            height: 6%;
+            min-height: 30px; /* Minimum height */
+            background-color: rgb(45, 45, 45);
+            color: var(--avd-color-2);
+            display: flex;
+            align-items: center;
+            overflow-x: auto; /* Allow horizontal scroll for tabs */
+        }
+
+        .avd-mainFrameFile ul {
+            display: flex;
+            height: 100%;
+        }
+
+        .avd-mainFrameFile ul li {
+            margin-right: 1px;
+            height: 100%;
+            flex-shrink: 0; /* Prevent tabs from shrinking */
+        }
+
+        .avd-mainFrameFile ul li a {
+            display: flex;
+            align-items: center;
+            padding: 0 15px; /* Adjusted padding */
+            color: var(--avd-color-2);
+            font-size: 0.9em;
+            height: 100%;
+        }
+
+        .avd-mainFrameFile ul li i {
+            font-size: 0.8em;
+            font-weight: 100;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .avd-frame {
+            flex-grow: 1; /* Take remaining vertical space */
+            display: none; /* Controlled by JS */
+            overflow-y: auto; /* Allow content to scroll */
+            padding: 20px; /* Add padding to content frames */
+        }
+
+        .avd-mainContentWelcome {
+            display: flex; /* Default display */
+            flex-wrap: wrap; /* Allow content to wrap */
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Gap between columns */
+        }
+
+        .avd-homeCode,
+        .avd-loginCode {
+            width: 100%; /* Full width on small screens */
+            max-width: 500px; /* Max width for columns */
+            padding: 20px;
+            color: var(--avd-color-2);
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            outline: 0.1px solid rgb(60, 60, 60);
+        }
+
+        .avd-homeCode ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100%;
+        }
+
+        .avd-homeCode ul li {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .avd-homeCode ul li h1 {
+            font-weight: 100;
+            font-size: 1.8em;
+        }
+
+        .avd-homeCode ul li h2 {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            background: linear-gradient(270deg, rgb(60, 145, 255), white, rgb(60, 145, 255));
+            background-size: 800% 800%;
+            color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: txtGrad 10s ease infinite;
+        }
+
+        .avd-homeCode ul li h2 i {
+            margin-right: 10px;
+            color: var(--avd-color-2);
+            -webkit-text-fill-color: initial;
+            background-color: rgb(60, 145, 255);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .avd-homeCode ul li h3 {
+            font-size: 1em;
+            padding: 5px 0px;
+            font-weight: 100;
+            color: gray;
+        }
+
+        .avd-homeCode ul li p {
+            border-radius: 2px;
+            width: fit-content;
+            padding: 3px 0px;
+            font-size: 1em;
+            color: rgb(219, 219, 219);
+        }
+
+        .avd-homeCode ul li button {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: none;
+            background-color: transparent;
+            background: linear-gradient(270deg, rgb(60, 145, 255), white, rgb(60, 145, 255));
+            background-size: 800% 800%;
+            color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: txtGrad 10s ease infinite;
+            padding: 5px 0px;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .avd-homeCode ul li button:hover {
+            opacity: 0.7;
+        }
+
+        .avd-homeCode ul li button i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .avd-loginCode form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .avd-loginCode form h1 {
+            font-weight: 100;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .avd-loginCode form ul {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .avd-loginCode form ul label {
+            cursor: text;
+            position: absolute;
+            padding: 6px 10px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+            opacity: 0.5;
+            transform: translateY(0px) translateX(16px);
+            font-size: 0.9em;
+            pointer-events: none; /* Allow clicks to pass through to input */
+        }
+
+        .avd-loginCode form a {
+            color: var(--avd-color-2);
+            background-color: var(--avd-color-3);
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.1s ease-in-out;
+            opacity: 0.9;
+        }
+
+        .avd-loginCode form a:hover {
+            opacity: 1;
+            box-shadow: 0 0 10px var(--avd-color-3);
+        }
+
+        .avd-loginCode form ul input {
+            position: relative;
+            border: none;
+            padding: 15px; /* Adjusted padding */
+            padding-left: 100px; /* Space for label */
+            width: 100%;
+            background-color: #1e1e1e;
+            outline: 0.1px solid rgb(60, 60, 60);
+            color: var(--avd-color-2);
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .avd-loginCode form ul input:focus {
+            outline: 2px solid rgb(71, 71, 71);
+            box-shadow: 0 0 10px rgba(71, 71, 71, 0.712);
+        }
+
+        .avd-loginCode form ul input:focus~label,
+        .avd-loginCode form ul input:valid~label {
+            color: rgb(24, 24, 24);
+            background-color: var(--avd-color-3);
+            opacity: 1;
+            font-size: 0.8em;
+            transform: translateY(-25px) translateX(0px); /* Move label up */
+        }
+
+        .avd-mainContentProfile {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .avd-profileImg {
+            width: 100%;
+            max-width: 300px; /* Max width for image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .avd-profileImg img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .avd-profileAbout {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            color: var(--avd-color-2);
+            background-color: #1e1e1e;
+            outline: 0.1px solid rgb(60, 60, 60);
+            border-radius: 10px;
+        }
+
+        .avd-profileAbout ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .avd-profileAbout ul li {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .avd-profileAbout ul li .profileName {
+            display: flex;
+            flex-direction: column; /* Stack on small screens */
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .avd-profileAbout ul li .profileName h1 {
+            font-weight: 100;
+            font-size: 1.7em;
+            margin-bottom: 5px;
+        }
+
+        .avd-profileAbout ul li .profileName p {
+            font-size: 0.9em;
+            padding: 3px 8px;
+            width: fit-content;
+            font-weight: 100;
+            color: rgb(102, 102, 102);
+            background-color: #1e1e1e;
+            outline: 0.1px dashed rgb(102, 102, 102);
+            outline-style: dashed;
+            outline-width: 1.1px;
+            border-radius: 5px;
+        }
+
+        .avd-profileAbout ul li h2 {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            background: linear-gradient(270deg, rgb(60, 145, 255), white, rgb(60, 145, 255));
+            background-size: 800% 800%;
+            color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: txtGrad 10s ease infinite;
+            margin-bottom: 15px;
+        }
+
+        .avd-profileAbout ul li h2 i {
+            margin-right: 10px;
+            color: var(--avd-color-2);
+            -webkit-text-fill-color: initial;
+            background-color: rgb(60, 145, 255);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .avd-profileAbout ul li h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: var(--avd-color-3);
+        }
+
+        .avd-profileAbout ul li p {
+            font-size: 0.9em;
+            white-space: pre-line;
+            color: var(--avd-color-2);
+        }
+
+        .avd-mainContentDesain {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            color: var(--avd-color-2);
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .avd-mainContentDesain img {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Max width for image */
+            height: auto;
+            margin-top: 20px; /* Adjusted margin */
+        }
+
+        .avd-detailFooter {
+            background-color: rgb(60, 145, 255);
+            width: 100%;
+            min-height: 30px; /* Minimum height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            padding: 5px 10px;
+        }
+
+        .avd-detailFooter ul {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--avd-color-2);
+        }
+
+        .avd-detailFooter ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        .avd-detailFooter ul li i {
+            padding: 0 5px;
+            font-size: 1em;
+        }
+
+        .avd-detailFooter ul li p {
+            font-size: 0.8em;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+        }
+
+        /* Header */
+        header {
+            z-index: 9999;
+            width: 100%;
+            height: 8vh;
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1vh 2vh;
+            background-color: var(--avd-color-1);
+            box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.527);
+        }
+
+        header img {
+            width: 6vh;
+            height: 6vh;
+        }
+
+        header #avd-icon {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        header .fade-out {
+            opacity: 0;
+        }
+
+        header .fade-in {
+            opacity: 1;
+        }
+
+        header .fade h1 {
+            background: linear-gradient(270deg, var(--avd-color-3), var(--avd-color-1), var(--avd-color-3));
+            background-size: 800% 800%;
+            color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: txtGrad 10s ease infinite;
+        }
+
+        @keyframes txtGrad {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            90% {}
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header .avd-boxOfMenu {
+            display: flex;
+            align-items: center;
+            height: fit-content;
+            width: fit-content;
+        }
+
+        header .avd-boxOfSearch {
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: var(--avd-color-2);
+            width: auto; /* Auto width for search box */
+        }
+
+        header .avd-boxOfSearch i {
+            z-index: 8;
+            position: absolute;
+            transform: translateX(8px); /* Adjusted position */
+            pointer-events: none; /* Allow clicks to pass through */
+        }
+
+        header .avd-boxOfSearch input {
+            cursor: pointer;
+            z-index: 9;
+            border: none;
+            padding: 8px 10px;
+            padding-left: 35px; /* Space for icon */
+            width: 40px; /* Initial collapsed width */
+            background-color: transparent;
+            color: var(--avd-color-3);
+            transition: all 0.3s ease-in-out;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        header .avd-boxOfSearch input::placeholder {
+            color: var(--avd-color-2);
+        }
+
+        header .avd-boxOfSearch input:focus,
+        header .avd-boxOfSearch input:valid {
+            width: 200px; /* Expanded width */
+            background-color: rgb(87, 87, 87);
+            outline: 1px solid var(--avd-color-3);
+            opacity: 1;
+        }
+
+        header .avd-boxOfMenu ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header .avd-boxOfMenu ul li a {
+            display: flex;
+            justify-content: center;
+            margin: 0 10px; /* Adjusted margin */
+            color: var(--avd-color-2);
+            border-bottom: 2px solid transparent;
+            padding: 5px 0;
+            transition: border-bottom 0.2s ease, color 0.2s ease;
+        }
+
+        header .avd-boxOfMenu ul li a:hover {
+            color: var(--avd-color-3);
+            border-bottom: 2px solid var(--avd-color-3);
+        }
+
+        header .avd-boxOfMenu ul li {
+            padding: 7px 5px;
+            transition: all 0.1s ease-in-out;
+            display: flex;
+            justify-content: center;
+            position: relative; /* For sub-menu positioning */
+        }
+
+        header .avd-boxOfMenu ul li .subAbout {
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+            color: var(--avd-color-1);
+            top: 100%; /* Position below parent */
+            left: 0;
+            display: none;
+            flex-direction: column;
+            padding: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            min-width: 150px;
+            z-index: 100;
+        }
+
+        header .avd-boxOfMenu ul li .subAbout.active {
+            display: flex;
+        }
+
+        header .avd-boxOfMenu ul li .subAbout .subLink {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            font-size: 0.9em;
+            transition: all 0.2s ease;
+            color: var(--avd-color-1);
+            border-radius: 3px;
+        }
+
+        header .avd-boxOfMenu ul li .subAbout .subLink:hover {
+            background-color: var(--avd-color-1);
+            color: var(--avd-color-2);
+            transform: translateX(5px);
+        }
+
+        header .avd-boxOfMenu ul li .subAbout .subLink:active {
+            background-color: var(--avd-color-3);
+            color: var(--avd-color-1);
+        }
+
+        /* Main Sections */
+        main {
+            min-width: 100%;
+            min-height: 100vh;
+            padding-top: 8vh; /* Space for fixed header */
+        }
+
+        .avd-mainHome {
+            display: flex;
+            position: relative;
+            align-items: center;
+            width: 100%;
+            min-height: calc(100vh - 8vh); /* Full viewport height minus header */
+            background-color: var(--avd-bg);
+            box-shadow: 0 0 55px rgb(170, 170, 170);
+            padding: 5%;
+            flex-wrap: wrap; /* Allow content to wrap */
+            justify-content: center;
+            gap: 30px; /* Gap between text and image */
+        }
+
+        .avd-mainHome .avd-profileUserHP {
+            width: 100%;
+            display: none; /* Hidden by default, shown on mobile */
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .avd-mainHome .avd-profileUserHP img {
+            width: 60%;
+            max-width: 250px; /* Max width for mobile profile image */
+            border-radius: 100%;
+            background-color: #1e1e1e;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .avd-mainHome .avd-profileUser {
+            width: 40%; /* Take 40% width on larger screens */
+            max-width: 400px; /* Max width for desktop profile image */
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .avd-mainHome .avd-profileUser img {
+            cursor: pointer;
+            width: 100%;
+            height: auto;
+            border-radius: 100%;
+            box-shadow: 0px 10px 0 var(--avd-color-1);
+            filter: saturate(0);
+            transition: all 0.4s ease-out;
+        }
+
+        .avd-mainHome .avd-profileUser img:hover {
+            filter: saturate(1);
+        }
+
+        .avd-home {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            color: var(--avd-color-1);
+            width: 100%;
+            max-width: 600px; /* Max width for text content */
+            text-align: center; /* Center text on smaller screens */
+        }
+
+        .avd-welcomeBro {
+            margin-bottom: 20px;
+        }
+
+        .avd-home .avd-welcomeBro h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        .avd-home .avd-welcomeBro h2 {
+            font-size: 2.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center on mobile */
+        }
+
+        .avd-home .avd-welcomeBro h2 i {
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+
+        .avd-home p {
+            width: 100%;
+            margin: 19px auto; /* Center paragraph */
+            font-size: 1.1em;
+            max-width: 500px;
+        }
+
+        .avd-BtnHome {
+            cursor: pointer;
+            position: relative;
+            display: inline-flex; /* Use inline-flex for centering */
+            justify-content: center;
+            outline: 1px solid black;
+            width: fit-content;
+            perspective: 800px;
+            transition: all 0.32s ease-in-out;
+            margin: 0 auto; /* Center the button container */
+        }
+
+        .avd-BtnHome a {
+            text-decoration: none;
+            font-size: 1em;
+            padding: 10px 18px;
+            margin: 5px;
+            outline: 1px solid var(--avd-color-1);
+            background-color: transparent;
+            color: var(--avd-color-1);
+            transition: all 0.15s ease-in-out;
+        }
+
+        .avd-BtnHome:hover {
+            transform: rotateX(20deg) scale(0.95);
+            box-shadow: 0px 5px 0 var(--avd-color-1);
+        }
+
+        .avd-BtnHome a:hover {
+            background-color: var(--avd-color-1);
+            color: var(--avd-color-2);
+            transform: scale(0.90);
+        }
+
+        .avd-sosmed {
+            position: absolute;
+            bottom: 5vh;
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            margin: 5vh 0;
+            outline: 1px solid var(--avd-color-1);
+            transition: all 0.2s ease;
+            display: flex; /* Ensure flex for social icons */
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .avd-sosmed a {
+            display: flex;
+            margin: 5px;
+            padding: 2px;
+            position: relative;
+            color: var(--avd-color-2);
+            outline: 1px solid var(--avd-color-1);
+            transition: all 0.2s ease;
+        }
+
+        .avd-sosmed a i {
+            padding: 6px;
+            background-color: transparent;
+            color: var(--avd-color-1);
+            border-radius: 100px;
+            font-size: 1.5em;
+            transition: all 0.2s ease;
+        }
+
+        .avd-sosmed:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .avd-sosmed a:hover {
+            transform: scale(0.85);
+            background-color: var(--avd-color-2);
+            box-shadow: 5px 5px 0 black;
+            border-radius: 5px;
+        }
+
+        /* About Section */
+       
+
+        
+
+        .avd-boxOfExperience h1 {
+            font-size: 2em;
+            width: fit-content;
+            color: var(--avd-color-3);
+            outline: 1px dashed var(--avd-color-3);
+            outline-width: 1px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin-bottom: 30px; /* Space below heading */
+        }
+
+        .avd-boxOfExperience ul {
+            width: 100%;
+            font-size: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Gap between experience items */
+        }
+
+        .avd-boxOfExperience ul li {
+            position: relative;
+            width: 100%; /* Full width on small screens */
+            padding: 20px;
+            background-color: #1e1e1e;
+            outline: 1px solid rgb(60, 60, 60);
+            border-radius: 5px;
+        }
+
+        .avd-boxOfExperience ul li .headingExp {
+            display: flex;
+            flex-direction: column; /* Stack on small screens */
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .avd-boxOfExperience ul li .headingExp h2 {
+            font-size: 1.2em;
+            font-weight: 100;
+            background-color: var(--avd-color-3);
+            width: fit-content;
+            padding: 5px 15px;
+            border-radius: 3px;
+            margin-bottom: 5px;
+        }
+
+        .avd-boxOfExperience ul li .headingExp p {
+            font-size: 0.9em;
+            color: var(--avd-color-3);
+            outline: 0.1px dashed var(--avd-color-3);
+            outline-width: 1px;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        .avd-boxOfExperience ul li p {
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+
+        /* Table */
+        .avd-boxOfExperience ul li table {
+            border-radius: 5px;
+            border: 1px solid rgb(60, 60, 60);
+            border-collapse: collapse; /* Use collapse for better table rendering */
+            overflow: hidden;
+            width: 100%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+
+        .avd-boxOfExperience ul li table thead {
+            background-color: rgb(60, 60, 60);
+        }
+
+        .avd-boxOfExperience ul li table th,
+        td {
+            border: 1px solid rgb(60, 60, 60);
+            padding: 10px 5px; /* Adjusted padding */
+            color: var(--avd-color-2);
+            text-align: center;
+        }
+
+        /* Academic Section */
+        #avdAbout .avd-boxOfAcademic {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #avdAbout .avd-boxOfAcademic h1 {
+            font-size: 2em;
+            width: fit-content;
+            color: var(--avd-color-3);
+            outline: 1px dashed var(--avd-color-3);
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin-bottom: 30px;
+        }
+
+        .avd-boxOfAcademic ul {
+            width: 100%;
+            font-size: 14px;
+            display: flex;
+            justify-content: center; /* Center items */
+            flex-wrap: wrap;
+            gap: 20px; /* Gap between academic items */
+        }
+
+        .avd-boxOfAcademic ul li {
+            width: 100%; /* Full width on small screens */
+            max-width: 400px; /* Max width for academic card */
+            position: relative;
+            display: flex;
+            flex-direction: column; /* Stack image and text */
+            border: 10px solid #1e1e1e;
+            border-radius: 8px;
+            outline: 1px solid #3d3d3d;
+            overflow: hidden; /* Hide overflow for image */
+        }
+
+        .avd-boxOfAcademic ul li .detailImg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .avd-boxOfAcademic ul li .detailImg .detailBox {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .avd-boxOfAcademic ul li .detailImg .detailBox:hover {
+            opacity: 0;
+        }
+
+        .avd-boxOfAcademic ul li .detailImg .detailBox h2 {
+            font-size: 1.3em;
+            color: var(--avd-color-2);
+            padding: 5px 10px;
+            border-radius: 100px;
+            margin-bottom: 10px;
+        }
+
+        .avd-boxOfAcademic ul li .detailImg .detailBox h3 {
+            font-size: 1em;
+            color: var(--avd-color-2);
+            padding: 5px 10px;
+            font-weight: 100;
+        }
+
+        .avd-boxOfAcademic ul li img {
+            width: 100%;
+            height: 200px; /* Fixed height for academic images */
+            object-fit: cover; /* Cover the area */
+            display: block;
+        }
+
+        /* Contact Section */
+        #avdContact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: calc(100vh - 8vh); /* Full viewport height minus header */
+            background-color: var(--avd-color-2);
+            box-shadow: 0 0 55px rgb(170, 170, 170);
+            padding: 5%;
+        }
+
+        #avdContact .avd-boxOfContact {
+            width: 100%;
+            max-width: 800px; /* Max width for contact box */
+            text-align: center;
+        }
+
+        #avdContact .avd-boxOfContact h1 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--avd-color-1);
+        }
+
+        #avdContact .avd-boxOfContact ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px; /* Gap between social icons */
+        }
+
+        #avdContact .avd-boxOfContact ul li {
+            outline: 1px solid var(--avd-color-1);
+            transition: all 0.25s ease-in-out;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        #avdContact .avd-boxOfContact ul li:hover {
+            transform: scale(1.1);
+            box-shadow: 4px 4px 0px var(--avd-color-1);
+        }
+
+        #avdContact .avd-boxOfContact ul li a {
+            color: var(--avd-color-1);
+            display: flex;
+            align-items: center;
+            font-size: 2em;
+            padding: 8px;
+            outline: 1px solid var(--avd-color-1);
+            transition: all 0.2s ease-in-out;
+            border-radius: 100px; /* Circle shape */
+        }
+
+        #avdContact .avd-boxOfContact ul li a:hover {
+            transform: scale(0.9);
+            background-color: var(--avd-color-1);
+            color: var(--avd-color-2);
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (min-width: 761px) {
+            ::-webkit-scrollbar {
+                display: block; /* Show scrollbar on larger screens */
+            }
+
+            nav {
+                display: none; /* Hide mobile nav on larger screens */
+            }
+
+            header .avd-boxOfMenu ul {
+                display: flex; /* Show desktop menu */
+            }
+
+            .avd-mainHome .avd-profileUserHP {
+                display: none;
+            }
+
+            .avd-mainHome .avd-profileUser {
+                display: flex; /* Show desktop profile image */
+            }
+
+            .avd-home {
+                text-align: left; /* Align text left on desktop */
+            }
+
+            .avd-home .avd-welcomeBro h2 {
+                justify-content: flex-start; /* Align left on desktop */
+            }
+
+            .avd-home p {
+                margin-left: 0; /* Remove auto margin */
+                margin-right: auto;
+            }
+
+            .avd-BtnHome {
+                margin-left: 0; /* Align button left */
+                margin-right: auto;
+            }
+
+            .avd-sosmed {
+                left: auto;
+                right: 5%; /* Position to the right */
+                transform: none; /* Remove transform */
+                flex-direction: column; /* Stack vertically */
+            }
+
+            .avd-sosmed a {
+                float: none; /* Remove float */
+            }
+
+            .avd-detailExperience .avd-frameDetailVscode {
+                width: 80%;
+                height: 80%;
+            }
+
+            .avd-detailHeader ul #hdrNextAndSearch i {
+                display: inline-block; /* Show icons */
+            }
+
+            .avd-detailExplorer {
+                display: block; /* Show explorer by default on desktop */
+            }
+
+            .avd-mainContentWelcome {
+                flex-wrap: nowrap; /* Prevent wrapping */
+                justify-content: space-around; /* Distribute columns */
+            }
+
+            .avd-homeCode,
+            .avd-loginCode {
+                width: 48%; /* Two columns */
+            }
+
+            .avd-profileAbout ul li .profileName {
+                flex-direction: row; /* Row on larger screens */
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .avd-profileImg {
+                width: 40%; /* Take 40% width */
+                margin-bottom: 0;
+            }
+
+            .avd-profileAbout {
+                width: 55%; /* Take 55% width */
+            }
+
+            .avd-boxOfExperience ul li {
+                width: calc(50% - 10px); /* Two columns with gap */
+            }
+
+            .avd-boxOfExperience ul li .headingExp {
+                flex-direction: row; /* Row on larger screens */
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .avd-boxOfAcademic ul li {
+                width: calc(33.33% - 14px); /* Three columns with gap */
+            }
+
+            #footerName {
+                display: flex; /* Show footer name */
+            }
+        }
+
+        @media screen and (max-width: 760px) {
+            .avd-detailHeader ul #hdrNextAndSearch i {
+                display: none; /* Hide icons on small screens */
+            }
+
+            .avd-detailExperience .avd-frameDetailVscode {
+                width: 97%;
+                font-size: 13px;
+                height: 95%; /* More height for mobile */
+            }
+
+            .avd-mainContentWelcome {
+                height: auto; /* Auto height for content */
+                flex-wrap: wrap;
+                overflow-y: auto;
+                padding: 10px; /* Smaller padding */
+            }
+
+            .avd-homeCode,
+            .avd-loginCode {
+                min-height: auto; /* Auto height */
+                padding: 15px; /* Smaller padding */
+            }
+
+            .avd-mainContentProfile {
+                display: flex;
+                justify-content: center;
+                overflow-y: auto;
+                flex-wrap: wrap;
+                font-size: 13px;
+                padding: 10px;
+            }
+
+            .avd-profileImg {
+                width: 80%; /* Larger image on mobile */
+            }
+
+            .avd-profileAbout {
+                width: 100%; /* Full width on mobile */
+                padding: 15px;
+            }
+
+            .avd-mainContentDesain {
+                padding: 10px;
+            }
+
+            .avd-mainContentDesain img {
+                margin-top: 5vh; /* Smaller margin */
+            }
+
+            header .avd-boxOfMenu ul {
+                display: none; /* Hide desktop menu */
+            }
+
+            header .avd-boxOfSearch input {
+                width: 150px; /* Always show search input on mobile */
+                background-color: rgb(87, 87, 87);
+                opacity: 1;
+                padding-left: 35px;
+            }
+
+            header .avd-boxOfSearch i {
+                color: var(--avd-color-3);
+            }
+
+            .avd-mainHome .avd-profileUserHP {
+                display: flex; /* Show mobile profile image */
+            }
+
+            .avd-mainHome .avd-profileUser {
+                display: none; /* Hide desktop profile image */
+            }
+
+            .avd-home .avd-welcomeBro h1 {
+                font-size: 2em; /* Smaller font size */
+            }
+
+            .avd-home .avd-welcomeBro h2 {
+                font-size: 1.5em; /* Smaller font size */
+            }
+
+            .avd-home p {
+                font-size: 1em; /* Smaller font size */
+            }
+
+            .avd-BtnHome a {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            .avd-sosmed {
+                display: none; /* Hide social media on small screens */
+            }
+
+            .avd-popup .avd-boxPopup {
+                max-width: 90%; /* Wider on small screens */
+                height: auto;
+            }
+
+            .avd-popup .avd-boxPopup iframe {
+                height: 25vh; /* Smaller iframe height */
+            }
+
+            #footerName {
+                display: none; /* Hide footer name on small screens */
+            }
+
+            .avd-detailSidebar {
+                width: 50px; /* Even smaller sidebar */
+            }
+
+            .avd-detailSidebar ul li i {
+                font-size: 1.2em;
+                padding: 10px 0;
+            }
+
+            .avd-detailExplorer {
+                width: 150px; /* Smaller explorer width */
+            }
+
+            .avd-detailExplorer ul li {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+
+            .avd-mainFrameFile ul li a {
+                font-size: 0.8em;
+                padding: 0 10px;
+            }
+
+            .avd-mainFrameFile ul li i {
+                margin-left: 5px;
+            }
+
+            .avd-boxOfExperience ul li {
+                width: 100%; /* Full width */
+            }
+
+            .avd-boxOfAcademic ul li {
+                width: 100%; /* Full width */
+            }
+
+            .avd-boxOfExperience ul li table {
+                font-size: 0.8em;
+            }
+
+            .avd-boxOfExperience ul li table th,
+            td {
+                padding: 8px 3px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .avd-home .avd-welcomeBro h1 {
+                font-size: 1.8em;
+            }
+
+            .avd-home .avd-welcomeBro h2 {
+                font-size: 1.3em;
+            }
+
+            .avd-home p {
+                font-size: 0.9em;
+            }
+
+            .avd-BtnHome a {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+
+            .avd-detailHeader ul #hdrIconVscode {
+                font-size: 1em;
+            }
+
+            .avd-detailHeader ul #hdrNextAndSearch input {
+                width: 100px; /* Even smaller search input */
+                font-size: 0.7em;
+                padding: 4px 8px;
+            }
+
+            .avd-detailHeader ul #hdrNav i {
+                font-size: 0.9em;
+                padding: 6px 8px;
+            }
+
+            .avd-detailSidebar {
+                width: 40px;
+            }
+
+            .avd-detailSidebar ul li i {
+                font-size: 1em;
+                padding: 8px 0;
+            }
+
+            .avd-detailExplorer {
+                width: 120px;
+            }
+
+            .avd-detailExplorer ul li {
+                font-size: 0.7em;
+                padding: 5px 8px;
+            }
+
+            .avd-mainFrameFile ul li a {
+                font-size: 0.7em;
+                padding: 0 8px;
+            }
+
+            .avd-homeCode ul li h1 {
+                font-size: 1.5em;
+            }
+
+            .avd-homeCode ul li h2 {
+                font-size: 1em;
+            }
+
+            .avd-homeCode ul li h3 {
+                font-size: 0.9em;
+            }
+
+            .avd-homeCode ul li p {
+                font-size: 0.85em;
+            }
+
+            .avd-homeCode ul li button {
+                font-size: 0.9em;
+            }
+
+            .avd-loginCode form h1 {
+                font-size: 1.3em;
+            }
+
+            .avd-loginCode form ul label {
+                font-size: 0.7em;
+                transform: translateY(-20px) translateX(0px);
+            }
+
+            .avd-loginCode form ul input {
+                padding: 12px;
+                padding-left: 80px;
+                font-size: 0.9em;
+            }
+
+            .avd-loginCode form a {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            .avd-profileAbout ul li .profileName h1 {
+                font-size: 1.4em;
+            }
+
+            .avd-profileAbout ul li .profileName p {
+                font-size: 0.8em;
+            }
+
+            .avd-profileAbout ul li h2 {
+                font-size: 1em;
+            }
+
+            .avd-profileAbout ul li h4 {
+                font-size: 1em;
+            }
+
+            .avd-profileAbout ul li p {
+                font-size: 0.8em;
+            }
+
+            .avd-boxOfExperience h1,
+            #avdAbout .avd-boxOfAcademic h1 {
+                font-size: 1.8em;
+            }
+
+            .avd-boxOfExperience ul li .headingExp h2 {
+                font-size: 1em;
+            }
+
+            .avd-boxOfExperience ul li .headingExp p {
+                font-size: 0.8em;
+            }
+
+            .avd-boxOfExperience ul li p {
+                font-size: 0.85em;
+            }
+
+            .avd-boxOfExperience ul li table {
+                font-size: 0.7em;
+            }
+
+            .avd-boxOfAcademic ul li .detailImg .detailBox h2 {
+                font-size: 1.1em;
+            }
+
+            .avd-boxOfAcademic ul li .detailImg .detailBox h3 {
+                font-size: 0.9em;
+            }
+
+            #avdContact .avd-boxOfContact h1 {
+                font-size: 1.5em;
+            }
+
+            #avdContact .avd-boxOfContact ul li a {
+                font-size: 1.5em;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- LOADING SCREEN -->
+    <div class="avd-loadScreen" style="display: flex;">
+        <div class="avd-boxContainerOne">
+
+        </div>
+    </div>
+    <!--  -->
+    <!-- BOT -->
+    <!-- <div class="avd-circleBot">
+        <a href="#"><i class="bx bx-message-minus"></i></a>
+    </div> -->
+    <!--  -->
+    <!-- POP UP VIDEO PENJELASAN -->
+    <div class="avd-popup" id="closePopUp" style="display: flex;">
+        <div class="avd-boxPopup" id="boxPopup">
+            <div class="avd-popupHdr">
+                <p>Video Demonstrasi</p>
+                <ul>
+                    <button id="fullscreenBTN" class="a_fullscreen" title="Fullscreen"><i
+                            class="bx bx-fullscreen"></i></button>
+                    <button id="closePopUpBTN" title="Exit"><i class="bx bx-x"></i></button>
+                </ul>
+            </div>
+            <iframe src="" title="Penjelasan mengenai website ini" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-pitcure"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+    <!--  -->
+    <!-- Navbar => [ ] -->
+    <nav>
+        <ul>
+            <li>
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </li>
+            <li>
+                <i class="fa-regular fa-address-card"></i>
+                <span>About Me</span>
+            </li>
+            <li>
+                <i class="fa-regular fa-address-card"></i>
+                <span>Contact</span>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- Navbar END -->
+    <!-- DetailProjectBagExperience UI Vscode -->
+    <div class="avd-detailExperience" id="detailExperience">
+        <div class="avd-frameDetailVscode" title="Hanya UI VsCode">
+            <div class="avd-detailHeader">
+                <ul>
+                    <li id="hdrIconVscode">
+                        <i class="bx bxl-visual-studio"></i>
+                        <i class="bx bx-menu"></i>
+                    </li>
+                    <li id="hdrNextAndSearch">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <input type="text" placeholder="Search My Projects" id="inputSearchFile">
+                        <a href="#"><i class="bx bxl-github"></i></a>
+                        <a href="#"><i class="bx bxl-instagram"></i></a>
+                        <a href="#"><i class="bx bxl-facebook"></i></a>
+                    </li>
+                    <li id="hdrNav">
+                        <i class="bx bx-minus" title="Ga berfungsi"></i>
+                        <i class="bx bx-square" title="Fullscreen"></i>
+                        <i class="bx bx-x" id="detailExperienceExitBTN" title="Exit"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="avd-detailFrame">
+                <div class="avd-detailMain">
+                    <div class="avd-detailSidebar">
+                        <ul>
+                            <li>
+                                <i class="bx bx-copy" id="openFileExplorer" title="Open Explorer"></i>
+                                <i class="bx bx-search" title="Ga Berfungsi" onclick="SearchFile()"></i>
+                                <i class="bx bx-extension" title="Ga Berfungsi"></i>
+                                <i class="bx bx-share" title="Ga Berfungsi"></i>
+                            </li>
+                            <li>
+                                <i class="bx bx-user-circle"></i>
+                                <i class="bx bx-cog"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="avd-detailExplorer" id="detailExplorer">
+                        <ul id="ExplorerHdr">
+                            <li>
+                                <p>EXPLORER</p>
+                                <i class="fa fa-ellipsis"></i>
+                            </li>
+                        </ul>
+                        <ul>
+                            <div class="avd-explorerNav">
+                                <h4><i class="bx bx-chevron-down"></i>Gupta</h4>
+                                <button>
+                                    <i class="fa-regular fa-file"></i>
+                                </button>
+                                <button>
+                                    <i class="fa-regular fa-folder"></i>
+                                </button>
+                                <button>
+                                    <i class="fa fa-rotate-right"></i>
+                                </button>
+                                <button>
+                                    <i class="fa-regular fa-clone"></i>
+                                </button>
+                            </div>
+                            <li id="vscodeWelcomeBTN" class="vscodeAllBTN"
+                                data-target="vscodeWelcome,vscodeWelcomeSFILE">
+                                <i class="bx bxl-html5"></i>
+                                <p>welcome</p>
+                            </li>
+                            <li id="vscodeProfileBTN" class="vscodeAllBTN"
+                                data-target="vscodeProfile,vscodeProfileSFILE">
+                                <i class="bx bxl-html5"></i>
+                                <p>profile.html</p>
+                            </li>
+                            <li id="vscodeDesainBTN" class="vscodeAllBTN" data-target="vscodeDesain,vscodeDesainSFILE">
+                                <i class="bx bxs-image"></i>
+                                <p>desain.png</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="avd-mainFrame">
+                        <div class="avd-mainFrameFile">
+                            <ul>
+                                <li id="vscodeWelcomeSFILE" class="avd-SFILE"
+                                    data-target="vscodeWelcome,vscodeWelcomeBTN,vscodeWelcomeSFILE">
+                                    <a href="#">
+                                        <p>welcome</p>
+                                        <i class="bx bx-x" id="sfileWelcomeExitBTN"></i>
+                                    </a>
+                                </li>
+                                <li id="vscodeProfileSFILE" class="avd-SFILE" style="display: none;"
+                                    data-target="vscodeProfile,vscodeProfileBTN,vscodeProfileSFILE">
+                                    <a href="#">
+                                        <p>profile.html</p>
+                                        <i class="bx bx-x" id="sfileProfileExitBTN"></i>
+                                    </a>
+                                </li>
+                                <li id="vscodeDesainSFILE" class="avd-SFILE" style="display: none;"
+                                    data-target="vscodeDesain,vscodeDesainBTN,vscodeDesainSFILE">
+                                    <a href="#">
+                                        <p>desain.html</p>
+                                        <i class="bx bx-x" id="sfileDesainExitBTN"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="avd-frame avd-mainContentWelcome" id="vscodeWelcome">
+                            <div class="avd-homeCode">
+                                <ul>
+                                    <li>
+                                        <h1>Gede Valendra</h1>
+                                        <h2><i class="bx bx-code"></i>Teknik Informatika - ITERA</h2>
+                                        <h3>Today's journey will be a story in the future.</h3>
+
+                                    </li>
+                                    <li>
+                                        <p>Start</p>
+                                        <button><i class="bx bx-id-card"></i>My Profile...</button>
+                                        <button><i class="bx bx-folder-open"></i>My Project...</button>
+                                        <button><i class="bx bx-code"></i>My Girl...</button>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                            <div class="avd-loginCode">
+                                <form action="#">
+                                    <h1>Login</h1>
+                                    <ul>
+                                        <input type="text" id="username" name="username" value="Gede Valendra"
+                                            autocorrect="off" spellcheck="false" autocomplete="none">
+                                        <label for="username">Username</label>
+                                    </ul>
+                                    <ul>
+                                        <input type="password" id="password" name="password" required autocorrect="off"
+                                            spellcheck="false" autocomplete="none">
+                                        <label for="password">Password</label>
+                                    </ul>
+                                    <a href="#">Login</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="avd-frame avd-mainContentProfile" id="vscodeProfile">
+                            <div class="avd-profileAbout">
+                                <ul>
+                                    <li>
+                                        <div class="profileName">
+                                            <h1>Gede Valendra</h1>
+                                            <p>124140142</p>
+                                        </div>
+
+                                        <h2><i class="bx bx-code"></i>Teknik Informatika - ITERA</h2>
+                                    </li>
+                                    <li>
+                                        <h4>About Me</h4>
+                                        <p>
+                                            Hallo semua, perkenalkan nama saya Gede Valendra dari Program Studi Teknik
+                                            Informatika, saya merupakan Mahasiswa aktif di Institut Teknologi Sumatera.
+
+                                            Saya merupakan pribadi yang aktif dan memiliki semangat kerja baik secara
+                                            individu maupun secara kolaboratif.
+
+                                            memiliki soft skill pada pembuatan website, desain grafis, penggunaan
+                                            Ms.Office, serta memiliki hard skill seperti memiliki rasa tanggung jawab
+                                            yang besar dan dapat berkolaborasi bersama tim serta dapat memimpin sebuah
+                                            tim.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="avd-profileImg">
+                                <img src="img/avd.png" alt="">
+                            </div>
+                        </div>
+                        <div class="avd-frame avd-mainContentDesain" id="vscodeDesain">
+                            <img src="img/avd.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="avd-detailFooter">
+                <ul>
+                    <li>
+                        <i class="bx bxl-html5"></i>
+                    </li>
+                    <li id="footerName">
+                        <p>Gede Valendra | Gupta</p>
+                    </li>
+                    <li>
+                        <p><i class="bx bxs-bolt"></i>Gede Valendra</p>
+                        <i class="bx bx-bell"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- END DetailProjectBagExperience -->
+    <header>
+        <div id="avd-icon" class="fade">
+            <img src='img/Gupta-icon.png' title='Gupta Icon'>
+        </div>
+        <div class="avd-boxOfMenu">
+            <ul class="avd-menu">
+                <li><a href="#avdHome" id="avdHomeBTN" title="Halaman Beranda">Home</a></li>
+                <li><a id="avdAboutBTN" title="Selengkapnya" style="display: flex; align-items: center;">
+                        More<i class="bx bx-caret-down" style="padding-left: 4px;"></i></a>
+                    <div class="subAbout" id="subAbout">
+                        <a href="#" class="subLink" title="Tentang Saya">About Me</a>
+                        <a href="#avdAbout" class="subLink" title="Pengalaman">Experience</a>
+                        <a class="subLink" title="Pendidikan">Academic</a>
+                        <a class="subLink" title="Klik Untuk Memunculkan PopUp">Video Demonstrasi</a>
+                    </div>
+
+                </li>
+                <li><a href="#avdContact" id="avdContactBTN" title="Kontak">Contact</a></li>
+            </ul>
+            <div class="avd-boxOfSearch">
+                <input type="text" id="avdSearchContent" placeholder="Cari disini" autocomplete="off" spellcheck="false"
+                    required title="Cari sesuatu disini">
+                <i class="bx bx-search"></i>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="avd avd-mainHome" id="avdHome">
+        <div class="avd-home">
+            <div class="avd-profileUserHP">
+                <img src='img/avd.png' title="Salah siapa berharap">
+            </div>
+            <div class="avd-welcomeBro">
+                <h1 id="avd_welcomeText">Hello,</h1>
+                <h2 style="display: flex; align-items: center;">I'm Gede Valendra <i class="bx bxs-badge-check"></i>
+                </h2>
+            </div>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia ad magnam distinctio, natus eligendi
+                iusto laboriosam est nihil impedit. Ipsum modi numquam repellendus! Pariatur quam quas provident
+                voluptatem, aliquam quibusdam.
+            </p>
+            <div class="avd-BtnHome">
+                <a class="detailExperienceOpenBTN">Get Know More</a>
+            </div>
+
+        </div>
+        <div class="avd-profileUser">
+            <img src='img/avd.png' title="Salah siapa berharap">
+        </div>
+        <div class="avd-sosmed">
+            <a href="#"><i class="bx bxl-github"></i></a>
+            <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+            <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+        </div>
+    </main>
+    <main id="avdAbout">
+        <div class="avd-boxOfExperience">
+            <h1>Experience</h1>
+            <ul>
+                <li>
+                    <div class="headingExp">
+                        <h2>Desain Grafis</h2>
+                        <p>2023 - Now</p>
+                    </div>
+                    <p>
+                        Memiliki pengalaman dalam desain grafis
+                    </p>
+                </li>
+                <li>
+                    <div class="headingExp">
+                        <h2>LKMM Pra-TD</h2>
+                        <p>2024 - 2024</p>
+                    </div>
+                    <p>
+                        Memiliki pengalaman dalam LKMM TD
+                    </p>
+                </li>
+                <li>
+                    <div class="headingExp">
+                        <h2>Commite</h2>
+                        <p>2024 - Now</p>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tahun</th>
+                                <th>Divisi</th>
+                                <th>Acara</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024</td>
+                                <td>KORLAP</td>
+                                <td>First Meet Teknik Informatika'24</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>KORLAP</td>
+                                <td>Makrab Teknik Informatika'24</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>PDD</td>
+                                <td>Mebatin Gamahira</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>PDD</td>
+                                <td>Piodalan Pura Vidya ITERA</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>PDD</td>
+                                <td>Gamahira Goes To Pasraman</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li>
+                    <div class="headingExp">
+                        <h2>Composer & Produser Music</h2>
+                        <p>2021 - 2024</p>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ipsam inventore eveniet
+                        maiores molestiae a qui voluptates beatae, mollitia exercitationem dolore obcaecati
+                        veritatis quibusdam fugit ullam id dicta eligendi nesciunt?</p>
+                </li>
+            </ul>
+        </div>
+        <div class="avd-boxOfAcademic" id="avdAcademic">
+            <h1>Academic</h1>
+            <ul>
+                <li>
+                    <div class="detailImg">
+                        <div class="detailBox">
+                            <h2>INSTITUT TEKNOLOGI SUMATERA</h2>
+                            <h3>TEKNIK INFORMATIKA</h3>
+                        </div>
+                    </div>
+                    <img src="img/Drone-Itera.jpeg" alt="">
+                </li>
+                <li>
+                    <div class="detailImg">
+                        <div class="detailBox">
+                            <h2>SMAN 1 SIDOMULYO</h2>
+                            <h3>MIPA</h3>
+                        </div>
+                    </div>
+                    <img src="img/Drone-Itera.jpeg" alt="">
+                </li>
+            </ul>
+        </div>
+    </main>
+    <main id="avdContact">
+        <div class="avd-boxOfContact">
+            <h1>Hubungi Kami Melalui,</h1>
+            <ul>
+                <li>
+                    <a href="#" title="Instagram">
+                        <i class="bx bxl-instagram-alt"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" title="GitHub">
+                        <i class="bx bxl-github"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" title="LinkedIn">
+                        <i class="bx bxl-linkedin-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" title="Gmail">
+                        <i class="bx bxl-gmail"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+</body>
+<script>
+    // avd-boxContainerOne
+    document.addEventListener("DOMContentLoaded", function () {
+        const loadScreen = document.querySelector(".avd-loadScreen");
+        setTimeout(function () {
+            loadScreen.classList.add('hidden'); // Add class to hide with transition
+            setTimeout(() => {
+                loadScreen.style.display = "none"; // Fully remove after transition
+            }, 500); // Match CSS transition duration
+        }, 3500);
+    });
+
+
+    const detailExperience = document.getElementById('detailExperience');
+    let detailExperienceOpenBTN = document.querySelectorAll(".detailExperienceOpenBTN");
+    const detailExperienceExitBTN = document.getElementById('detailExperienceExitBTN');
+    detailExperienceExitBTN.addEventListener('click', () => {
+        detailExperience.style.display = "none";
+    })
+    detailExperienceOpenBTN.forEach(function (button) {
+        button.addEventListener('click', function () {
+            detailExperience.style.display = "flex";
+        })
+    })
+
+    function SearchFile() {
+        document.getElementById('inputSearchFile').focus();
+    }
+
+    const avdAutoScroll = document.getElementById('avdHome');
+    let scrollInterval = setInterval(() => {
+        avdAutoScroll.scrollTop += 1;
+    }, 50);
+
+    const btnHome = document.getElementById('avdHomeBTN');
+    const btnAbout = document.getElementById('avdAboutBTN');
+    const btnContact = document.getElementById('avdContactBTN');
+    const subAbout = document.getElementById('subAbout');
+    const menuBtn = [btnHome, btnContact];
+    btnHome.style = "color: var(--avd-color-3); border-bottom : 2px solid  var(--avd-color-3); ";
+    menuBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            menuBtn.forEach(b => {
+                b.style.borderBottom = (b === btn)
+                    ? "2px solid  var(--avd-color-3)"
+                    : "2px solid transparent"
+                b.style.color = (b === btn)
+                    ? " var(--avd-color-3)"
+                    : "white"
+            })
+        })
+    })
+    // 
+    const vscodeWelcome = document.getElementById('vscodeWelcome');
+    const vscodeWelcomeBTN = document.getElementById('vscodeWelcomeBTN');
+    const vscodeWelcomeSFILE = document.getElementById('vscodeWelcomeSFILE');
+    const vscodeProfile = document.getElementById('vscodeProfile');
+    const vscodeProfileBTN = document.getElementById('vscodeProfileBTN');
+    const vscodeProfileSFILE = document.getElementById('vscodeProfileSFILE');
+    const vscodeDesain = document.getElementById('vscodeDesain');
+    const vscodeDesainBTN = document.getElementById('vscodeDesainBTN');
+    const vscodeDesainSFILE = document.getElementById('vscodeDesainSFILE');
+    const sfileWelcomeExitBTN = document.getElementById('sfileWelcomeExitBTN');
+    const sfileProfileExitBTN = document.getElementById('sfileProfileExitBTN');
+    const sfileDesainExitBTN = document.getElementById('sfileDesainExitBTN');
+    // SET DEFAULT ----------------------------------------------
+    vscodeWelcomeBTN.style.backgroundColor = "rgb(32,32,32)";
+    vscodeWelcome.style.display = "flex";
+    vscodeWelcomeSFILE.style.backgroundColor = "rgb(24, 24, 24)";
+    const vscodeAllMainfad = [vscodeWelcome, vscodeProfile, vscodeDesain];
+     // -----------------------------------------------------------
+    const vscodeAllBTN = document.querySelectorAll('[data-target]');
+    const vscodeAllMain = document.querySelectorAll('.avd-frame');
+    const vscodeAllSFILE = document.querySelectorAll('.avd-SFILE');
+    // -----------------------------------------------------------
+    const openFileExplorer = document.getElementById('openFileExplorer');
+    const detailExplorer = document.getElementById('detailExplorer');
+    openFileExplorer.addEventListener('click', () => {
+        if (detailExplorer.style.display === 'none' || detailExplorer.style.display === '') {
+            detailExplorer.style.display = "block";
+            openFileExplorer.style.color = "var(--avd-color-2)";
+            
+        } else {
+            openFileExplorer.style.color = "";
+            detailExplorer.style.display = "none";
+        }
+    })
+    // -----------------------------------------------------------
+    vscodeAllBTN.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetIds = btn.dataset.target.split(',');
+            vscodeAllBTN.forEach(b => {
+                b.style.backgroundColor = (b === btn)
+                    ? "rgb(32,32,32)"
+                    : ""
+            });
+            vscodeAllMain.forEach(main => {
+                main.style.display = targetIds.includes(main.id)
+                    ? "flex"
+                    : "none"
+            })
+            vscodeAllSFILE.forEach(sfile => {
+                sfile.style.backgroundColor = targetIds.includes(sfile.id)
+                    ? "rgb(24,24,24)"
+                    : "transparent"
+            })
+        })
+    })
+    vscodeAllSFILE.forEach(btnsfile => {
+        btnsfile.addEventListener('click', () => {
+            const targetIdst = btnsfile.dataset.target.split(',');
+            vscodeAllSFILE.forEach(sf => {
+                sf.style.backgroundColor = (sf === btnsfile)
+                    ? "rgb(24,24,24)"
+                    : "transparent"
+            })
+            vscodeAllMain.forEach(main => {
+                main.style.display = targetIdst.includes(main.id)
+                    ? "flex"
+                    : "none"
+            })
+            vscodeAllBTN.forEach(b => {
+                b.style.backgroundColor = targetIdst.includes(b.id)
+                    ? "rgb(32,32,32)"
+                    : ""
+            });
+        })
+    })
+
+    vscodeWelcomeBTN.addEventListener('click', () => {
+        vscodeWelcomeSFILE.style.display = "flex";
+    })
+    vscodeProfileBTN.addEventListener('click', () => {
+        vscodeProfileSFILE.style.display = "flex";
+    })
+    vscodeDesainBTN.addEventListener('click', () => {
+        vscodeDesainSFILE.style.display = "flex";
+    })
+    sfileWelcomeExitBTN.addEventListener('click', () => {
+        vscodeWelcomeSFILE.style.display = "none";
+        vscodeWelcome.style.display = "none";
+    })
+    sfileProfileExitBTN.addEventListener('click', () => {
+        vscodeProfileSFILE.style.display = "none";
+        vscodeProfile.style.display = "none";
+    })
+    sfileDesainExitBTN.addEventListener('click', () => {
+        vscodeDesainSFILE.style.display = "none";
+        vscodeDesain.style.display = "none";
+    })
+    // 
+    btnAbout.addEventListener('click', (e) => {
+        e.stopPropagation();
+        subAbout.classList.toggle('active'); // Toggle active class
+    });
+    document.addEventListener('click', (e) => {
+        if (!subAbout.contains(e.target) && e.target !== btnAbout) {
+            subAbout.classList.remove('active');
+        }
+    });
+    subAbout.addEventListener('click', (e) => {
+        e.stopPropagation();
+    })
+
+    // 
+    const avd_icon = document.getElementById('avd-icon');
+    const AllText = [
+        "<img src='img/Gupta-icon.png' title='Gupta Icon'>",
+        "<h1 style='color: var(--avd-color-2); font-size:1.9em;'>Gupta</h1>"
+    ];
+    let index = 0;
+    setInterval(() => {
+        fadeOut(() => {
+            index = (index + 1) % AllText.length;
+            avd_icon.innerHTML = AllText[index];
+            fadeIn(() => {
+
+            });
+        });
+
+    }, 10000);
+
+    function fadeOut(callback) {
+        avd_icon.classList.remove('fade-in');
+        avd_icon.classList.add('fade-out');
+        setTimeout(() => {
+            callback();
+        }, 500);
+    }
+    function fadeIn(callback) {
+        avd_icon.classList.remove('fade-out');
+        avd_icon.classList.add('fade-in');
+        setTimeout(() => {
+            callback();
+        }, 500);
+    }
+
+    const closePopUp = document.getElementById('closePopUp');
+    const closePopUpBTN = document.getElementById('closePopUpBTN');
+    const fullscreenBTN = document.getElementById('fullscreenBTN');
+    const boxPopup = document.getElementById('boxPopup');
+
+    // Event listener for "Video Demonstrasi" link in subAbout
+    const videoDemoLink = document.querySelector('.subAbout .subLink[title="Klik Untuk Memunculkan PopUp"]');
+    if (videoDemoLink) {
+        videoDemoLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            closePopUp.classList.add('active'); // Show popup
+        });
+    }
+
+    fullscreenBTN.addEventListener('click', () => {
+        boxPopup.style.maxWidth = "100%";
+        boxPopup.style.height = "100%";
+        boxPopup.style.borderRadius = "0";
+    })
+
+    closePopUpBTN.addEventListener('click', () => {
+        closePopUp.classList.remove('active'); // Hide popup
+        boxPopup.style.maxWidth = ""; // Reset max-width
+        boxPopup.style.height = ""; // Reset height
+        boxPopup.style.borderRadius = ""; // Reset border-radius
+    })
+</script>
+
+</html>
