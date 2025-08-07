@@ -66,38 +66,90 @@ a {
 .avd-loadScreen {
     z-index: 99999;
     position: fixed;
-    background-color: var(--avd-color-1);
+    top: 0;
+    left: 0;
+    background-color: var(--avd-color-2);
     width: 100%;
     height: 100%;
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease;
+}
+
+.avd-boxContainerOne {
+    animation: fadeIn 0.8s ease;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.avd-loadScreen .avd-boxContainerOne {
+.loader-spinner {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    animation: pulse 3.5s infinite ease-in-out;
+}
+
+.circle {
     position: absolute;
-    background-color: var(--avd-color-2);
-    animation: loadScreenOne 5s ease;
-    padding: 1px;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    transform-origin: center center;
 }
 
-@keyframes loadScreenOne {
-    0% {
-        width: 0;
-        height: 0;
+.circle-1 {
+    border-top: 4px solid var(--avd-color-1);
+    animation-delay: 0s;
+    animation: avdSpin1 1.5s linear infinite;
+
+}
+
+.circle-2 {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 10px;
+    border-bottom: 4px solid var(--avd-color-3);
+    animation-delay: 0.3s;
+    animation: avdSpin2 1.5s linear infinite;
+
+}
+
+@keyframes avdSpin1 {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(-180deg) scale(1.1); }
+    100% { transform: rotate(-360deg) scale(1); }
+}
+@keyframes avdSpin2 {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
     }
-
-    15% {
-        width: 100%;
-        height: 0%;
-    }
-
-
-    70% {
-        width: 100%;
-        height: 100%;
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
 
 /*  */
 @media screen and (max-width:760px) {
@@ -1186,7 +1238,17 @@ main {
     background-color: #1e1e1e;
     outline: 1px solid rgb(60, 60, 60);
     border-radius: 5px;
+
+    flex: 1 1 45%; /* 👈 fleksibel, minimal 45% lebar */
+    box-sizing: border-box;
 }
+@media screen and (max-width: 600px) {
+    .avd-boxOfExperience ul li {
+        flex: 1 1 100%; /* 👈 otomatis ke bawah di layar sempit */
+        min-width: unset;
+    }
+}
+
 
 .avd-boxOfExperience ul li .headingExp {
     display: flex;
@@ -1278,19 +1340,32 @@ td {
     margin-top: 5vh;
 }
 
-.avd-boxOfAcademic ul li {
-    max-width: fit-content;
-    width: 100%;
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+.avd-boxOfAcademic ul {
+    display: flex;
     flex-wrap: wrap;
-    margin: 1vh;
+    gap: 20px; /* biar ada jarak antar gambar */
+    justify-content: center;
+}
+
+.avd-boxOfAcademic ul li {
+    flex: 1 1 45%; /* 👈 coba isi 45% lebar jika cukup ruang */
+    box-sizing: border-box;
+    min-width: 280px; /* 👈 biar gak sempit */
     border: 10px solid #1e1e1e;
     border-radius: 3px;
     outline: 1px solid #3d3d3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
+@media screen and (max-width: 600px) {
+    .avd-boxOfAcademic ul li {
+        flex: 1 1 100%; /* ⬇️ Jadi satu kolom di layar kecil */
+        min-width: unset;
+    }
+}
+
 
 .avd-boxOfAcademic ul li .detailImg {
     position: absolute;

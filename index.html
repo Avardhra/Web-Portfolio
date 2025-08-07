@@ -14,11 +14,18 @@
 
 <body>
     <!-- LOADING SCREEN -->
-    <div class="avd-loadScreen" style="display: flex;">
+    <div class="avd-loadScreen">
         <div class="avd-boxContainerOne">
-
+            <div class="loader-spinner">
+                <span class="circle circle-1"></span>
+                <span class="circle circle-2"></span>
+            </div>
         </div>
     </div>
+
+
+
+
     <!--  -->
     <!-- BOT -->
     <!-- <div class="avd-circleBot">
@@ -181,7 +188,7 @@
                                         <button><i class="bx bx-folder-open"></i>My Project...</button>
                                         <button><i class="bx bx-code"></i>My Girl...</button>
                                     </li>
-                                   
+
                                 </ul>
                             </div>
                             <div class="avd-loginCode">
@@ -343,42 +350,42 @@
                         <p>2024 - Now</p>
                     </div>
                     <div class="avd-tabelKepanitiaan">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Tahun</th>
-                                <th>Divisi</th>
-                                <th>Acara</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2024</td>
-                                <td>KORLAP</td>
-                                <td>First Meet Teknik Informatika'24</td>
-                            </tr>
-                            <tr>
-                                <td>2024</td>
-                                <td>KORLAP</td>
-                                <td>Makrab Teknik Informatika'24</td>
-                            </tr>
-                            <tr>
-                                <td>2024</td>
-                                <td>PDD</td>
-                                <td>Mebatin Gamahira</td>
-                            </tr>
-                            <tr>
-                                <td>2024</td>
-                                <td>PDD</td>
-                                <td>Piodalan Pura Vidya ITERA</td>
-                            </tr>
-                            <tr>
-                                <td>2024</td>
-                                <td>PDD</td>
-                                <td>Gamahira Goes To Pasraman</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tahun</th>
+                                    <th>Divisi</th>
+                                    <th>Acara</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024</td>
+                                    <td>KORLAP</td>
+                                    <td>First Meet Teknik Informatika'24</td>
+                                </tr>
+                                <tr>
+                                    <td>2024</td>
+                                    <td>KORLAP</td>
+                                    <td>Makrab Teknik Informatika'24</td>
+                                </tr>
+                                <tr>
+                                    <td>2024</td>
+                                    <td>PDD</td>
+                                    <td>Mebatin Gamahira</td>
+                                </tr>
+                                <tr>
+                                    <td>2024</td>
+                                    <td>PDD</td>
+                                    <td>Piodalan Pura Vidya ITERA</td>
+                                </tr>
+                                <tr>
+                                    <td>2024</td>
+                                    <td>PDD</td>
+                                    <td>Gamahira Goes To Pasraman</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </li>
                 <li>
@@ -445,11 +452,15 @@
     </main>
 </body>
 <script>
-    // avd-boxContainerOne
-    document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(function () {
-            document.querySelector(".avd-loadScreen").style.display = "none";
-        }, 3500);
+    window.addEventListener("load", () => {
+        const loader = document.querySelector('.avd-loadScreen');
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none'
+            }, 3500);
+        }, 3500)
+
     });
 
 
@@ -510,7 +521,7 @@
     vscodeWelcome.style.display = "flex";
     vscodeWelcomeSFILE.style.backgroundColor = "rgb(24, 24, 24)";
     const vscodeAllMainfad = [vscodeWelcome, vscodeProfile, vscodeDesain];
-     // -----------------------------------------------------------
+    // -----------------------------------------------------------
     const vscodeAllBTN = document.querySelectorAll('[data-target]');
     const vscodeAllMain = document.querySelectorAll('.avd-frame');
     const vscodeAllSFILE = document.querySelectorAll('.avd-SFILE');
@@ -521,7 +532,7 @@
         if (detailExplorer.style.display === 'none' || detailExplorer.style.display === '') {
             detailExplorer.style.display = "block";
             openFileExplorer.style.color = "var(--avd-color-2)";
-            
+
         } else {
             openFileExplorer.style.color = "";
             detailExplorer.style.display = "none";
