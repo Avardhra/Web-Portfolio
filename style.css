@@ -52,7 +52,7 @@ main {
     min-width: 100%;
     min-height: 100vh;
     background: radial-gradient(circle at 20% 20%, #d3e0ff, transparent 40%), radial-gradient(circle at 80% 30%,rgb(201, 225, 255), transparent 40%), radial-gradient(circle at 50% 70%, #c8e0ff, transparent 40%);
-    background-color:transparent;
+    background-color: var(--avd-bg);
     background-blend-mode: lighten;
     background-size: 200% 200%;
     animation: bgBlendAn 10s ease-in-out infinite;
@@ -510,8 +510,8 @@ a {
     overflow-y: auto;
 }
 @media screen and (max-width: 600px) {
-    .avd-mainContentWelcome > * {
-        flex: 1 1 100%;        /* ✅ otomatis satu kolom di layar kecil */
+    .avd-mainContentWelcome {
+        flex: 1 1 100%;    
     }
     .avd-homeCode ul li a {
         display: flex;
@@ -544,6 +544,7 @@ a {
 }
 
 .avd-homeCode ul li a {
+    position:relative;
     display: none;
     color: var(--avd-color-2);
     background-color: var(--avd-color-3);
