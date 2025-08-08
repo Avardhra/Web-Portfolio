@@ -190,6 +190,9 @@ a {
         flex-wrap: wrap;
         font-size: 13px;
     }
+    .avd-homeCode ul li a {
+        display:block;
+    }
 }
 
 .avd-detailExperience {
