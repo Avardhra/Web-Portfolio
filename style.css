@@ -1,6 +1,6 @@
 @font-face {
-    font-family: paraStyle;
-    src: url('para/ParaRegular.ttf') format('truetype');
+    font-family: avdStyle;
+    src: url('assets/fonts/manetains/Manetains.otf') format('truetype');
     font-style: normal;
     font-weight: normal;
 }
@@ -14,7 +14,7 @@
     --avd-color-1: rgb(18, 18, 18);
     --avd-color-2: white;
     --avd-color-3: rgb(60, 145, 255);
-    --avd-bg: #ffffff;
+    --avd-bg: #f2e6ee;
 }
 
 ::-webkit-scrollbar {
@@ -42,15 +42,37 @@
 :-moz-user-disabled {}
 
 body {
+    /* font-family: 'roboto', avdStyle; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--avd-bg);
 }
 
 /* SET DEFAULT | AVD - AVARDHRA An Valendra Dharma*/
+main {
+    min-width: 100%;
+    min-height: 100vh;
+    background: radial-gradient(circle at 20% 20%, #d3e0ff, transparent 40%), radial-gradient(circle at 80% 30%,rgb(201, 225, 255), transparent 40%), radial-gradient(circle at 50% 70%, #c8e0ff, transparent 40%);
+    background-color:transparent;
+    background-blend-mode: lighten;
+    background-size: 200% 200%;
+    animation: bgBlendAn 10s ease-in-out infinite;
+}
+@keyframes bgBlendAn {
+    0% {
+        background-position: 0 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 0%;
 
+    }
+}
 h1 {
     margin: 0;
     padding: 0;
+    color: var(--avd-color-1);
 }
 
 li {
@@ -1114,10 +1136,7 @@ nav ul li i {
 }
 
 /*  */
-main {
-    min-width: 100%;
-    min-height: 100vh;
-}
+
 
 .avd-mainHome {
     display: flex;
@@ -1125,7 +1144,6 @@ main {
     transform: translateY(8vh);
     width: 100%;
     height: 100vh;
-    background-color: var(--avd-color-2);
     box-shadow: 0 0 55px rgb(170, 170, 170);
     padding: 5%;
 
@@ -1280,7 +1298,7 @@ main {
     flex-direction: column;
     position: relative;
     justify-content: center;
-    background-color: var(--avd-color-1);
+    background: var(--avd-color-1);
     color: var(--avd-color-2);
     box-shadow: 0 0 55px rgb(170, 170, 170);
     padding: 5%;
@@ -1292,8 +1310,6 @@ main {
     color: var(--avd-color-2);
     width: 100%;
     margin-bottom: 50px;
-    /* Space between sections */
-
 }
 
 .avd-boxOfExperience h1 {
@@ -1322,16 +1338,13 @@ main {
     background-color: #1e1e1e;
     outline: 1px solid rgb(60, 60, 60);
     border-radius: 5px;
-
     flex: 1 1 45%;
-    /* 👈 fleksibel, minimal 45% lebar */
     box-sizing: border-box;
 }
 
 @media screen and (max-width: 600px) {
     .avd-boxOfExperience ul li {
         flex: 1 1 100%;
-        /* 👈 otomatis ke bawah di layar sempit */
         min-width: unset;
     }
 }
@@ -1522,7 +1535,6 @@ td {
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background-color: var(--avd-color-2);
     box-shadow: 0 0 55px rgb(170, 170, 170);
     padding: 5%;
 }

@@ -187,7 +187,7 @@ subAbout.addEventListener('click', (e) => {
 // LOGIC CHANGE ICON 
 const avd_icon = document.getElementById('avd-icon');
 const AllText = [
-    "<img src='img/Gupta-icon.png' title='Gupta Icon'>",
+    "<img src='assets/img/Gupta-icon.png' title='Gupta Icon'>",
     "<h1 style='color: var(--avd-color-2); font-size:1.9em;'>Gupta</h1>"
     // "<div class='robot-beranda'><div class='avd-robot' style='margin-top:0px; margin-bottom:1vh;'><div class='rbt-mata'><div class='mata-one'><div class='alis-mata-one'></div><div class='bola-mata-one'></div></div><div class='mata-two'><div class='alis-mata-two'></div><div class='bola-mata-two'></div></div></div></div></div>"
 ];

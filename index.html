@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="icon/Boxicons/css/boxicons.min.css">
-    <link rel="stylesheet" href="icon/Font-awesome/css/all.min.css">
-    <link rel="stylesheet" href="icon/Font-awesome/css/regular.min.css">
+    <link rel="stylesheet" href="assets/icon/Boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/icon/Font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/icon/Font-awesome/css/regular.min.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style-robot.css">
     <title>AvdGupta</title>
@@ -15,7 +15,7 @@
 
 <body>
     <!-- LOAD SCREEN -->
-    <div class="avd-loadScreen" style="display: flex;">
+    <div class="avd-loadScreen" style="display: none;">
         <div class="avd-boxContainerOne">
             <div class="loader-spinner">
                 <span class="circle circle-1"></span>
@@ -25,7 +25,7 @@
     </div>
     <!-- LOAD END -->
     <!-- POP UP VIDEO PENJELASAN -->
-    <div class="avd-popup" id="closePopUp" style="display: flex;">
+    <div class="avd-popup" id="closePopUp" style="display: none;">
         <div class="avd-boxPopup" id="boxPopup">
             <div class="avd-popupHdr">
                 <p>Video Demonstrasi</p>
@@ -248,11 +248,11 @@
                             </div>
 
                             <div class="avd-profileImg">
-                                <img src="img/avd.png" alt="">
+                                <img src="assets/img/avd.png" alt="">
                             </div>
                         </div>
                         <div class="avd-frame avd-mainContentDesain" id="vscodeDesain">
-                            <img src="img/cth_desain.jpg" alt="">
+                            <img src="assets/img/cth_desain.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -278,7 +278,7 @@
     <!-- HEADER -->
     <header>
         <div id="avd-icon" class="fade">
-            <img src='img/Gupta-icon.png' title='Gupta Icon'>
+            <img src='assets/img/Gupta-icon.png' title='Gupta Icon'>
         </div>
         <div class="avd-boxOfMenu">
             <ul class="avd-menu">
@@ -307,15 +307,15 @@
     <main class="avd avd-mainHome" id="avdHome">
         <div class="avd-home">
             <div class="avd-profileUserHP">
-                <img src='img/avd.png' title="Salah siapa berharap">
+                <img src='assets/img/avd.png' title="Salah siapa berharap">
             </div>
             <div class="avd-welcomeBro">
                 <h1 id="avd_welcomeText">Hello,</h1>
-                <h2 style="display: flex; align-items: center;">I'm Gede Valendra <i class="bx bxs-badge-check"></i>
+                <h2 style="display: flex; align-items: center;">I'm <span style="color: var(--avd-color-3); padding: 0 5px;"> Gede Valendra<i class="bx bxs-badge-check"></i></span>
                 </h2>
             </div>
             <p>
-                Seorang Mahasiswa aktif Teknik Informatika di <strong>Institut Teknologi Sumatera</strong>. Memiliki
+                Seorang Mahasiswa aktif Teknik Informatika di <strong style="color: var(--avd-color-3);">Institut Teknologi Sumatera</strong>. Memiliki
                 pribadi dengan rasa penasaran yang kuat membuat saya suka mencoba dan mencari pengalaman baru setiap
                 harinya.
             </p>
@@ -326,7 +326,7 @@
 
         </div>
         <div class="avd-profileUser">
-            <img src='img/avd.png' title="Salah siapa berharap">
+            <img src='assets/img/avd.png' title="Salah siapa berharap">
         </div>
         <div class="avd-sosmed">
             <a href="https://github.com/Avardhra"><i class="bx bxl-github"></i></a>
@@ -340,7 +340,7 @@
         <div class="avd-boxOfExperience">
             <h1 data-aos="fade-up">Experience</h1>
             <ul>
-                <li data-aos="fade-up" data-aos-delay="100">
+                <li data-aos="fade-up" data-aos-delay="150">
                     <div class="headingExp">
                         <h2>Desain Grafis</h2>
                         <p>2023 - Now</p>
@@ -352,7 +352,7 @@
                         kampus.
                     </p>
                 </li>
-                <li data-aos="fade-up" data-aos-delay="200">
+                <li data-aos="fade-up" data-aos-delay="250">
                     <div class="headingExp">
                         <h2>LKMM Pra-TD</h2>
                         <p>2024 - 2024</p>
@@ -364,7 +364,7 @@
                         memperkuat soft skill dalam kolaborasi, public speaking, dan komunikasi.
                     </p>
                 </li>
-                <li data-aos="fade-up" data-aos-delay="300">
+                <li data-aos="fade-up" data-aos-delay="350">
                     <div class="headingExp">
                         <h2>Committee</h2>
                         <p>2024 - Now</p>
@@ -408,7 +408,7 @@
                         </table>
                     </div>
                 </li>
-                <li data-aos="fade-up" data-aos-delay="400">
+                <li data-aos="fade-up" data-aos-delay="450">
                     <div class="headingExp">
                         <h2>Composer & Produser Music</h2>
                         <p>2021 - 2024</p>
@@ -425,23 +425,23 @@
         <div class="avd-boxOfAcademic" id="avdAcademic">
             <h1 data-aos="fade-up">Academic</h1>
             <ul>
-                <li data-aos="fade-up" data-aos-delay="100">
+                <li data-aos="fade-up" data-aos-delay="150">
                     <div class="detailImg">
                         <div class="detailBox">
                             <h2>INSTITUT TEKNOLOGI SUMATERA</h2>
                             <h3>TEKNIK INFORMATIKA</h3>
                         </div>
                     </div>
-                    <img src="img/Drone-Itera.jpeg" alt="">
+                    <img src="assets/img/Drone-Itera.jpeg" alt="">
                 </li>
-                <li data-aos="fade-up" data-aos-delay="200">
+                <li data-aos="fade-up" data-aos-delay="250">
                     <div class="detailImg">
                         <div class="detailBox">
                             <h2>SMAN 1 SIDOMULYO</h2>
                             <h3>MIPA</h3>
                         </div>
                     </div>
-                    <img src="img/smansasi.webp" alt="">
+                    <img src="assets/img/smansasi.webp" alt="">
                 </li>
             </ul>
         </div>
@@ -451,22 +451,22 @@
     <main id="avdContact">
             <h1>Hubungi Kami Melalui,</h1>
             <ul>
-                <li>
+                <li data-aos="fade-up">
                     <a href="https://www.instagram.com/gedevln12_" title="Instagram">
                         <i class="bx bxl-instagram-alt"></i>
                     </a>
                 </li>
-                <li>
+                <li data-aos="fade-up">
                     <a href="https://github.com/Avardhra" title="GitHub">
                         <i class="bx bxl-github"></i>
                     </a>
                 </li>
-                <li>
+                <li data-aos="fade-up">
                     <a href="https://www.facebook.com/avardhra" title="facebook">
                         <i class="bx bxl-facebook"></i>
                     </a>
                 </li>
-                <li>
+                <li data-aos="fade-up">
                     <a href="gede.124140142@student.itera.ac.id" title="Gmail">
                         <i class="bx bxl-gmail"></i>
                     </a>
