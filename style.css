@@ -11,7 +11,7 @@
 }
 
 :root {
-    --avd-color-1: rgb(0, 0, 0);
+    --avd-color-1: rgb(18, 18, 18);
     --avd-color-2: white;
     --avd-color-3: rgb(60, 145, 255);
     --avd-bg: #ffffff;
@@ -488,24 +488,32 @@ a {
 
 .avd-mainContentWelcome {
     height: 94%;
-    display: flex;
+    padding: 2%;
     width: 100%;
+    display: flex;
     flex-wrap: wrap;
+    flex: 1 1 45%;
+    min-width: 280px;
     gap: 20px;
     overflow-y: auto;
 }
-
+@media screen and (max-width: 600px) {
+    .avd-mainContentWelcome > * {
+        flex: 1 1 100%;        /* ✅ otomatis satu kolom di layar kecil */
+    }
+}
 .avd-homeCode {
-    margin: 5%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 45%;
+    height: 100%;
+    background-color: #1e1e1e;
     padding: 2%;
     color: var(--avd-color-2);
-    position: relative;
-    background-color: #1e1e1e;
-    outline: 1px solid rgb(60, 60, 60);
-    border-radius: 5px;
-    width: fit-content;
-    flex: 1 1 35%;
-    box-sizing: border-box;
+    outline: 0.1px solid rgb(60, 60, 60);
+    border-radius: 10px;
 }
 
 .avd-homeCode ul {
@@ -513,7 +521,6 @@ a {
     flex-direction: column;
     justify-content: space-between;
     min-height: 100%;
-
 }
 
 .avd-homeCode ul li {
@@ -525,7 +532,7 @@ a {
     color: var(--avd-color-2);
     background-color: var(--avd-color-3);
     width: fit-content;
-    margin: 10px 0;
+    margin-top: 10px;
     padding: 5px 10px;
     border-radius: 3px;
 }
@@ -600,18 +607,19 @@ a {
 }
 
 .avd-loginCode {
-    margin: 5%;
-    padding: 5% 0;
-    width: 100%;
     position: relative;
-    border-radius: 5px;
-    flex: 1 1 45%;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: #1e1e1e;
+    padding: 2%;
     color: var(--avd-color-2);
+    outline: 0.1px solid rgb(60, 60, 60);
+    border-radius: 10px;
 }
 
 .avd-loginCode form {
-    width: 100%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -657,6 +665,7 @@ a {
     font-size: 14px;
     transition: all 0.1s ease-in-out;
     opacity: 0.9;
+    width: fit-content;
 }
 
 .avd-loginCode form a:hover {
@@ -784,9 +793,11 @@ a {
     outline-width: 1.1px;
     border-radius: 5px;
 }
+
 .avd-profileAbout ul li h4 {
     color: var(--avd-color-3);
 }
+
 .avd-profileAbout ul li p {
     font-size: 12px;
     white-space: pre-line;
@@ -1545,10 +1556,11 @@ td {
     max-width: 70vh;
     height: 40vh;
     box-shadow: 0 0 10px rgba(24, 24, 24, 0.538);
+    outline: 1px solid #1e1e1e;
 }
 
 .avd-popup .avd-boxPopup .avd-popupHdr {
-    background-color: rgb(222, 222, 222);
+    background-color: var(--avd-color-2);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1587,6 +1599,7 @@ td {
     position: relative;
     width: 100%;
     height: 100%;
+    background-color: var(--avd-color-1);
 }
 
 /*  */
