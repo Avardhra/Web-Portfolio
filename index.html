@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <!-- LOADING SCREEN -->
+    <!-- LOAD SCREEN -->
     <div class="avd-loadScreen" style="display: flex;">
         <div class="avd-boxContainerOne">
             <div class="loader-spinner">
@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    <!--  -->
+    <!-- LOAD END -->
     <!-- POP UP VIDEO PENJELASAN -->
     <div class="avd-popup" id="closePopUp" style="display: flex;">
         <div class="avd-boxPopup" id="boxPopup">
@@ -35,29 +35,38 @@
                     <button id="closePopUpBTN" title="Exit"><i class="bx bx-x"></i></button>
                 </ul>
             </div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/jtqzByiDeUQ?si=pGYP6wRZ765zl1_S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/jtqzByiDeUQ?si=pGYP6wRZ765zl1_S"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
-    <!--  -->
-    <!-- Navbar => [ ] -->
+    <!-- POP UP END -->
+    <!-- NAVBAR-->
     <nav>
         <ul>
             <li>
+                <a href="#avdHome">
                 <i class="fa-solid fa-house"></i>
                 <span>Home</span>
+                </a>
             </li>
             <li>
-                <i class="fa-regular fa-address-card"></i>
-                <span>About Me</span>
+                <a href="#avdExperience">
+                <i class="fa-solid fa-id-card"></i>
+                <span>More</span>
+                </a>
             </li>
             <li>
-                <i class="fa-regular fa-address-card"></i>
+                <a href="#avdContact">
+                <i class="fa-solid fa-address-book"></i>
                 <span>Contact</span>
+                </a>
             </li>
 
         </ul>
     </nav>
-    <!-- Navbar END -->
+    <!-- NAVBAR END -->
     <!-- DetailProjectBagExperience UI Vscode -->
     <div class="avd-detailExperience" id="detailExperience">
         <div class="avd-frameDetailVscode" title="Hanya UI VsCode">
@@ -71,9 +80,9 @@
                         <i class="fa-solid fa-arrow-left"></i>
                         <i class="fa-solid fa-arrow-right"></i>
                         <input type="text" placeholder="Search My Projects" id="inputSearchFile">
-                        <a href="#"><i class="bx bxl-github"></i></a>
-                        <a href="#"><i class="bx bxl-instagram"></i></a>
-                        <a href="#"><i class="bx bxl-facebook"></i></a>
+                        <a href="https://github.com/Avardhra"><i class="bx bxl-github"></i></a>
+                        <a href="https://www.facebook.com/avardhra"><i class="bx bxl-facebook-circle"></i></a>
+                        <a href="https://www.instagram.com/gedevln12_"><i class="bx bxl-instagram-alt"></i></a>
                     </li>
                     <li id="hdrNav">
                         <i class="bx bx-minus" title="Ga berfungsi"></i>
@@ -180,24 +189,28 @@
                                         <a href="#loginPage">Login</a>
                                     </li>
                                     <li>
-                                        <p id="Waktu">12 : 00</p>
+                                        <p id="ThanksGodForGoodKarma"></p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="avd-loginCode" id="loginPage">
                                 <form action="#">
-                                    <h1>Login</h1>
-                                    <ul>
-                                        <input type="text" id="username" name="username" value="Gede Valendra"
-                                            autocorrect="off" spellcheck="false" autocomplete="none">
-                                        <label for="username">Username</label>
+                                    <ul class="boxFromLogin">
+                                        <li>
+                                            <input type="text" id="username" name="username" value="Gede Valendra"
+                                                autocorrect="off" spellcheck="false" autocomplete="none">
+                                            <label for="username">Username</label>
+                                        </li>
+                                        <li>
+                                            <input type="password" id="password" name="password" required
+                                                autocorrect="off" spellcheck="false" autocomplete="none">
+                                            <label for="password">Password</label>
+                                        </li>
+                                        <li>
+                                            <a href="#">Login</a>
+                                        </li>
                                     </ul>
-                                    <ul>
-                                        <input type="password" id="password" name="password" required autocorrect="off"
-                                            spellcheck="false" autocomplete="none">
-                                        <label for="password">Password</label>
-                                    </ul>
-                                    <a href="#">Login</a>
+                                    <p>Powered By AvardhraID</p>
                                 </form>
                             </div>
                         </div>
@@ -227,6 +240,10 @@
                                             tim.
                                         </p>
                                     </li>
+                                    <li>
+                                        <h5><i class="bx bxs-map"></i>Lampung Selatan, Lampung</h5>
+                                        <h5><i class="bx bxs-cloud"></i>19 Tahun</h5>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -235,7 +252,7 @@
                             </div>
                         </div>
                         <div class="avd-frame avd-mainContentDesain" id="vscodeDesain">
-                            <img src="img/avd.png" alt="">
+                            <img src="img/cth_desain.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -258,6 +275,7 @@
         </div>
     </div>
     <!-- END DetailProjectBagExperience -->
+    <!-- HEADER -->
     <header>
         <div id="avd-icon" class="fade">
             <img src='img/Gupta-icon.png' title='Gupta Icon'>
@@ -268,10 +286,9 @@
                 <li><a id="avdAboutBTN" title="Selengkapnya" style="display: flex; align-items: center;">
                         More<i class="bx bx-caret-down" style="padding-left: 4px;"></i></a>
                     <div class="subAbout" id="subAbout">
-                        <a href="#" class="subLink" title="Tentang Saya">About Me</a>
+                        <a href="#" class="subLink detailExperienceOpenBTN" title="Tentang Saya">About Me</a>
                         <a href="#avdAbout" class="subLink" title="Pengalaman">Experience</a>
-                        <a class="subLink" title="Pendidikan">Academic</a>
-                        <a class="subLink" title="Klik Untuk Memunculkan PopUp">Video Demonstrasi</a>
+                        <a href="#avdAcademic" class="subLink" title="Pendidikan">Academic</a>
                     </div>
 
                 </li>
@@ -285,7 +302,8 @@
 
         </div>
     </header>
-
+    <!-- HEADER END -->
+    <!-- MAIN HOME -->
     <main class="avd avd-mainHome" id="avdHome">
         <div class="avd-home">
             <div class="avd-profileUserHP">
@@ -297,9 +315,9 @@
                 </h2>
             </div>
             <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia ad magnam distinctio, natus eligendi
-                iusto laboriosam est nihil impedit. Ipsum modi numquam repellendus! Pariatur quam quas provident
-                voluptatem, aliquam quibusdam.
+                Seorang Mahasiswa aktif Teknik Informatika di <strong>Institut Teknologi Sumatera</strong>. Memiliki
+                pribadi dengan rasa penasaran yang kuat membuat saya suka mencoba dan mencari pengalaman baru setiap
+                harinya.
             </p>
             <div class="avd-BtnHome">
                 <a class="detailExperienceOpenBTN">Get Know More</a>
@@ -310,11 +328,13 @@
             <img src='img/avd.png' title="Salah siapa berharap">
         </div>
         <div class="avd-sosmed">
-            <a href="#"><i class="bx bxl-github"></i></a>
-            <a href="#"><i class="bx bxl-facebook-circle"></i></a>
-            <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+            <a href="https://github.com/Avardhra"><i class="bx bxl-github"></i></a>
+            <a href="https://www.facebook.com/avardhra"><i class="bx bxl-facebook-circle"></i></a>
+            <a href="https://www.instagram.com/gedevln12_"><i class="bx bxl-instagram-alt"></i></a>
         </div>
     </main>
+    <!-- MAIN HOME END -->
+    <!-- MAIN ABOUT -->
     <main id="avdAbout">
         <div class="avd-boxOfExperience">
             <h1 data-aos="fade-up">Experience</h1>
@@ -326,9 +346,9 @@
                     </div>
                     <p>
                         Memiliki pengalaman dalam membuat desain visual untuk berbagai kebutuhan seperti branding,
-                        poster, dan antarmuka pengguna. Terbiasa menggunakan tools seperti Figma, Photoshop, dan
-                        Illustrator. Telah mengerjakan beberapa proyek mandiri maupun kolaboratif untuk organisasi
-                        kampus dan freelance.
+                        poster, UI, dan feeds konten. Terbiasa menggunakan software seperti Figma, Photoshop, dan
+                        Canva. Telah mengerjakan beberapa proyek mandiri maupun kolaboratif untuk organisasi
+                        kampus.
                     </p>
                 </li>
                 <li data-aos="fade-up" data-aos-delay="200">
@@ -337,14 +357,15 @@
                         <p>2024 - 2024</p>
                     </div>
                     <p>
-                        Aktif mengikuti pelatihan LKMM-TD yang membekali kemampuan dasar manajerial dan kepemimpinan.
+                        Aktif mengikuti pelatihan LKMM Pra-TD yang membekali kemampuan dasar manajerial dan
+                        kepemimpinan.
                         Belajar menyusun program kerja, mengelola tim, dan memahami dinamika organisasi. Pengalaman ini
-                        memperkuat soft skill dalam kolaborasi dan komunikasi.
+                        memperkuat soft skill dalam kolaborasi, public speaking, dan komunikasi.
                     </p>
                 </li>
                 <li data-aos="fade-up" data-aos-delay="300">
                     <div class="headingExp">
-                        <h2>Commite</h2>
+                        <h2>Committee</h2>
                         <p>2024 - Now</p>
                     </div>
                     <div class="avd-tabelKepanitiaan">
@@ -392,9 +413,10 @@
                         <p>2021 - 2024</p>
                     </div>
                     <p>
-                        Berpengalaman dalam menciptakan komposisi musik orisinal untuk berbagai genre, termasuk musik
-                        latar, ambient, dan instrumental. Terbiasa menggunakan DAW seperti FL Studio dan Ableton Live.
-                        Beberapa karya telah digunakan dalam proyek video dan game indie.
+                        Berpengalaman dalam membuat musik orisinal maupun remix untuk genre seperti lovi, fnvky,
+                        bangers, indobounce. Terbiasa menggunakan DAW seperti FL Studio.
+                        Beberapa karya telah direlease pada tahun 2023 dan dihapus oleh agregator music pada 2024 karna
+                        putus kerjasama, memiliki nama artis Vandra Valendra.
                     </p>
                 </li>
             </ul>
@@ -418,253 +440,47 @@
                             <h3>MIPA</h3>
                         </div>
                     </div>
-                    <img src="img/Drone-Itera.jpeg" alt="">
+                    <img src="img/smansasi.webp" alt="">
                 </li>
             </ul>
         </div>
     </main>
+    <!-- MAIN ABOUT END -->
+    <!-- MAIN CONTACT -->
     <main id="avdContact">
-        <div class="avd-boxOfContact">
             <h1>Hubungi Kami Melalui,</h1>
             <ul>
                 <li>
-                    <a href="#" title="Instagram">
+                    <a href="https://www.instagram.com/gedevln12_" title="Instagram">
                         <i class="bx bxl-instagram-alt"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="GitHub">
+                    <a href="https://github.com/Avardhra" title="GitHub">
                         <i class="bx bxl-github"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="LinkedIn">
-                        <i class="bx bxl-linkedin-square"></i>
+                    <a href="https://www.facebook.com/avardhra" title="facebook">
+                        <i class="bx bxl-facebook"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="Gmail">
+                    <a href="gede.124140142@student.itera.ac.id" title="Gmail">
                         <i class="bx bxl-gmail"></i>
                     </a>
                 </li>
             </ul>
-        </div>
     </main>
+    <!-- MAIN CONTACT END -->
+    <!-- DATA AOS -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
+    <!-- DATA AOS END -->
 </body>
-<script>
-    window.addEventListener("load", () => {
-        const loader = document.querySelector('.avd-loadScreen');
-        setTimeout(() => {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none'
-            }, 100);
-        }, 2500)
-
-    });
-
-
-    const detailExperience = document.getElementById('detailExperience');
-    let detailExperienceOpenBTN = document.querySelectorAll(".detailExperienceOpenBTN");
-    const detailExperienceExitBTN = document.getElementById('detailExperienceExitBTN');
-    detailExperienceExitBTN.addEventListener('click', () => {
-        detailExperience.style.display = "none";
-    })
-    detailExperienceOpenBTN.forEach(function (button) {
-        button.addEventListener('click', function () {
-            detailExperience.style.display = "flex";
-        })
-    })
-
-    function SearchFile() {
-        document.getElementById('inputSearchFile').focus();
-    }
-
-    const avdAutoScroll = document.getElementById('avdHome');
-    let scrollInterval = setInterval(() => {
-        avdAutoScroll.scrollTop += 1;
-    }, 50);
-
-    const btnHome = document.getElementById('avdHomeBTN');
-    const btnAbout = document.getElementById('avdAboutBTN');
-    const btnContact = document.getElementById('avdContactBTN');
-    const subAbout = document.getElementById('subAbout');
-    const menuBtn = [btnHome, btnContact];
-    btnHome.style = "color: var(--avd-color-3); border-bottom : 2px solid  var(--avd-color-3); ";
-    menuBtn.forEach(btn => {
-        btn.addEventListener('click', () => {
-            menuBtn.forEach(b => {
-                b.style.borderBottom = (b === btn)
-                    ? "2px solid  var(--avd-color-3)"
-                    : "2px solid transparent"
-                b.style.color = (b === btn)
-                    ? " var(--avd-color-3)"
-                    : "white"
-            })
-        })
-    })
-    // 
-    const vscodeWelcome = document.getElementById('vscodeWelcome');
-    const vscodeWelcomeBTN = document.getElementById('vscodeWelcomeBTN');
-    const vscodeWelcomeSFILE = document.getElementById('vscodeWelcomeSFILE');
-    const vscodeProfile = document.getElementById('vscodeProfile');
-    const vscodeProfileBTN = document.getElementById('vscodeProfileBTN');
-    const vscodeProfileSFILE = document.getElementById('vscodeProfileSFILE');
-    const vscodeDesain = document.getElementById('vscodeDesain');
-    const vscodeDesainBTN = document.getElementById('vscodeDesainBTN');
-    const vscodeDesainSFILE = document.getElementById('vscodeDesainSFILE');
-    const sfileWelcomeExitBTN = document.getElementById('sfileWelcomeExitBTN');
-    const sfileProfileExitBTN = document.getElementById('sfileProfileExitBTN');
-    const sfileDesainExitBTN = document.getElementById('sfileDesainExitBTN');
-    // SET DEFAULT ----------------------------------------------
-    vscodeWelcomeBTN.style.backgroundColor = "rgb(32,32,32)";
-    vscodeWelcome.style.display = "flex";
-    vscodeWelcomeSFILE.style.backgroundColor = "rgb(24, 24, 24)";
-    const vscodeAllMainfad = [vscodeWelcome, vscodeProfile, vscodeDesain];
-    // -----------------------------------------------------------
-    const vscodeAllBTN = document.querySelectorAll('[data-target]');
-    const vscodeAllMain = document.querySelectorAll('.avd-frame');
-    const vscodeAllSFILE = document.querySelectorAll('.avd-SFILE');
-    // -----------------------------------------------------------
-    const openFileExplorer = document.getElementById('openFileExplorer');
-    const detailExplorer = document.getElementById('detailExplorer');
-    openFileExplorer.addEventListener('click', () => {
-        if (detailExplorer.style.display === 'none' || detailExplorer.style.display === '') {
-            detailExplorer.style.display = "block";
-            openFileExplorer.style.color = "var(--avd-color-2)";
-
-        } else {
-            openFileExplorer.style.color = "";
-            detailExplorer.style.display = "none";
-        }
-    })
-    // -----------------------------------------------------------
-    vscodeAllBTN.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetIds = btn.dataset.target.split(',');
-            vscodeAllBTN.forEach(b => {
-                b.style.backgroundColor = (b === btn)
-                    ? "rgb(32,32,32)"
-                    : ""
-            });
-            vscodeAllMain.forEach(main => {
-                main.style.display = targetIds.includes(main.id)
-                    ? "flex"
-                    : "none"
-            })
-            vscodeAllSFILE.forEach(sfile => {
-                sfile.style.backgroundColor = targetIds.includes(sfile.id)
-                    ? "rgb(24,24,24)"
-                    : "transparent"
-            })
-        })
-    })
-    vscodeAllSFILE.forEach(btnsfile => {
-        btnsfile.addEventListener('click', () => {
-            const targetIdst = btnsfile.dataset.target.split(',');
-            vscodeAllSFILE.forEach(sf => {
-                sf.style.backgroundColor = (sf === btnsfile)
-                    ? "rgb(24,24,24)"
-                    : "transparent"
-            })
-            vscodeAllMain.forEach(main => {
-                main.style.display = targetIdst.includes(main.id)
-                    ? "flex"
-                    : "none"
-            })
-            vscodeAllBTN.forEach(b => {
-                b.style.backgroundColor = targetIdst.includes(b.id)
-                    ? "rgb(32,32,32)"
-                    : ""
-            });
-        })
-    })
-
-    vscodeWelcomeBTN.addEventListener('click', () => {
-        vscodeWelcomeSFILE.style.display = "flex";
-    })
-    vscodeProfileBTN.addEventListener('click', () => {
-        vscodeProfileSFILE.style.display = "flex";
-    })
-    vscodeDesainBTN.addEventListener('click', () => {
-        vscodeDesainSFILE.style.display = "flex";
-    })
-    sfileWelcomeExitBTN.addEventListener('click', () => {
-        vscodeWelcomeSFILE.style.display = "none";
-        vscodeWelcome.style.display = "none";
-    })
-    sfileProfileExitBTN.addEventListener('click', () => {
-        vscodeProfileSFILE.style.display = "none";
-        vscodeProfile.style.display = "none";
-    })
-    sfileDesainExitBTN.addEventListener('click', () => {
-        vscodeDesainSFILE.style.display = "none";
-        vscodeDesain.style.display = "none";
-    })
-    // 
-    btnAbout.addEventListener('click', (e) => {
-        e.stopPropagation();
-        subAbout.style.display = 'flex';
-    });
-    document.addEventListener('click', (e) => {
-        if (!subAbout.contains(e.target)) {
-            subAbout.style.display = 'none';
-        }
-    });
-    subAbout.addEventListener('click', (e) => {
-        e.stopPropagation();
-    })
-
-    // 
-    const avd_icon = document.getElementById('avd-icon');
-    const AllText = [
-        "<img src='img/Gupta-icon.png' title='Gupta Icon'>",
-        "<h1 style='color: var(--avd-color-2); font-size:1.9em;'>Gupta</h1>"
-        // "<div class='robot-beranda'><div class='avd-robot' style='margin-top:0px; margin-bottom:1vh;'><div class='rbt-mata'><div class='mata-one'><div class='alis-mata-one'></div><div class='bola-mata-one'></div></div><div class='mata-two'><div class='alis-mata-two'></div><div class='bola-mata-two'></div></div></div></div></div>"
-    ];
-    let index = 0;
-    setInterval(() => {
-        fadeOut(() => {
-            index = (index + 1) % AllText.length;
-            avd_icon.innerHTML = AllText[index];
-            fadeIn(() => {
-
-            });
-        });
-
-    }, 10000);
-
-    function fadeOut(callback) {
-        avd_icon.classList.remove('fade-in');
-        avd_icon.classList.add('fade-out');
-        setTimeout(() => {
-            callback();
-        }, 500);
-    }
-    function fadeIn(callback) {
-        avd_icon.classList.remove('fade-out');
-        avd_icon.classList.add('fade-in');
-        setTimeout(() => {
-            callback();
-        }, 500);
-    }
-
-    const closePopUp = document.getElementById('closePopUp');
-    const closePopUpBTN = document.getElementById('closePopUpBTN');
-    const fullscreenBTN = document.getElementById('fullscreenBTN');
-    const boxPopup = document.getElementById('boxPopup');
-
-    fullscreenBTN.addEventListener('click', () => {
-        boxPopup.style = "max-width:100%; height:100%;";
-    })
-
-    closePopUpBTN.addEventListener('click', () => {
-        closePopUp.style = "display: none;";
-    })
-</script>
+<!-- LOGIC WEB -->
+<script src="logic.js"></script>
 
 </html>
