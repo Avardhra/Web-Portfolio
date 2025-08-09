@@ -48,10 +48,10 @@ function SearchFile() {
 // END
 // LOGIC BTN HOME [HEADER] CHANGE COLOR AND BORDER BOTTOM COLOR
 const btnHome = document.getElementById('avdHomeBTN');
-const btnAbout = document.getElementById('avdAboutBTN');
+const btnExpc = document.getElementById('avdExpcBTN');
+const btnAcdmc = document.getElementById('avdAcdmcBTN');
 const btnContact = document.getElementById('avdContactBTN');
-const subAbout = document.getElementById('subAbout');
-const menuBtn = [btnHome, btnContact];
+const menuBtn = [btnHome, btnExpc, btnAcdmc,btnContact];
 btnHome.style = "color: var(--avd-color-3); border-bottom : 2px solid  var(--avd-color-3); ";
 menuBtn.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -66,6 +66,26 @@ menuBtn.forEach(btn => {
     })
 })
 // END
+btnContact.addEventListener('click', () => {
+    detailExperience.style.display = "flex";
+    vscodeAllBTN.forEach(b => {
+        b.style.backgroundColor = (b === vscodeDesainBTN)
+            ? "rgb(54,54,54)"
+            : "";
+    });
+    vscodeAllMain.forEach(main => {
+        main.style.display = (main === vscodeDesain)
+            ? "flex"
+            : "none";
+    });
+    vscodeAllSFILE.forEach(sfile => {
+        sfile.style.backgroundColor = (sfile === vscodeDesainSFILE)
+            ? "rgb(24,24,24)"
+            : "transparent";
+    });
+    vscodeDesainSFILE.style.display = "flex";
+});
+
 // LOGIC BTN DETAIL EXPERIENCE UI VS CODE || SHOW UP AND SHOW END AND MORE
 const vscodeWelcome = document.getElementById('vscodeWelcome');
 const vscodeWelcomeBTN = document.getElementById('vscodeWelcomeBTN');
@@ -170,20 +190,7 @@ sfileDesainExitBTN.addEventListener('click', () => {
     vscodeDesain.style.display = "none";
 })
 // END
-// LOGIC SUB SHOW UP SUB ABOUT [PC ONLY]
-btnAbout.addEventListener('click', (e) => {
-    e.stopPropagation();
-    subAbout.style.display = 'flex';
-});
-document.addEventListener('click', (e) => {
-    if (!subAbout.contains(e.target)) {
-        subAbout.style.display = 'none';
-    }
-});
-subAbout.addEventListener('click', (e) => {
-    e.stopPropagation();
-})
-// END
+
 // LOGIC CHANGE ICON 
 const avd_icon = document.getElementById('avd-icon');
 const AllText = [
@@ -191,13 +198,12 @@ const AllText = [
     "<h1 style='color: var(--avd-color-2); font-size:1.9em;'>Gupta</h1>"
     // "<div class='robot-beranda'><div class='avd-robot' style='margin-top:0px; margin-bottom:1vh;'><div class='rbt-mata'><div class='mata-one'><div class='alis-mata-one'></div><div class='bola-mata-one'></div></div><div class='mata-two'><div class='alis-mata-two'></div><div class='bola-mata-two'></div></div></div></div></div>"
 ];
-let index = 0;
+let indexHdr = 0;
 setInterval(() => {
     fadeOut(() => {
-        index = (index + 1) % AllText.length;
-        avd_icon.innerHTML = AllText[index];
+        indexHdr = (indexHdr + 1) % AllText.length;
+        avd_icon.innerHTML = AllText[indexHdr];
         fadeIn(() => {
-
         });
     });
 
@@ -206,16 +212,53 @@ setInterval(() => {
 function fadeOut(callback) {
     avd_icon.classList.remove('fade-in');
     avd_icon.classList.add('fade-out');
+
     setTimeout(() => {
         callback();
     }, 500);
 }
 function fadeIn(callback) {
-    avd_icon.classList.remove('fade-out');
+        avd_icon.classList.remove('fade-out');
     avd_icon.classList.add('fade-in');
+
     setTimeout(() => {
         callback();
     }, 500);
+}
+
+const spanHomeID = document.getElementById("spanHome");
+const allSpanHome = [
+    "Gede Valendra<i class='bx bxs-badge-check'></i>",
+    "Web Developer",
+    "Designer"
+];
+let indexSpan = 0;
+setInterval(() => {
+    fadeOutSpan(() => {
+      indexSpan = (indexSpan + 1) % allSpanHome.length;
+        spanHomeID.innerHTML = allSpanHome[indexSpan];
+        fadeInSpan(() => {
+
+        });
+    });
+
+}, 8000);
+
+function fadeOutSpan(callback) {
+
+    spanHomeID.classList.remove('fade-in');
+    spanHomeID.classList.add('fade-out');
+    setTimeout(() => {
+        callback();
+    }, 400);
+}
+function fadeInSpan(callback) {
+      
+    spanHomeID.classList.remove('fade-out');
+    spanHomeID.classList.add('fade-in');
+    setTimeout(() => {
+        callback();
+    }, 400);
 }
 // END
 // LOGIC SHOW END POP UP [JIKA VIDEO DIPUTAR MAKA STOP LALU EXIT]
