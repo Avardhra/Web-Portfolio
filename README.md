@@ -1,61 +1,25 @@
-# Web-Portfolio
-hello
+# Web Portfolio
 
+## Tentang Saya
 
-<div class="avd-boxOfAcademic">
-                <ul>
-                    <h1 style="display: flex; align-items: center;"><i class="bx bx-caret-right"></i>ACADEMIC</h1>
-                    <li>
-                        <span>2013 - 2019</span>
-                        <h1>SDN 1 SIDOMULYO</h1>
-                        <h2>Sidowaluyo, Sidomulyo, Lampung Selatan, Lampung</h2>
-                        <p class="avd-academicMore">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
-                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
-                        voluptatum voluptatibus doloribus dolores nesciunt.
-                    </p>
-                        <a href="#">Baca Selengkapnya</a>
-                        <a href="#">#sdnsasi</a>
-                        <a href="#">#sdn1sidowaluyo</a>
-                    </li>
-                    <li>
-                        <span>2019 - 2021</span>
-                        <h1>SMPN 1 SIDOMULYO</h1>
-                        <h2>Sidomulyo, Lampung Selatan, Lampung</h2>
-                        <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
-                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
-                        voluptatum voluptatibus doloribus dolores nesciunt.
-                    </p> -->
-                        <a href="#">Baca Selengkapnya</a>
-                        <a href="#">#smpnsasi</a>
-                        <a href="#">#sman1sidomulyo</a>
-                    </li>
-                    <li>
-                        <span>2021 - 2024</span>
-                        <h1>SMAN 1 SIDOMULYO</h1>
-                        <h2>MIPA | Sidomulyo, Lampung Selatan, Lampung</h2>
-                        <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
-                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
-                        voluptatum voluptatibus doloribus dolores nesciunt.
-                    </p> -->
-                        <a href="#">Baca Selengkapnya</a>
-                        <a href="#">#SMANSASI</a>
-                        <a href="#">#sman1sidomulyo</a>
-                    </li>
-                    <li>
-                        <span>2024 - Now</span>
-                        <h1>INSTITUT TEKNOLOGI SUMATERA</h1>
-                        <h2>Sidowaluyo, Sidomulyo, Lampung Selatan, Lampung</h2>
-                        <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem tenetur in eligendi iusto eos
-                        vel porro, consectetur accusamus maiores sequi officiis molestias temporibus cupiditate. Quas
-                        voluptatum voluptatibus doloribus dolores nesciunt.
-                    </p> -->
-                        <a href="#">Baca Selengkapnya</a>
-                        <a href="#">#ITERA</a>
-                        <a href="#">#InstitutTeknologiSumatera</a>
-                    </li>
-                </ul>
-            </div>
+Halo! Saya adalah seorang web developer yang antusias dalam menciptakan solusi digital inovatif.  
+Portofolio ini berisi proyek terbaik yang pernah saya kerjakan, mulai dari pengembangan website hingga desain antarmuka yang responsif.
+
+## Keahlian
+
+Saya memiliki keahlian di bidang:
+- Pengembangan web modern (HTML, CSS, JavaScript)
+- Framework populer seperti React dan Laravel
+- Desain UI/UX yang menarik dan fungsional
+
+## Tujuan
+
+Portofolio ini bertujuan untuk mendokumentasikan perjalanan saya di dunia teknologi serta menjadi wadah untuk berbagi inspirasi dan pengalaman.
+
+Terima kasih telah berkunjung!  
+Jangan ragu untuk mengeksplorasi proyek-proyek saya dan menghubungi jika ingin berkolaborasi.
+
+## Hubungi Saya
+
+[![Instagram](https://img.shields.io/badge/Instagram-gedevln12_-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/gedevln12_)
+[![Facebook](https://img.shields.io/badge/Facebook-avardhra-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/avardhra)
