@@ -1698,11 +1698,6 @@ td {
         display: flex;
     }
 
-    .avd-popup .avd-boxPopup {
-        max-width: 40vh;
-        height: 20%;
-    }
-
     #footerName {
         display: none;
     }
