@@ -690,13 +690,15 @@ a {
     font-size: 15px;
 }
 
-.avd-loginCode form ul li a {
+.avd-loginCode form ul li button {
+    cursor: pointer;
     position: relative;
     color: var(--avd-color-2);
     background-color: var(--avd-color-3);
     text-align: center;
     margin: 10px 0px;
     padding: 8px 20px;
+    border: none;
     border-radius: 3px;
     font-size: 14px;
     transition: all 0.1s ease-in-out;
@@ -704,7 +706,7 @@ a {
     width: 100%;
 }
 
-.avd-loginCode form .boxFromLogin a:hover {
+.avd-loginCode form .boxFromLogin button:hover {
     opacity: 1;
     box-shadow: 0 0 10px var(--avd-color-3);
 }

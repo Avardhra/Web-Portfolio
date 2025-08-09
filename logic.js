@@ -231,4 +231,44 @@ fullscreenBTN.addEventListener('click', () => {
 closePopUpBTN.addEventListener('click', () => {
     closePopUp.style = "display: none;";
 })
-// END
+
+document.addEventListener('click', function (e) {
+    const circle = document.createElement('span');
+    circle.className = 'click-circle';
+    document.body.appendChild(circle);
+
+    const color = getComputedStyle(document.documentElement).getPropertyValue('--avd-color-3') || '#00bcd4';
+
+    circle.style.left = `${e.clientX}px`;
+    circle.style.top = `${e.clientY}px`;
+    circle.style.background = color.trim();
+
+    setTimeout(() => {
+        circle.style.transform = 'scale(2)';
+        circle.style.opacity = '0';
+    }, 10);
+
+    setTimeout(() => {
+        circle.remove();
+    }, 500);
+});
+
+const style = document.createElement('style');
+style.textContent = `
+.click-circle {
+    position: fixed;
+    pointer-events: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--avd-color-3, #00bcd4);
+    opacity: 0.5;
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1), opacity 0.4s;
+    z-index: 9999;
+    left: 0; top: 0;
+    margin-left: -12px;
+    margin-top: -12px;
+}
+`;
+document.head.appendChild(style);

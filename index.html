@@ -25,6 +25,7 @@
         </div>
     </div>
     <!-- LOAD END -->
+ 
     <!-- POP UP VIDEO PENJELASAN -->
     <div class="avd-popup" id="closePopUp" style="display: none;">
         <div class="avd-boxPopup" id="boxPopup">
@@ -208,7 +209,7 @@
                                             <label for="password">Password</label>
                                         </li>
                                         <li>
-                                            <a href="#">Login</a>
+                                            <button type="button" id="avdLogin">Login</button>
                                         </li>
                                     </ul>
                                     <p>Powered By AvardhraID</p>
@@ -308,7 +309,9 @@
     <main class="avdMAIN avd-mainHome" id="avdHome">
         <div class="avd-home">
             <div class="avd-profileUserHP">
-                <img src='assets/img/avd.png' title="Salah siapa berharap">
+                <div style="position: relative; display: flex; justify-content: center; align-items: center;">
+                    <img src='assets/img/avd.png' title="Salah siapa berharap" style="z-index: 1; position: relative;">
+                </div>
             </div>
             <div class="avd-welcomeBro">
                 <h1 id="avd_welcomeText" data-aos="fade-down" data-aos-delay="150">Hello,</h1>
