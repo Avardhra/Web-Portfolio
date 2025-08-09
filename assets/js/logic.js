@@ -264,12 +264,7 @@ function fadeInSpan(callback) {
 // LOGIC SHOW END POP UP [JIKA VIDEO DIPUTAR MAKA STOP LALU EXIT]
 const closePopUp = document.getElementById('closePopUp');
 const closePopUpBTN = document.getElementById('closePopUpBTN');
-const fullscreenBTN = document.getElementById('fullscreenBTN');
 const boxPopup = document.getElementById('boxPopup');
-
-fullscreenBTN.addEventListener('click', () => {
-    boxPopup.style = "max-width:100%; height:100%;";
-})
 
 closePopUpBTN.addEventListener('click', () => {
     closePopUp.style = "display: none;";
