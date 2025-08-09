@@ -1346,7 +1346,7 @@ nav ul li i {
     color: var(--avd-color-2);
     width: 100%;
     padding: 5%;
-    margin-bottom: 50px;
+    padding-bottom: 0;
 }
 
 .avd-boxOfExperience h1 {
