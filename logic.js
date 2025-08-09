@@ -231,25 +231,48 @@ fullscreenBTN.addEventListener('click', () => {
 closePopUpBTN.addEventListener('click', () => {
     closePopUp.style = "display: none;";
 })
-
 document.addEventListener('click', function (e) {
-    const circle = document.createElement('span');
-    circle.className = 'click-circle';
-    document.body.appendChild(circle);
+    // Lingkaran besar
+    const circleBig = document.createElement('span');
+    circleBig.className = 'click-circle click-circle-big';
+    // Lingkaran kecil
+    const circleSmall = document.createElement('span');
+    circleSmall.className = 'click-circle click-circle-small';
+
+    document.body.appendChild(circleBig);
+    document.body.appendChild(circleSmall);
 
     const color = getComputedStyle(document.documentElement).getPropertyValue('--avd-color-3') || '#00bcd4';
 
-    circle.style.left = `${e.clientX}px`;
-    circle.style.top = `${e.clientY}px`;
-    circle.style.background = color.trim();
+    [circleBig, circleSmall].forEach(circle => {
+        circle.style.left = `${e.clientX}px`;
+        circle.style.top = `${e.clientY}px`;
+        circle.style.background = color.trim();
+    });
+
+    // Cari elemen dengan z-index tertinggi di posisi klik
+    let maxZ = 0;
+    let el = document.elementFromPoint(e.clientX, e.clientY);
+    while (el && el !== document.body) {
+        const z = parseInt(window.getComputedStyle(el).zIndex, 10);
+        if (!isNaN(z) && z > maxZ) maxZ = z;
+        el = el.parentElement;
+    }
+    // Set z-index lingkaran sedikit lebih tinggi dari elemen tertinggi
+    [circleBig, circleSmall].forEach(circle => {
+        circle.style.zIndex = maxZ > 0 ? maxZ + 1 : 9999;
+    });
 
     setTimeout(() => {
-        circle.style.transform = 'scale(2)';
-        circle.style.opacity = '0';
+        circleBig.style.transform = 'scale(2)';
+        circleBig.style.opacity = '0';
+        circleSmall.style.transform = 'scale(1.2)';
+        circleSmall.style.opacity = '0';
     }, 10);
 
     setTimeout(() => {
-        circle.remove();
+        circleBig.remove();
+        circleSmall.remove();
     }, 500);
 });
 
@@ -258,17 +281,27 @@ style.textContent = `
 .click-circle {
     position: fixed;
     pointer-events: none;
-    width: 24px;
-    height: 24px;
     border-radius: 50%;
     background: var(--avd-color-3, #00bcd4);
+    left: 0; top: 0;
+    margin-left: -16px;
+    margin-top: -16px;
     opacity: 0.5;
     transform: scale(0);
     transition: transform 0.4s cubic-bezier(.4,0,.2,1), opacity 0.4s;
+}
+.click-circle-big {
+    width: 32px;
+    height: 32px;
     z-index: 9999;
-    left: 0; top: 0;
-    margin-left: -12px;
-    margin-top: -12px;
+}
+.click-circle-small {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    opacity: 0.8;
+    z-index: 9999;
 }
 `;
 document.head.appendChild(style);
