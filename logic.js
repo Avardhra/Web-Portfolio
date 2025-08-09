@@ -80,7 +80,7 @@ const sfileWelcomeExitBTN = document.getElementById('sfileWelcomeExitBTN');
 const sfileProfileExitBTN = document.getElementById('sfileProfileExitBTN');
 const sfileDesainExitBTN = document.getElementById('sfileDesainExitBTN');
 // SET DEFAULT ----------------------------------------------
-vscodeWelcomeBTN.style.backgroundColor = "rgb(32,32,32)";
+vscodeWelcomeBTN.style.backgroundColor = "rgb(54,54,54)";
 vscodeWelcome.style.display = "flex";
 vscodeWelcomeSFILE.style.backgroundColor = "rgb(24, 24, 24)";
 const vscodeAllMainfad = [vscodeWelcome, vscodeProfile, vscodeDesain];
@@ -109,7 +109,7 @@ vscodeAllBTN.forEach(btn => {
         const targetIds = btn.dataset.target.split(',');
         vscodeAllBTN.forEach(b => {
             b.style.backgroundColor = (b === btn)
-                ? "rgb(32,32,32)"
+                ? "rgb(54,54,54)"
                 : ""
         });
         vscodeAllMain.forEach(main => {

@@ -26,7 +26,7 @@
     </div>
     <!-- LOAD END -->
     <!-- POP UP VIDEO PENJELASAN -->
-    <div class="avd-popup" id="closePopUp" style="display: flex;">
+    <div class="avd-popup" id="closePopUp" style="display: none;">
         <div class="avd-boxPopup" id="boxPopup">
             <div class="avd-popupHdr">
                 <p>Video Demonstrasi</p>
@@ -48,20 +48,20 @@
         <ul>
             <li>
                 <a href="#avdHome">
-                <i class="fa-solid fa-house"></i>
-                <span>Home</span>
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
                 </a>
             </li>
             <li>
                 <a href="#avdAbout">
-                <i class="fa-solid fa-id-card"></i>
-                <span>More</span>
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>More</span>
                 </a>
             </li>
             <li>
                 <a href="#avdContact">
-                <i class="fa-solid fa-address-book"></i>
-                <span>Contact</span>
+                    <i class="fa-solid fa-address-book"></i>
+                    <span>Contact</span>
                 </a>
             </li>
 
@@ -198,8 +198,7 @@
                                 <form action="#">
                                     <ul class="boxFromLogin">
                                         <li>
-                                            <input type="text" id="username" name="username" value="Gede Valendra"
-                                                autocorrect="off" spellcheck="false" autocomplete="none">
+                                            <input type="text" id="username" name="username" autocorrect="off" spellcheck="false" autocomplete="none" required>
                                             <label for="username">Username</label>
                                         </li>
                                         <li>
@@ -305,39 +304,42 @@
     </header>
     <!-- HEADER END -->
     <!-- MAIN HOME -->
-    <main class="avd avd-mainHome" id="avdHome">
+    <main class="avdMAIN avd-mainHome" id="avdHome">
         <div class="avd-home">
             <div class="avd-profileUserHP">
                 <img src='assets/img/avd.png' title="Salah siapa berharap">
             </div>
             <div class="avd-welcomeBro">
-                <h1 id="avd_welcomeText">Hello,</h1>
-                <h2 style="display: flex; align-items: center;">I'm <span style="color: var(--avd-color-3); padding: 0 5px;"> Gede Valendra<i class="bx bxs-badge-check"></i></span>
+                <h1 id="avd_welcomeText" data-aos="fade-down" data-aos-delay="150">Hello,</h1>
+                <h2 style="display: flex; align-items: center;">I'm <span
+                        style="color: var(--avd-color-3); padding: 0 5px;"> Gede Valendra<i
+                            class="bx bxs-badge-check"></i></span>
                 </h2>
-            </div>
-            <p>
-                Seorang Mahasiswa aktif Teknik Informatika di <strong style="color: var(--avd-color-3);">Institut Teknologi Sumatera</strong>. Memiliki
+                <p data-aos="fade-down" data-aos-delay="150">
+                Seorang Mahasiswa aktif Teknik Informatika di <strong style="color: var(--avd-color-3);">Institut
+                    Teknologi Sumatera</strong>. Memiliki
                 pribadi dengan rasa penasaran yang kuat membuat saya suka mencoba dan mencari pengalaman baru setiap
                 harinya.
             </p>
             <div class="avd-BtnHome">
-                <a class="detailExperienceOpenBTN">Get Know More</a>
-                <a href="" class="detailExperienceOpenBTN">Download CV</a>
+                <a class="detailExperienceOpenBTN" data-aos="fade-down" data-aos-delay="150">Get Know More</a>
+                <a class="detailExperienceOpenBTN" data-aos="fade-down" data-aos-delay="150" style="background-color: var(--avd-color-1); color: var(--avd-color-2);">Download CV</a>
             </div>
-
-        </div>
-        <div class="avd-profileUser">
-            <img src='assets/img/avd.png' title="Salah siapa berharap">
-        </div>
-        <div class="avd-sosmed">
+            </div>
+            <div class="avd-sosmed">
             <a href="https://github.com/Avardhra"><i class="bx bxl-github"></i></a>
             <a href="https://www.facebook.com/avardhra"><i class="bx bxl-facebook-circle"></i></a>
             <a href="https://www.instagram.com/gedevln12_"><i class="bx bxl-instagram-alt"></i></a>
         </div>
+        </div>
+        <div class="avd-profileUser">
+            <img src='assets/img/avd.png' title="Salah siapa berharap">
+        </div>
+        
     </main>
     <!-- MAIN HOME END -->
     <!-- MAIN ABOUT -->
-    <main id="avdAbout">
+    <main class="avdMAIN" id="avdAbout">
         <div class="avd-boxOfExperience">
             <h1 data-aos="fade-up">Experience</h1>
             <ul>
@@ -449,30 +451,30 @@
     </main>
     <!-- MAIN ABOUT END -->
     <!-- MAIN CONTACT -->
-    <main id="avdContact">
-            <h1 data-aos="fade-up" data-aos-delay="400">Hubungi Kami Melalui,</h1>
-            <ul>
-                <li data-aos="fade-up" data-aos-delay="700">
-                    <a href="https://www.instagram.com/gedevln12_" title="Instagram">
-                        <i class="bx bxl-instagram-alt"></i>
-                    </a>
-                </li>
-                <li data-aos="fade-up">
-                    <a href="https://github.com/Avardhra" title="GitHub">
-                        <i class="bx bxl-github"></i>
-                    </a>
-                </li>
-                <li data-aos="fade-up">
-                    <a href="https://www.facebook.com/avardhra" title="facebook">
-                        <i class="bx bxl-facebook"></i>
-                    </a>
-                </li>
-                <li data-aos="fade-up">
-                    <a href="gede.124140142@student.itera.ac.id" title="Gmail">
-                        <i class="bx bxl-gmail"></i>
-                    </a>
-                </li>
-            </ul>
+    <main class="avdMAIN" id="avdContact">
+        <h1 data-aos="fade-up" data-aos-delay="200">Hubungi Kami Melalui,</h1>
+        <ul>
+            <li data-aos="fade-up" data-aos-delay="300">
+                <a href="https://www.instagram.com/gedevln12_" title="Instagram">
+                    <i class="bx bxl-instagram-alt"></i>
+                </a>
+            </li>
+            <li data-aos="fade-up">
+                <a href="https://github.com/Avardhra" title="GitHub">
+                    <i class="bx bxl-github"></i>
+                </a>
+            </li>
+            <li data-aos="fade-up">
+                <a href="https://www.facebook.com/avardhra" title="facebook">
+                    <i class="bx bxl-facebook"></i>
+                </a>
+            </li>
+            <li data-aos="fade-up">
+                <a href="gede.124140142@student.itera.ac.id" title="Gmail">
+                    <i class="bx bxl-gmail"></i>
+                </a>
+            </li>
+        </ul>
     </main>
     <!-- MAIN CONTACT END -->
     <!-- DATA AOS -->
