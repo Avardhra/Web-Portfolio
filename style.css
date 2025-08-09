@@ -222,7 +222,7 @@ a {
 .avd-detailExperience {
     z-index: 99999;
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1187,7 +1187,7 @@ nav ul li i {
 .avd-home {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     flex-direction: column;
     color: var(--avd-color-1);
 }
@@ -1220,7 +1220,7 @@ nav ul li i {
     cursor: pointer;
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     outline: 1px solid black;
     width: fit-content;
     transition: all 0.32s ease-in-out;
@@ -1249,7 +1249,7 @@ nav ul li i {
 }
 
 .avd-sosmed {
-    position: relative;
+    position: absolute;
     width: fit-content;
     bottom: 5vh;
     margin: 5vh 0;
